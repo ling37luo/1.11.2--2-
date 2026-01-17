@@ -1,0 +1,539 @@
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"can_bsp.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "App/Src/can_bsp.c"
+  20              		.section	.text.BSP_CAN_Init,"ax",%progbits
+  21              		.align	1
+  22              		.global	BSP_CAN_Init
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	BSP_CAN_Init:
+  28              	.LFB134:
+   1:App/Src/can_bsp.c **** #include "can_bsp.h"
+   2:App/Src/can_bsp.c **** #include "motor_control.h"
+   3:App/Src/can_bsp.c **** 
+   4:App/Src/can_bsp.c **** // 全局电机发送缓冲区 (ID 1-4)
+   5:App/Src/can_bsp.c **** // 由 motor_control.c 直接更新此数组，CAN发送时直接读取
+   6:App/Src/can_bsp.c **** int16_t motor_current_send_buf[4] = {0}; 
+   7:App/Src/can_bsp.c **** 
+   8:App/Src/can_bsp.c **** void BSP_CAN_Init(void) {
+  29              		.loc 1 8 25 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 40
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 10B5     		push	{r4, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  38 0002 8AB0     		sub	sp, sp, #40
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 48
+   9:App/Src/can_bsp.c ****     CAN_FilterTypeDef can_filter_st;
+  41              		.loc 1 9 5 view .LVU1
+  10:App/Src/can_bsp.c ****     
+  11:App/Src/can_bsp.c ****     can_filter_st.FilterActivation = ENABLE;
+  42              		.loc 1 11 5 view .LVU2
+  43              		.loc 1 11 36 is_stmt 0 view .LVU3
+  44 0004 0122     		movs	r2, #1
+  45 0006 0892     		str	r2, [sp, #32]
+  12:App/Src/can_bsp.c ****     can_filter_st.FilterMode = CAN_FILTERMODE_IDMASK;
+  46              		.loc 1 12 5 is_stmt 1 view .LVU4
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s 			page 2
+
+
+  47              		.loc 1 12 30 is_stmt 0 view .LVU5
+  48 0008 0023     		movs	r3, #0
+  49 000a 0693     		str	r3, [sp, #24]
+  13:App/Src/can_bsp.c ****     can_filter_st.FilterScale = CAN_FILTERSCALE_32BIT;
+  50              		.loc 1 13 5 is_stmt 1 view .LVU6
+  51              		.loc 1 13 31 is_stmt 0 view .LVU7
+  52 000c 0792     		str	r2, [sp, #28]
+  14:App/Src/can_bsp.c ****     can_filter_st.FilterIdHigh = 0x0000;
+  53              		.loc 1 14 5 is_stmt 1 view .LVU8
+  54              		.loc 1 14 32 is_stmt 0 view .LVU9
+  55 000e 0093     		str	r3, [sp]
+  15:App/Src/can_bsp.c ****     can_filter_st.FilterIdLow = 0x0000;
+  56              		.loc 1 15 5 is_stmt 1 view .LVU10
+  57              		.loc 1 15 31 is_stmt 0 view .LVU11
+  58 0010 0193     		str	r3, [sp, #4]
+  16:App/Src/can_bsp.c ****     can_filter_st.FilterMaskIdHigh = 0x0000;
+  59              		.loc 1 16 5 is_stmt 1 view .LVU12
+  60              		.loc 1 16 36 is_stmt 0 view .LVU13
+  61 0012 0293     		str	r3, [sp, #8]
+  17:App/Src/can_bsp.c ****     can_filter_st.FilterMaskIdLow = 0x0000;
+  62              		.loc 1 17 5 is_stmt 1 view .LVU14
+  63              		.loc 1 17 35 is_stmt 0 view .LVU15
+  64 0014 0393     		str	r3, [sp, #12]
+  18:App/Src/can_bsp.c ****     can_filter_st.FilterBank = 0;
+  65              		.loc 1 18 5 is_stmt 1 view .LVU16
+  66              		.loc 1 18 30 is_stmt 0 view .LVU17
+  67 0016 0593     		str	r3, [sp, #20]
+  19:App/Src/can_bsp.c ****     can_filter_st.FilterFIFOAssignment = CAN_RX_FIFO0;
+  68              		.loc 1 19 5 is_stmt 1 view .LVU18
+  69              		.loc 1 19 40 is_stmt 0 view .LVU19
+  70 0018 0493     		str	r3, [sp, #16]
+  20:App/Src/can_bsp.c ****     
+  21:App/Src/can_bsp.c ****     HAL_CAN_ConfigFilter(&hcan1, &can_filter_st);
+  71              		.loc 1 21 5 is_stmt 1 view .LVU20
+  72 001a 074C     		ldr	r4, .L3
+  73 001c 6946     		mov	r1, sp
+  74 001e 2046     		mov	r0, r4
+  75 0020 FFF7FEFF 		bl	HAL_CAN_ConfigFilter
+  76              	.LVL0:
+  22:App/Src/can_bsp.c ****     HAL_CAN_Start(&hcan1);
+  77              		.loc 1 22 5 view .LVU21
+  78 0024 2046     		mov	r0, r4
+  79 0026 FFF7FEFF 		bl	HAL_CAN_Start
+  80              	.LVL1:
+  23:App/Src/can_bsp.c ****     HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
+  81              		.loc 1 23 5 view .LVU22
+  82 002a 0221     		movs	r1, #2
+  83 002c 2046     		mov	r0, r4
+  84 002e FFF7FEFF 		bl	HAL_CAN_ActivateNotification
+  85              	.LVL2:
+  24:App/Src/can_bsp.c **** }
+  86              		.loc 1 24 1 is_stmt 0 view .LVU23
+  87 0032 0AB0     		add	sp, sp, #40
+  88              	.LCFI2:
+  89              		.cfi_def_cfa_offset 8
+  90              		@ sp needed
+  91 0034 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s 			page 3
+
+
+  92              	.L4:
+  93 0036 00BF     		.align	2
+  94              	.L3:
+  95 0038 00000000 		.word	hcan1
+  96              		.cfi_endproc
+  97              	.LFE134:
+  99              		.section	.text.HAL_CAN_RxFifo0MsgPendingCallback,"ax",%progbits
+ 100              		.align	1
+ 101              		.global	HAL_CAN_RxFifo0MsgPendingCallback
+ 102              		.syntax unified
+ 103              		.thumb
+ 104              		.thumb_func
+ 106              	HAL_CAN_RxFifo0MsgPendingCallback:
+ 107              	.LVL3:
+ 108              	.LFB135:
+  25:App/Src/can_bsp.c **** 
+  26:App/Src/can_bsp.c **** 
+  27:App/Src/can_bsp.c **** // CAN接收中断
+  28:App/Src/can_bsp.c **** void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+ 109              		.loc 1 28 65 is_stmt 1 view -0
+ 110              		.cfi_startproc
+ 111              		@ args = 0, pretend = 0, frame = 40
+ 112              		@ frame_needed = 0, uses_anonymous_args = 0
+  29:App/Src/can_bsp.c ****     CAN_RxHeaderTypeDef rx_header;
+ 113              		.loc 1 29 5 view .LVU25
+  30:App/Src/can_bsp.c ****     uint8_t rx_data[8];
+ 114              		.loc 1 30 5 view .LVU26
+  31:App/Src/can_bsp.c ****     
+  32:App/Src/can_bsp.c ****     if (hcan->Instance == CAN1) {
+ 115              		.loc 1 32 5 view .LVU27
+ 116              		.loc 1 32 13 is_stmt 0 view .LVU28
+ 117 0000 0268     		ldr	r2, [r0]
+ 118              		.loc 1 32 8 view .LVU29
+ 119 0002 0E4B     		ldr	r3, .L14
+ 120 0004 9A42     		cmp	r2, r3
+ 121 0006 00D0     		beq	.L12
+ 122 0008 7047     		bx	lr
+ 123              	.L12:
+  28:App/Src/can_bsp.c ****     CAN_RxHeaderTypeDef rx_header;
+ 124              		.loc 1 28 65 view .LVU30
+ 125 000a 00B5     		push	{lr}
+ 126              	.LCFI3:
+ 127              		.cfi_def_cfa_offset 4
+ 128              		.cfi_offset 14, -4
+ 129 000c 8BB0     		sub	sp, sp, #44
+ 130              	.LCFI4:
+ 131              		.cfi_def_cfa_offset 48
+  33:App/Src/can_bsp.c ****         HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_header, rx_data);
+ 132              		.loc 1 33 9 is_stmt 1 view .LVU31
+ 133 000e 01AB     		add	r3, sp, #4
+ 134 0010 03AA     		add	r2, sp, #12
+ 135 0012 0021     		movs	r1, #0
+ 136 0014 FFF7FEFF 		bl	HAL_CAN_GetRxMessage
+ 137              	.LVL4:
+  34:App/Src/can_bsp.c ****         
+  35:App/Src/can_bsp.c ****         // GM6020 反馈ID: 0x205(ID1) ~ 0x208(ID4)
+  36:App/Src/can_bsp.c ****         if (rx_header.StdId >= 0x205 && rx_header.StdId <= 0x208) {
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s 			page 4
+
+
+ 138              		.loc 1 36 9 view .LVU32
+ 139              		.loc 1 36 22 is_stmt 0 view .LVU33
+ 140 0018 039B     		ldr	r3, [sp, #12]
+ 141              		.loc 1 36 38 view .LVU34
+ 142 001a A3F20522 		subw	r2, r3, #517
+ 143              		.loc 1 36 12 view .LVU35
+ 144 001e 032A     		cmp	r2, #3
+ 145 0020 04D9     		bls	.L13
+ 146              	.L7:
+  37:App/Src/can_bsp.c ****             uint8_t motor_id = rx_header.StdId - 0x204; // 转换出 1-4
+  38:App/Src/can_bsp.c ****             Motor_Update_Feedback(motor_id, rx_data);
+  39:App/Src/can_bsp.c ****         }
+  40:App/Src/can_bsp.c ****         Motor_Control_Loop();
+ 147              		.loc 1 40 9 is_stmt 1 view .LVU36
+ 148 0022 FFF7FEFF 		bl	Motor_Control_Loop
+ 149              	.LVL5:
+  41:App/Src/can_bsp.c ****     }
+  42:App/Src/can_bsp.c **** }
+ 150              		.loc 1 42 1 is_stmt 0 view .LVU37
+ 151 0026 0BB0     		add	sp, sp, #44
+ 152              	.LCFI5:
+ 153              		.cfi_remember_state
+ 154              		.cfi_def_cfa_offset 4
+ 155              		@ sp needed
+ 156 0028 5DF804FB 		ldr	pc, [sp], #4
+ 157              	.L13:
+ 158              	.LCFI6:
+ 159              		.cfi_restore_state
+ 160              	.LBB2:
+  37:App/Src/can_bsp.c ****             uint8_t motor_id = rx_header.StdId - 0x204; // 转换出 1-4
+ 161              		.loc 1 37 13 is_stmt 1 view .LVU38
+  37:App/Src/can_bsp.c ****             uint8_t motor_id = rx_header.StdId - 0x204; // 转换出 1-4
+ 162              		.loc 1 37 48 is_stmt 0 view .LVU39
+ 163 002c DBB2     		uxtb	r3, r3
+  37:App/Src/can_bsp.c ****             uint8_t motor_id = rx_header.StdId - 0x204; // 转换出 1-4
+ 164              		.loc 1 37 21 view .LVU40
+ 165 002e 181F     		subs	r0, r3, #4
+ 166              	.LVL6:
+  38:App/Src/can_bsp.c ****         }
+ 167              		.loc 1 38 13 is_stmt 1 view .LVU41
+ 168 0030 01A9     		add	r1, sp, #4
+ 169 0032 C0B2     		uxtb	r0, r0
+  38:App/Src/can_bsp.c ****         }
+ 170              		.loc 1 38 13 is_stmt 0 view .LVU42
+ 171 0034 FFF7FEFF 		bl	Motor_Update_Feedback
+ 172              	.LVL7:
+  38:App/Src/can_bsp.c ****         }
+ 173              		.loc 1 38 13 view .LVU43
+ 174 0038 F3E7     		b	.L7
+ 175              	.L15:
+ 176 003a 00BF     		.align	2
+ 177              	.L14:
+ 178 003c 00640040 		.word	1073767424
+ 179              	.LBE2:
+ 180              		.cfi_endproc
+ 181              	.LFE135:
+ 183              		.section	.text.BSP_CAN_Send_Voltage_Cmd,"ax",%progbits
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s 			page 5
+
+
+ 184              		.align	1
+ 185              		.global	BSP_CAN_Send_Voltage_Cmd
+ 186              		.syntax unified
+ 187              		.thumb
+ 188              		.thumb_func
+ 190              	BSP_CAN_Send_Voltage_Cmd:
+ 191              	.LFB136:
+  43:App/Src/can_bsp.c **** void BSP_CAN_Send_Voltage_Cmd(void) {
+ 192              		.loc 1 43 37 is_stmt 1 view -0
+ 193              		.cfi_startproc
+ 194              		@ args = 0, pretend = 0, frame = 40
+ 195              		@ frame_needed = 0, uses_anonymous_args = 0
+ 196 0000 00B5     		push	{lr}
+ 197              	.LCFI7:
+ 198              		.cfi_def_cfa_offset 4
+ 199              		.cfi_offset 14, -4
+ 200 0002 8BB0     		sub	sp, sp, #44
+ 201              	.LCFI8:
+ 202              		.cfi_def_cfa_offset 48
+  44:App/Src/can_bsp.c ****     CAN_TxHeaderTypeDef tx_header;
+ 203              		.loc 1 44 5 view .LVU45
+  45:App/Src/can_bsp.c ****     uint8_t tx_data[8];
+ 204              		.loc 1 45 5 view .LVU46
+  46:App/Src/can_bsp.c ****     uint32_t tx_mailbox;
+ 205              		.loc 1 46 5 view .LVU47
+  47:App/Src/can_bsp.c ****     
+  48:App/Src/can_bsp.c ****     // 配置为电压控制帧 ID (针对 ID 1-4)
+  49:App/Src/can_bsp.c ****     tx_header.StdId = 0x1FF; 
+ 206              		.loc 1 49 5 view .LVU48
+ 207              		.loc 1 49 21 is_stmt 0 view .LVU49
+ 208 0004 40F2FF13 		movw	r3, #511
+ 209 0008 0493     		str	r3, [sp, #16]
+  50:App/Src/can_bsp.c ****     tx_header.IDE = CAN_ID_STD;
+ 210              		.loc 1 50 5 is_stmt 1 view .LVU50
+ 211              		.loc 1 50 19 is_stmt 0 view .LVU51
+ 212 000a 0023     		movs	r3, #0
+ 213 000c 0693     		str	r3, [sp, #24]
+  51:App/Src/can_bsp.c ****     tx_header.RTR = CAN_RTR_DATA;
+ 214              		.loc 1 51 5 is_stmt 1 view .LVU52
+ 215              		.loc 1 51 19 is_stmt 0 view .LVU53
+ 216 000e 0793     		str	r3, [sp, #28]
+  52:App/Src/can_bsp.c ****     tx_header.DLC = 8;
+ 217              		.loc 1 52 5 is_stmt 1 view .LVU54
+ 218              		.loc 1 52 19 is_stmt 0 view .LVU55
+ 219 0010 0823     		movs	r3, #8
+ 220 0012 0893     		str	r3, [sp, #32]
+  53:App/Src/can_bsp.c ****     // 填充数据 (Big Endian)
+  54:App/Src/can_bsp.c ****     // 范围 -25000 ~ 25000
+  55:App/Src/can_bsp.c ****     tx_data[0] = (motor_voltage_send_buf[0] >> 8) & 0xFF; // ID 1
+ 221              		.loc 1 55 5 is_stmt 1 view .LVU56
+ 222              		.loc 1 55 41 is_stmt 0 view .LVU57
+ 223 0014 144B     		ldr	r3, .L18
+ 224 0016 B3F90020 		ldrsh	r2, [r3]
+ 225              		.loc 1 55 16 view .LVU58
+ 226 001a 93F90110 		ldrsb	r1, [r3, #1]
+ 227 001e 8DF80810 		strb	r1, [sp, #8]
+  56:App/Src/can_bsp.c ****     tx_data[1] = motor_voltage_send_buf[0] & 0xFF;
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s 			page 6
+
+
+ 228              		.loc 1 56 5 is_stmt 1 view .LVU59
+ 229              		.loc 1 56 16 is_stmt 0 view .LVU60
+ 230 0022 8DF80920 		strb	r2, [sp, #9]
+  57:App/Src/can_bsp.c ****     tx_data[2] = (motor_voltage_send_buf[1] >> 8) & 0xFF; // ID 2
+ 231              		.loc 1 57 5 is_stmt 1 view .LVU61
+ 232              		.loc 1 57 41 is_stmt 0 view .LVU62
+ 233 0026 B3F90220 		ldrsh	r2, [r3, #2]
+ 234              		.loc 1 57 16 view .LVU63
+ 235 002a 93F90310 		ldrsb	r1, [r3, #3]
+ 236 002e 8DF80A10 		strb	r1, [sp, #10]
+  58:App/Src/can_bsp.c ****     tx_data[3] = motor_voltage_send_buf[1] & 0xFF;
+ 237              		.loc 1 58 5 is_stmt 1 view .LVU64
+ 238              		.loc 1 58 16 is_stmt 0 view .LVU65
+ 239 0032 8DF80B20 		strb	r2, [sp, #11]
+  59:App/Src/can_bsp.c ****     tx_data[4] = (motor_voltage_send_buf[2] >> 8) & 0xFF; // ID 3
+ 240              		.loc 1 59 5 is_stmt 1 view .LVU66
+ 241              		.loc 1 59 41 is_stmt 0 view .LVU67
+ 242 0036 B3F90420 		ldrsh	r2, [r3, #4]
+ 243              		.loc 1 59 16 view .LVU68
+ 244 003a 93F90510 		ldrsb	r1, [r3, #5]
+ 245 003e 8DF80C10 		strb	r1, [sp, #12]
+  60:App/Src/can_bsp.c ****     tx_data[5] = motor_voltage_send_buf[2] & 0xFF;
+ 246              		.loc 1 60 5 is_stmt 1 view .LVU69
+ 247              		.loc 1 60 16 is_stmt 0 view .LVU70
+ 248 0042 8DF80D20 		strb	r2, [sp, #13]
+  61:App/Src/can_bsp.c ****     tx_data[6] = (motor_voltage_send_buf[3] >> 8) & 0xFF; // ID 4
+ 249              		.loc 1 61 5 is_stmt 1 view .LVU71
+ 250              		.loc 1 61 41 is_stmt 0 view .LVU72
+ 251 0046 B3F90620 		ldrsh	r2, [r3, #6]
+ 252              		.loc 1 61 16 view .LVU73
+ 253 004a 93F90730 		ldrsb	r3, [r3, #7]
+ 254 004e 8DF80E30 		strb	r3, [sp, #14]
+  62:App/Src/can_bsp.c ****     tx_data[7] = motor_voltage_send_buf[3] & 0xFF;
+ 255              		.loc 1 62 5 is_stmt 1 view .LVU74
+ 256              		.loc 1 62 16 is_stmt 0 view .LVU75
+ 257 0052 8DF80F20 		strb	r2, [sp, #15]
+  63:App/Src/can_bsp.c ****     
+  64:App/Src/can_bsp.c ****     // 检查是否有空闲邮箱，防止发送过快导致 HAL_ERROR
+  65:App/Src/can_bsp.c ****     HAL_CAN_AddTxMessage(&hcan1, &tx_header, tx_data, &tx_mailbox);
+ 258              		.loc 1 65 5 is_stmt 1 view .LVU76
+ 259 0056 01AB     		add	r3, sp, #4
+ 260 0058 02AA     		add	r2, sp, #8
+ 261 005a 04A9     		add	r1, sp, #16
+ 262 005c 0348     		ldr	r0, .L18+4
+ 263 005e FFF7FEFF 		bl	HAL_CAN_AddTxMessage
+ 264              	.LVL8:
+  66:App/Src/can_bsp.c ****     
+  67:App/Src/can_bsp.c **** }
+ 265              		.loc 1 67 1 is_stmt 0 view .LVU77
+ 266 0062 0BB0     		add	sp, sp, #44
+ 267              	.LCFI9:
+ 268              		.cfi_def_cfa_offset 4
+ 269              		@ sp needed
+ 270 0064 5DF804FB 		ldr	pc, [sp], #4
+ 271              	.L19:
+ 272              		.align	2
+ 273              	.L18:
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s 			page 7
+
+
+ 274 0068 00000000 		.word	motor_voltage_send_buf
+ 275 006c 00000000 		.word	hcan1
+ 276              		.cfi_endproc
+ 277              	.LFE136:
+ 279              		.section	.text.BSP_CAN_Send_Current_Cmd,"ax",%progbits
+ 280              		.align	1
+ 281              		.global	BSP_CAN_Send_Current_Cmd
+ 282              		.syntax unified
+ 283              		.thumb
+ 284              		.thumb_func
+ 286              	BSP_CAN_Send_Current_Cmd:
+ 287              	.LFB137:
+  68:App/Src/can_bsp.c **** 
+  69:App/Src/can_bsp.c **** void BSP_CAN_Send_Current_Cmd(void) {
+ 288              		.loc 1 69 37 is_stmt 1 view -0
+ 289              		.cfi_startproc
+ 290              		@ args = 0, pretend = 0, frame = 40
+ 291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 292 0000 00B5     		push	{lr}
+ 293              	.LCFI10:
+ 294              		.cfi_def_cfa_offset 4
+ 295              		.cfi_offset 14, -4
+ 296 0002 8BB0     		sub	sp, sp, #44
+ 297              	.LCFI11:
+ 298              		.cfi_def_cfa_offset 48
+  70:App/Src/can_bsp.c ****     uint8_t tx_data[8];
+ 299              		.loc 1 70 5 view .LVU79
+  71:App/Src/can_bsp.c ****     CAN_TxHeaderTypeDef tx_header;
+ 300              		.loc 1 71 5 view .LVU80
+  72:App/Src/can_bsp.c ****     uint32_t tx_mailbox;
+ 301              		.loc 1 72 5 view .LVU81
+  73:App/Src/can_bsp.c ****     tx_header.StdId = 0x1FE; 
+ 302              		.loc 1 73 5 view .LVU82
+ 303              		.loc 1 73 21 is_stmt 0 view .LVU83
+ 304 0004 4FF4FF73 		mov	r3, #510
+ 305 0008 0293     		str	r3, [sp, #8]
+  74:App/Src/can_bsp.c ****     tx_header.IDE = CAN_ID_STD;
+ 306              		.loc 1 74 5 is_stmt 1 view .LVU84
+ 307              		.loc 1 74 19 is_stmt 0 view .LVU85
+ 308 000a 0023     		movs	r3, #0
+ 309 000c 0493     		str	r3, [sp, #16]
+  75:App/Src/can_bsp.c ****     tx_header.RTR = CAN_RTR_DATA;
+ 310              		.loc 1 75 5 is_stmt 1 view .LVU86
+ 311              		.loc 1 75 19 is_stmt 0 view .LVU87
+ 312 000e 0593     		str	r3, [sp, #20]
+  76:App/Src/can_bsp.c ****     tx_header.DLC = 8;
+ 313              		.loc 1 76 5 is_stmt 1 view .LVU88
+ 314              		.loc 1 76 19 is_stmt 0 view .LVU89
+ 315 0010 0823     		movs	r3, #8
+ 316 0012 0693     		str	r3, [sp, #24]
+  77:App/Src/can_bsp.c ****     // 电机 1
+  78:App/Src/can_bsp.c ****     tx_data[0] = (motor_current_send_buf[0] >> 8) & 0xFF;
+ 317              		.loc 1 78 5 is_stmt 1 view .LVU90
+ 318              		.loc 1 78 41 is_stmt 0 view .LVU91
+ 319 0014 144B     		ldr	r3, .L22
+ 320 0016 B3F90020 		ldrsh	r2, [r3]
+ 321              		.loc 1 78 16 view .LVU92
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s 			page 8
+
+
+ 322 001a 93F90110 		ldrsb	r1, [r3, #1]
+ 323 001e 8DF82010 		strb	r1, [sp, #32]
+  79:App/Src/can_bsp.c ****     tx_data[1] = motor_current_send_buf[0] & 0xFF;
+ 324              		.loc 1 79 5 is_stmt 1 view .LVU93
+ 325              		.loc 1 79 16 is_stmt 0 view .LVU94
+ 326 0022 8DF82120 		strb	r2, [sp, #33]
+  80:App/Src/can_bsp.c ****     // 电机 2
+  81:App/Src/can_bsp.c ****     tx_data[2] = (motor_current_send_buf[1] >> 8) & 0xFF;
+ 327              		.loc 1 81 5 is_stmt 1 view .LVU95
+ 328              		.loc 1 81 41 is_stmt 0 view .LVU96
+ 329 0026 B3F90220 		ldrsh	r2, [r3, #2]
+ 330              		.loc 1 81 16 view .LVU97
+ 331 002a 93F90310 		ldrsb	r1, [r3, #3]
+ 332 002e 8DF82210 		strb	r1, [sp, #34]
+  82:App/Src/can_bsp.c ****     tx_data[3] = motor_current_send_buf[1] & 0xFF;
+ 333              		.loc 1 82 5 is_stmt 1 view .LVU98
+ 334              		.loc 1 82 16 is_stmt 0 view .LVU99
+ 335 0032 8DF82320 		strb	r2, [sp, #35]
+  83:App/Src/can_bsp.c ****     // 电机 3
+  84:App/Src/can_bsp.c ****     tx_data[4] = (motor_current_send_buf[2] >> 8) & 0xFF;
+ 336              		.loc 1 84 5 is_stmt 1 view .LVU100
+ 337              		.loc 1 84 41 is_stmt 0 view .LVU101
+ 338 0036 B3F90420 		ldrsh	r2, [r3, #4]
+ 339              		.loc 1 84 16 view .LVU102
+ 340 003a 93F90510 		ldrsb	r1, [r3, #5]
+ 341 003e 8DF82410 		strb	r1, [sp, #36]
+  85:App/Src/can_bsp.c ****     tx_data[5] = motor_current_send_buf[2] & 0xFF;
+ 342              		.loc 1 85 5 is_stmt 1 view .LVU103
+ 343              		.loc 1 85 16 is_stmt 0 view .LVU104
+ 344 0042 8DF82520 		strb	r2, [sp, #37]
+  86:App/Src/can_bsp.c ****     // 电机 4
+  87:App/Src/can_bsp.c ****     tx_data[6] = (motor_current_send_buf[3] >> 8) & 0xFF;
+ 345              		.loc 1 87 5 is_stmt 1 view .LVU105
+ 346              		.loc 1 87 41 is_stmt 0 view .LVU106
+ 347 0046 B3F90620 		ldrsh	r2, [r3, #6]
+ 348              		.loc 1 87 16 view .LVU107
+ 349 004a 93F90730 		ldrsb	r3, [r3, #7]
+ 350 004e 8DF82630 		strb	r3, [sp, #38]
+  88:App/Src/can_bsp.c ****     tx_data[7] = motor_current_send_buf[3] & 0xFF;
+ 351              		.loc 1 88 5 is_stmt 1 view .LVU108
+ 352              		.loc 1 88 16 is_stmt 0 view .LVU109
+ 353 0052 8DF82720 		strb	r2, [sp, #39]
+  89:App/Src/can_bsp.c ****     
+  90:App/Src/can_bsp.c ****     // 发送标准帧，ID = 0x1FE (GM6020 电流控制 ID)
+  91:App/Src/can_bsp.c ****     // 注意：请确保你的 CAN 句柄和 Mailbox 配置正确
+  92:App/Src/can_bsp.c ****     HAL_CAN_AddTxMessage(&hcan1, &tx_header, tx_data, &tx_mailbox);
+ 354              		.loc 1 92 5 is_stmt 1 view .LVU110
+ 355 0056 01AB     		add	r3, sp, #4
+ 356 0058 08AA     		add	r2, sp, #32
+ 357 005a 02A9     		add	r1, sp, #8
+ 358 005c 0348     		ldr	r0, .L22+4
+ 359 005e FFF7FEFF 		bl	HAL_CAN_AddTxMessage
+ 360              	.LVL9:
+  93:App/Src/can_bsp.c **** }...
+ 361              		.loc 1 93 1 is_stmt 0 view .LVU111
+ 362 0062 0BB0     		add	sp, sp, #44
+ 363              	.LCFI12:
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s 			page 9
+
+
+ 364              		.cfi_def_cfa_offset 4
+ 365              		@ sp needed
+ 366 0064 5DF804FB 		ldr	pc, [sp], #4
+ 367              	.L23:
+ 368              		.align	2
+ 369              	.L22:
+ 370 0068 00000000 		.word	motor_current_send_buf
+ 371 006c 00000000 		.word	hcan1
+ 372              		.cfi_endproc
+ 373              	.LFE137:
+ 375              		.global	motor_current_send_buf
+ 376              		.section	.bss.motor_current_send_buf,"aw",%nobits
+ 377              		.align	2
+ 380              	motor_current_send_buf:
+ 381 0000 00000000 		.space	8
+ 381      00000000 
+ 382              		.text
+ 383              	.Letext0:
+ 384              		.file 2 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
+ 385              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
+ 386              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h"
+ 387              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 388              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 389              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h"
+ 390              		.file 8 "App/Inc/motor_control.h"
+ 391              		.file 9 "App/Inc/can_bsp.h"
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 can_bsp.c
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:21     .text.BSP_CAN_Init:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:27     .text.BSP_CAN_Init:00000000 BSP_CAN_Init
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:95     .text.BSP_CAN_Init:00000038 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:100    .text.HAL_CAN_RxFifo0MsgPendingCallback:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:106    .text.HAL_CAN_RxFifo0MsgPendingCallback:00000000 HAL_CAN_RxFifo0MsgPendingCallback
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:178    .text.HAL_CAN_RxFifo0MsgPendingCallback:0000003c $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:184    .text.BSP_CAN_Send_Voltage_Cmd:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:190    .text.BSP_CAN_Send_Voltage_Cmd:00000000 BSP_CAN_Send_Voltage_Cmd
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:274    .text.BSP_CAN_Send_Voltage_Cmd:00000068 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:280    .text.BSP_CAN_Send_Current_Cmd:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:286    .text.BSP_CAN_Send_Current_Cmd:00000000 BSP_CAN_Send_Current_Cmd
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:370    .text.BSP_CAN_Send_Current_Cmd:00000068 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:380    .bss.motor_current_send_buf:00000000 motor_current_send_buf
+C:\Users\wxwsyzh\AppData\Local\Temp\ccJhCiMc.s:377    .bss.motor_current_send_buf:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_CAN_ConfigFilter
+HAL_CAN_Start
+HAL_CAN_ActivateNotification
+hcan1
+HAL_CAN_GetRxMessage
+Motor_Control_Loop
+Motor_Update_Feedback
+HAL_CAN_AddTxMessage
+motor_voltage_send_buf

@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "DapLink Debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/1.11.2.elf",
+            "preLaunchTask": "build task",
+            "runToEntryPoint": "main",
+            "configFiles": [
+                "interface/cmsis-dap.cfg",
+                "target/stm32f4x.cfg"
+            ],
+            "svdFile": "C:\\ST\\STM32CubeCLT_1.18.0\\STMicroelectronics_CMSIS_SVD\\STM32F427.svd",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4,
+            },
+        },
+        {   
+            "name": "J-Link Debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "jlink",
+            "device": "STM32F103C8", 
+            "interface": "swd", 
+            "executable": "${workspaceFolder}/build/ttttt2.elf", 
+            "svdFile": "C:\\ST\\STM32CubeCLT_1.18.0\\STMicroelectronics_CMSIS_SVD\\STM32F103.svd", 
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4,
+            }   
+        }
+    ]
+}
