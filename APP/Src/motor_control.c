@@ -3,7 +3,7 @@
 #include <math.h>
 
 GM6020_TypeDef gm6020_motors[4];
-int16_t motor_current_send_buf[4]; // 添加发送缓冲区定义
+//int16_t motor_current_send_buf[4]; // 添加发送缓冲区定义
 
 #define PI 3.1415926535f
 
@@ -216,7 +216,7 @@ void Motor_Control_Loop(void) {
     }
     
     // ✅ 修复函数名拼写错误
-    BSP_CAN_Sned_Current_Cmd(); // 注意是 'Sned' 不是 'Send'
+    BSP_CAN_Send_Current_Cmd(); // 注意是 'Sned' 不是 'Send'
 }
 
 void Motor_Set_Dual_Target(uint8_t id1, Motor_Mode_e mode1, float target1,

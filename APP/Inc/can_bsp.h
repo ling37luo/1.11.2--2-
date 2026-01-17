@@ -16,5 +16,5 @@ extern int16_t motor_voltage_send_buf[4];
 // 新增：发送电压控制指令函数
 void BSP_CAN_Send_Voltage_Cmd(void);
 
-void BSP_CAN_Sned_Current_Cmd(void);
+void BSP_CAN_Send_Current_Cmd(void);
 #endif

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
   18:Core/Src/main.c **** /* USER CODE END Header */
   19:Core/Src/main.c **** /* Includes ------------------------------------------------------------------*/
   20:Core/Src/main.c **** #include "main.h"
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 2
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 2
 
 
   21:Core/Src/main.c **** #include "can.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
   75:Core/Src/main.c **** 
   76:Core/Src/main.c **** // 系统状态
   77:Core/Src/main.c **** ControlMode current_mode = MODE_BOTH_MOVING; // 初始模式
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 3
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 3
 
 
   78:Core/Src/main.c **** uint8_t last_mode = MODE_BOTH_MOVING;        // 上次模式
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  132:Core/Src/main.c ****             switch (current_mode) {
  133:Core/Src/main.c ****                 case MODE_BOTH_MOVING:
  134:Core/Src/main.c ****                     // 恢复下电机正常运行
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 4
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 4
 
 
  135:Core/Src/main.c ****                     Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, UPPER_MOTOR_SPEED);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  173:Core/Src/main.c ****     }
  174:Core/Src/main.c **** }
   51              		.loc 1 174 1 view .LVU4
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 5
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 5
 
 
   52 0008 08BD     		pop	{r3, pc}
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
   92      726F723D 
   92      252E3166 
   92      C2B00A00 
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 6
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 6
 
 
   93              		.section	.text.Reset_Upper_Motor_Position,"ax",%progbits
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  201:Core/Src/main.c ****     // 保存当前角度作为目标位置 (只在第一次进入时保存)
  202:Core/Src/main.c ****     if (upper_motor_needs_reset) {
  122              		.loc 1 202 5 view .LVU13
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 7
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 7
 
 
  123              		.loc 1 202 9 is_stmt 0 view .LVU14
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  157 0044 C82B     		cmp	r3, #200
  158 0046 13D8     		bhi	.L12
  159              	.LVL6:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 8
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 8
 
 
  160              	.L7:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  201              		.loc 1 223 9 view .LVU31
  223:Core/Src/main.c ****         float angle_error = upper_motor_target_angle - upper_motor->total_angle;
  202              		.loc 1 223 20 is_stmt 0 view .LVU32
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 9
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 9
 
 
  203 0070 154B     		ldr	r3, .L13+20
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  250 00d0 00000000 		.word	.LC1
  251 00d4 2C000000 		.word	.LC2
  252              		.cfi_endproc
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 10
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 10
 
 
  253              	.LFE139:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  298              	.LC4:
  299 0000 3D3D3D20 		.ascii	"=== MODE CHANGED: %d ===\012\000"
  299      4D4F4445 
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 11
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 11
 
 
  299      20434841 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  344              	.LCFI10:
  345              		.cfi_remember_state
  346              		.cfi_restore 80
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 12
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 12
 
 
  347              		.cfi_restore 81
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  388              		.loc 1 132 13 view .LVU66
  389 004c 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  390 004e 032B     		cmp	r3, #3
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 13
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 13
 
 
  391 0050 0FD8     		bhi	.L21
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  435              		.loc 1 147 21 view .LVU76
  436 008e FFF7FEFF 		bl	Brake_Upper_Motor
  437              	.LVL30:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 14
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 14
 
 
  148:Core/Src/main.c ****                     break;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  484      4348494E 
  484      4720544F 
  484      204E4547 
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 15
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 15
 
 
  485 0029 000000   		.align	2
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  509              		.thumb
  510              		.thumb_func
  512              	Update_Lower_Motor_Control:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 16
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 16
 
 
  513              	.LFB141:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  553              		.loc 1 250 8 view .LVU94
  554 001e 002B     		cmp	r3, #0
  555 0020 7CD1     		bne	.L33
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 17
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 17
 
 
  251:Core/Src/main.c ****         switch (lower_state) {
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  259:Core/Src/main.c ****                 break;
  260:Core/Src/main.c ****                 
  261:Core/Src/main.c ****             case TRANS_NEG:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 18
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 18
 
 
  262:Core/Src/main.c ****                 if (current_time - transition_start_time < SMOOTH_TRANSITION_TIME) {
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  647              	.LVL46:
  648              		.loc 1 268 21 is_stmt 0 view .LVU124
  649 00a2 FFF7FEFF 		bl	puts
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 19
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 19
 
 
  650              	.LVL47:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  688 00d4 1B68     		ldr	r3, [r3]
  689 00d6 C31A     		subs	r3, r0, r3
  690              		.loc 1 282 20 view .LVU138
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 20
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 20
 
 
  691 00d8 B3F5FA7F 		cmp	r3, #500
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  289:Core/Src/main.c ****                 }
  290:Core/Src/main.c ****                 break;
  291:Core/Src/main.c ****         }
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 21
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 21
 
 
  292:Core/Src/main.c ****     } 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  755 012c 1AD9     		bls	.L48
  329:Core/Src/main.c ****         last_debug = current_time;
  756              		.loc 1 329 9 is_stmt 1 view .LVU161
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 22
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 22
 
 
  757              		.loc 1 329 20 is_stmt 0 view .LVU162
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  798 016c B0EE480A 		vmov.f32	s0, s16
  799 0170 0121     		movs	r1, #1
  800 0172 0320     		movs	r0, #3
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 23
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 23
 
 
  801 0174 FFF7FEFF 		bl	Motor_Set_Target
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  842 019c F5EEC07A 		vcmpe.f32	s15, #0
  843 01a0 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  844 01a4 22DD     		ble	.L65
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 24
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 24
 
 
  319:Core/Src/main.c ****             } else {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  309:Core/Src/main.c ****             } else {
  884              		.loc 1 309 17 is_stmt 1 view .LVU198
  885 01d4 9FED2F0A 		vldr.32	s0, .L71+80
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 25
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 25
 
 
  886 01d8 0021     		movs	r1, #0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  928 020e 19EE100A 		vmov	r0, s18
  929 0212 FFF7FEFF 		bl	__aeabi_f2d
  930              	.LVL77:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 26
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 26
 
 
  931 0216 CDE90201 		strd	r0, [sp, #8]
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  985              		.thumb
  986              		.thumb_func
  988              	Error_Handler:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 27
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 27
 
 
  989              	.LFB144:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  401:Core/Src/main.c ****                 Update_Lower_Motor_Control();
  402:Core/Src/main.c ****             }
  403:Core/Src/main.c ****             
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 28
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 28
 
 
  404:Core/Src/main.c ****             // 3. 更新上电机控制 (根据模式)
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  458:Core/Src/main.c ****     if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
  459:Core/Src/main.c ****     {
  460:Core/Src/main.c ****         Error_Handler();
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 29
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 29
 
 
  461:Core/Src/main.c ****     }
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
   30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
   32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 30
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 30
 
 
   33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
   87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 31
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 31
 
 
   90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  144:Drivers/CMSIS/Include/cmsis_gcc.h ****   } __zero_table_t;
  145:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  146:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_start__;
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 32
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 32
 
 
  147:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_end__;
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  201:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  202:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  203:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 33
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 33
 
 
  204:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  258:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __ISB(void)
  259:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  260:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("isb 0xF":::"memory");
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 34
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 34
 
 
  261:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  315:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM ("rev16 %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
  316:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
  317:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 35
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 35
 
 
  318:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  372:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  373:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __RBIT(uint32_t value)
  374:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 36
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 36
 
 
  375:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  429:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  430:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return             value of type uint8_t at (*ptr)
  431:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 37
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 37
 
 
  432:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint8_t __LDREXB(volatile uint8_t *addr)
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  486:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   STR Exclusive (8 bit)
  487:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a exclusive STR instruction for 8 bit values.
  488:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 38
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 38
 
 
  489:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  543:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  544:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  545:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 39
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 39
 
 
  546:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  600:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  601:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  602:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 40
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 40
 
 
  603:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   LDRT Unprivileged (8 bit)
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  657:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
  658:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  659:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 41
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 41
 
 
  660:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  714:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
  715:Drivers/CMSIS/Include/cmsis_gcc.h ****       return max;
  716:Drivers/CMSIS/Include/cmsis_gcc.h ****     }
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 42
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 42
 
 
  717:Drivers/CMSIS/Include/cmsis_gcc.h ****     else if (val < min)
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  771:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  772:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Load-Acquire (16 bit)
  773:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a LDAH instruction for 16 bit values.
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 43
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 43
 
 
  774:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  828:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  829:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  830:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 44
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 44
 
 
  831:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __STL(uint32_t value, volatile uint32_t *ptr)
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  885:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  886:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  887:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          0  Function succeeded
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 45
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 45
 
 
  888:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          1  Function failed
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  942:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  943:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  944:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 46
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 46
 
 
  945:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  1033              	.LCFI18:
  1034              		.cfi_def_cfa_offset 4
  1035              		.cfi_offset 14, -4
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 47
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 47
 
 
  1036 0002 95B0     		sub	sp, sp, #84
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  1077 0034 1A68     		ldr	r2, [r3]
  1078 0036 42F44042 		orr	r2, r2, #49152
  1079 003a 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 48
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 48
 
 
  436:Core/Src/main.c **** 
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  445:Core/Src/main.c ****     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
  1116              		.loc 1 445 32 is_stmt 0 view .LVU252
  1117 0064 0423     		movs	r3, #4
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 49
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 49
 
 
  1118 0066 1393     		str	r3, [sp, #76]
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  1155 0092 15B0     		add	sp, sp, #84
  1156              	.LCFI20:
  1157              		.cfi_remember_state
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 50
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 50
 
 
  1158              		.cfi_def_cfa_offset 4
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  1205              		.loc 1 362 5 view .LVU274
  1206 0006 FFF7FEFF 		bl	SystemClock_Config
  1207              	.LVL87:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 51
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 51
 
 
  363:Core/Src/main.c ****     MX_CAN1_Init();
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  1250 004e 4FF48053 		mov	r3, #4096
  1251 0052 A4F8D633 		strh	r3, [r4, #982]	@ movhi
  382:Core/Src/main.c ****     /* USER CODE END 2 */
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 52
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 52
 
 
  1252              		.loc 1 382 5 is_stmt 1 view .LVU287
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  1292 007a 144B     		ldr	r3, .L92+24
  1293 007c 1B68     		ldr	r3, [r3]
  1294 007e C01A     		subs	r0, r0, r3
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 53
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 53
 
 
  391:Core/Src/main.c ****         {
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  1337 00bc 00000000 		.word	.LC12
  1338 00c0 00001442 		.word	1108606976
  1339 00c4 00000000 		.word	0
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 54
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 54
 
 
  1340 00c8 00000000 		.word	current_mode
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  1417              	lower_motor_initial_angle:
  1418 0000 00000000 		.space	4
  1419              		.global	lower_motor_state
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 55
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 55
 
 
  1420              		.section	.bss.lower_motor_state,"aw",%nobits
@@ -3274,77 +3274,77 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 1
  1458              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
  1459              		.file 16 "C:/msys64/mingw64/arm-none-eabi/include/stdio.h"
  1460              		.file 17 "<built-in>"
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 56
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 56
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:22     .rodata.Return_Lower_Motor_To_Initial_Position.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:27     .text.Return_Lower_Motor_To_Initial_Position:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:33     .text.Return_Lower_Motor_To_Initial_Position:00000000 Return_Lower_Motor_To_Initial_Position
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:78     .text.Return_Lower_Motor_To_Initial_Position:00000028 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1423   .bss.lower_motor_state:00000000 lower_motor_state
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1417   .bss.lower_motor_initial_angle:00000000 lower_motor_initial_angle
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1410   .bss.lower_motor_target_angle:00000000 lower_motor_target_angle
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:86     .rodata.Reset_Upper_Motor_Position.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:94     .text.Reset_Upper_Motor_Position:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:100    .text.Reset_Upper_Motor_Position:00000000 Reset_Upper_Motor_Position
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:243    .text.Reset_Upper_Motor_Position:000000b4 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1369   .bss.upper_motor_needs_reset:00000000 upper_motor_needs_reset
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1376   .bss.upper_motor_target_angle:00000000 upper_motor_target_angle
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1363   .bss.last_debug.2:00000000 last_debug.2
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:256    .rodata.Brake_Upper_Motor.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:260    .text.Brake_Upper_Motor:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:266    .text.Brake_Upper_Motor:00000000 Brake_Upper_Motor
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:291    .text.Brake_Upper_Motor:00000010 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:297    .rodata.Check_Key_Inputs.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:301    .text.Check_Key_Inputs:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:307    .text.Check_Key_Inputs:00000000 Check_Key_Inputs
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:394    .text.Check_Key_Inputs:00000056 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:398    .text.Check_Key_Inputs:0000005a $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:471    .text.Check_Key_Inputs:000000c8 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1430   .bss.last_key_press:00000000 last_key_press
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1436   .bss.last_mode:00000000 last_mode
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1442   .bss.current_mode:00000000 current_mode
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:482    .rodata.Update_Lower_Motor_Control.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:506    .text.Update_Lower_Motor_Control:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:512    .text.Update_Lower_Motor_Control:00000000 Update_Lower_Motor_Control
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:563    .text.Update_Lower_Motor_Control:00000030 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:567    .text.Update_Lower_Motor_Control:00000034 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:955    .text.Update_Lower_Motor_Control:00000244 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1390   .bss.accumulated_angle:00000000 accumulated_angle
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1396   .bss.lower_state:00000000 lower_state
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1383   .bss.transition_start_time:00000000 transition_start_time
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1357   .bss.last_debug.1:00000000 last_debug.1
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:982    .text.Error_Handler:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:988    .text.Error_Handler:00000000 Error_Handler
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1020   .text.SystemClock_Config:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1026   .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1174   .text.SystemClock_Config:000000a0 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1180   .rodata.main.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1184   .text.main:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1190   .text.main:00000000 main
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1335   .text.main:000000b4 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1351   .bss.last_update.0:00000000 last_update.0
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1348   .bss.last_update.0:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1354   .bss.last_debug.1:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1360   .bss.last_debug.2:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1370   .bss.upper_motor_needs_reset:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1373   .bss.upper_motor_target_angle:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1380   .bss.transition_start_time:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1387   .bss.accumulated_angle:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1397   .bss.lower_state:00000000 $d
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s 			page 57
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:22     .rodata.Return_Lower_Motor_To_Initial_Position.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:27     .text.Return_Lower_Motor_To_Initial_Position:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:33     .text.Return_Lower_Motor_To_Initial_Position:00000000 Return_Lower_Motor_To_Initial_Position
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:78     .text.Return_Lower_Motor_To_Initial_Position:00000028 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1423   .bss.lower_motor_state:00000000 lower_motor_state
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1417   .bss.lower_motor_initial_angle:00000000 lower_motor_initial_angle
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1410   .bss.lower_motor_target_angle:00000000 lower_motor_target_angle
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:86     .rodata.Reset_Upper_Motor_Position.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:94     .text.Reset_Upper_Motor_Position:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:100    .text.Reset_Upper_Motor_Position:00000000 Reset_Upper_Motor_Position
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:243    .text.Reset_Upper_Motor_Position:000000b4 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1369   .bss.upper_motor_needs_reset:00000000 upper_motor_needs_reset
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1376   .bss.upper_motor_target_angle:00000000 upper_motor_target_angle
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1363   .bss.last_debug.2:00000000 last_debug.2
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:256    .rodata.Brake_Upper_Motor.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:260    .text.Brake_Upper_Motor:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:266    .text.Brake_Upper_Motor:00000000 Brake_Upper_Motor
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:291    .text.Brake_Upper_Motor:00000010 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:297    .rodata.Check_Key_Inputs.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:301    .text.Check_Key_Inputs:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:307    .text.Check_Key_Inputs:00000000 Check_Key_Inputs
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:394    .text.Check_Key_Inputs:00000056 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:398    .text.Check_Key_Inputs:0000005a $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:471    .text.Check_Key_Inputs:000000c8 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1430   .bss.last_key_press:00000000 last_key_press
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1436   .bss.last_mode:00000000 last_mode
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1442   .bss.current_mode:00000000 current_mode
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:482    .rodata.Update_Lower_Motor_Control.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:506    .text.Update_Lower_Motor_Control:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:512    .text.Update_Lower_Motor_Control:00000000 Update_Lower_Motor_Control
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:563    .text.Update_Lower_Motor_Control:00000030 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:567    .text.Update_Lower_Motor_Control:00000034 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:955    .text.Update_Lower_Motor_Control:00000244 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1390   .bss.accumulated_angle:00000000 accumulated_angle
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1396   .bss.lower_state:00000000 lower_state
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1383   .bss.transition_start_time:00000000 transition_start_time
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1357   .bss.last_debug.1:00000000 last_debug.1
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:982    .text.Error_Handler:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:988    .text.Error_Handler:00000000 Error_Handler
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1020   .text.SystemClock_Config:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1026   .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1174   .text.SystemClock_Config:000000a0 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1180   .rodata.main.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1184   .text.main:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1190   .text.main:00000000 main
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1335   .text.main:000000b4 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1351   .bss.last_update.0:00000000 last_update.0
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1348   .bss.last_update.0:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1354   .bss.last_debug.1:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1360   .bss.last_debug.2:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1370   .bss.upper_motor_needs_reset:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1373   .bss.upper_motor_target_angle:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1380   .bss.transition_start_time:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1387   .bss.accumulated_angle:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1397   .bss.lower_state:00000000 $d
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 57
 
 
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1403   .bss.lower_motor_speed:00000000 lower_motor_speed
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1400   .bss.lower_motor_speed:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1407   .bss.lower_motor_target_angle:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1414   .bss.lower_motor_initial_angle:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1424   .bss.lower_motor_state:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1427   .bss.last_key_press:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1437   .bss.last_mode:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cc69oU74.s:1443   .bss.current_mode:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1403   .bss.lower_motor_speed:00000000 lower_motor_speed
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1400   .bss.lower_motor_speed:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1407   .bss.lower_motor_target_angle:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1414   .bss.lower_motor_initial_angle:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1424   .bss.lower_motor_state:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1427   .bss.last_key_press:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1437   .bss.last_mode:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1443   .bss.current_mode:00000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_f2d
