@@ -99,7 +99,7 @@ void Motor_Init_All(void) {
             PID_Init(&gm6020_motors[i].speed_pid, 
                      140.0f,   // Kp
                      5.0f,     // Ki
-                     0.1f,     // Kd
+                     0.2f,     // Kd
                      GM6020_MAX_CURRENT,
                      5000.0f,  // 积分限幅
                      speed_dead_zone);
