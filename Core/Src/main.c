@@ -365,7 +365,6 @@ int main(void)
     
     /* USER CODE BEGIN 2 */
     // 初始化按键
-    Key_GPIO_Init();
     
     Motor_Init_All();
     BSP_CAN_Init();
