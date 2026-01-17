@@ -43,15 +43,17 @@ void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0}; // 声明并初始化GPIO配置结构体
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-   __HAL_RCC_GPIOC_CLK_ENABLE();
+   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();  // 添加GPIOB时钟使能
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
 
-  GPIO_InitStruct.Pin = GPIO_PIN_3;
+  /* 配置白色按键 (PB2) - 浮空输入，因为A板白色按键按下时为高电平 */
+  GPIO_InitStruct.Pin = GPIO_PIN_2;  // PB2
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;  // 内部上拉
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  GPIO_InitStruct.Pull = GPIO_NOPULL;  // 浮空输入，不使用内部上下拉
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 }
 
 /* USER CODE BEGIN 2 */

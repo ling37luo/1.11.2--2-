@@ -56,8 +56,8 @@ extern GM6020_TypeDef gm6020_motors[4];
 /* USER CODE BEGIN PV */
 
 // 按键引脚定义 (根据实际硬件修改)
-#define KEY_MODE_PIN GPIO_PIN_3
-#define KEY_MODE_GPIO GPIOC
+#define KEY_MODE_PIN GPIO_PIN_2    // PB2
+#define KEY_MODE_GPIO GPIOB 
 
 // 控制模式枚举
 typedef enum {
@@ -128,8 +128,8 @@ void Key_GPIO_Init(void) {
 void Check_Key_Inputs(void) {
     uint32_t current_time = HAL_GetTick();
     
-    // 模式切换按键 (PA0)
-    if (HAL_GPIO_ReadPin(KEY_MODE_GPIO, KEY_MODE_PIN) == GPIO_PIN_RESET) {
+    // 白色按键：按下时为高电平，未按下时为低电平
+    if (HAL_GPIO_ReadPin(KEY_MODE_GPIO, KEY_MODE_PIN) == GPIO_PIN_SET) {
         // 按键按下
         if (current_time - last_key_press > KEY_DEBOUNCE_TIME) {
             last_key_press = current_time;
@@ -142,23 +142,26 @@ void Check_Key_Inputs(void) {
             switch (current_mode) {
                 case MODE_BOTH_MOVING:
                     // 恢复下电机正常运行
-                   
+                    Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, UPPER_MOTOR_SPEED);
+                    Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, LOWER_MOTOR_SPEED);
                     break;
                     
                 case MODE_UPPER_MOVING:
                     // 下电机需要归位
+                    Return_Lower_Motor_To_Initial_Position();
                     Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, UPPER_MOTOR_SPEED);
-                    Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, 0);
                     break;
                     
                 case MODE_LOWER_MOVING:
                     // 上电机需要制动停止
-                    Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, 0);
+                    Brake_Upper_Motor();
                     Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, LOWER_MOTOR_SPEED);
                     break;
                     
                 case MODE_BOTH_STOPPED:
                     // 两电机都停止
+                    Brake_Upper_Motor();
+                    Return_Lower_Motor_To_Initial_Position();
                     Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, 0);
                     Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, 0);
                     break;
