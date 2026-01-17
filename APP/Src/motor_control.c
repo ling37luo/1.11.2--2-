@@ -130,19 +130,19 @@ void Motor_Init_All(void) {
         else {
             PID_Init(&gm6020_motors[i].speed_pid, 
                      60.0f,    // Kp
-                     3.3f,     // Ki
-                     0.005f,   // Kd
+                     2.3f,     // Ki
+                     0.02f,   // Kd
                      GM6020_MAX_CURRENT, 
                      5000.0f,  // 积分限幅
-                     0.0f);    // 无死区
+                     1.5f);    // 无死区
             
             PID_Init(&gm6020_motors[i].angle_pid, 
                      5.0f,     // Kp
-                     0.0f,     // Ki
-                     0.0f,     // Kd
+                     0.02f,     // Ki
+                     0.002f,     // Kd
                      GM6020_MAX_SPEED, 
                      0.0f,     // MaxIOut
-                     0.0f);    // 无死区
+                     1.5f);    // 无死区
         }
         
         // 清除PID状态

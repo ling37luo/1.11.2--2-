@@ -43,9 +43,9 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 #define ANGLE_ACCUMULATION_THRESHOLD 2340.0f  // 累计角度阈值 (6.5圈)
-#define LOWER_MOTOR_SPEED  100.0f    // 恒定转速 (RPM)下面电机的移动速度，建议是180.0f
+#define LOWER_MOTOR_SPEED  50.0f    // 恒定转速 (RPM)下面电机的移动速度，建议是180.0f
 #define SMOOTH_TRANSITION_TIME 500   // 平滑过渡时间 (ms)
-#define UPPER_MOTOR_SPEED 10.0f   // 上电机目标速度(这里要么给0要么给37)
+#define UPPER_MOTOR_SPEED 30.0f   // 上电机目标速度(这里要么给0要么给37)
 #define KEY_DEBOUNCE_TIME  50       // 按键消抖时间 (ms)
 #define POSITION_RETURN_SPEED 120.0f // 归位速度 (RPM)
 /* USER CODE END PM */
@@ -75,10 +75,20 @@ typedef enum {
 
 // 系统状态
 ControlMode current_mode = MODE_BOTH_MOVING; // 初始模式
+ControlMode target_mode = MODE_BOTH_MOVING;  // 目标模式
 uint8_t last_mode = MODE_BOTH_MOVING;        // 上次模式
 uint32_t last_key_press = 0;                  // 上次按键时间
+uint32_t mode_transition_start = 0;          // 模式切换开始时间
+const uint32_t MODE_TRANSITION_TIME = 200;   // 200ms平滑过渡
 MotorState lower_motor_state = STATE_NORMAL; // 下电机状态
-
+void Check_Key_Inputs(void);
+void Prepare_Mode_Transition(ControlMode new_mode);
+void Process_Mode_Transition(void);
+void Configure_Motors_For_Mode(ControlMode mode);
+void Update_Lower_Motor_Control(void);
+void Return_Lower_Motor_To_Initial_Position(void);
+void Brake_Upper_Motor(void);
+void Reset_Upper_Motor_Position(void);
 // 位置控制
 float lower_motor_initial_angle = 0.0f;      // 下电机初始角度
 float lower_motor_target_angle = 0.0f;       // 下电机目标角度
@@ -91,7 +101,6 @@ typedef enum {
     ACCUM_NEG,     // 负向累计
     TRANS_POS      // 过渡到正向
 } LowerMotorState;
-
 LowerMotorState lower_state = ACCUM_POS;
 float accumulated_angle = 0.0f;
 uint32_t transition_start_time = 0;
@@ -115,53 +124,6 @@ void Brake_Upper_Motor(void);
 /**
   * @brief 检测按键输入
   */
-void Check_Key_Inputs(void) {
-    uint32_t current_time = HAL_GetTick();
-    
-    // 白色按键：按下时为高电平，未按下时为低电平
-    if (HAL_GPIO_ReadPin(KEY_MODE_GPIO, KEY_MODE_PIN) == GPIO_PIN_SET) {
-        // 按键按下
-        if (current_time - last_key_press > KEY_DEBOUNCE_TIME) {
-            last_key_press = current_time;
-            
-            // 切换模式：0→1→2→3→0
-            current_mode = (ControlMode)((last_mode + 1) % 4);
-            printf("=== MODE CHANGED: %d ===\n", current_mode);
-            
-            // 模式变化时的处理
-            switch (current_mode) {
-                case MODE_BOTH_MOVING:
-                    // 恢复下电机正常运行
-                    Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, UPPER_MOTOR_SPEED);
-                    Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, LOWER_MOTOR_SPEED);
-                    break;
-                    
-                case MODE_UPPER_MOVING:
-                    // 下电机需要归位
-                    Return_Lower_Motor_To_Initial_Position();
-                    Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, UPPER_MOTOR_SPEED);
-                    break;
-                    
-                case MODE_LOWER_MOVING:
-                    // 上电机需要制动停止
-                    Brake_Upper_Motor();
-                    Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, LOWER_MOTOR_SPEED);
-                    break;
-                    
-                case MODE_BOTH_STOPPED:
-                    // 两电机都停止
-                    Brake_Upper_Motor();
-                    Return_Lower_Motor_To_Initial_Position();
-                    Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, 0);
-                    Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, 0);
-                    break;
-            }
-            
-            last_mode = current_mode; // 更新上次模式
-        }
-    }
-}
-
 /**
   * @brief 下电机返回初始位置
   */
@@ -186,10 +148,6 @@ float upper_motor_target_angle = 0.0f;     // 上电机目标角度
 uint8_t upper_motor_needs_reset = 0;       // 是否需要复位标志
 /* USER CODE END PV */
 // 全局状态变量
-ControlMode current_mode = MODE_BOTH_MOVING;
-ControlMode target_mode = MODE_BOTH_MOVING; // 目标模式
-uint32_t mode_transition_start = 0;
-const uint32_t MODE_TRANSITION_TIME = 200; // 200ms平滑过渡
 
 void Check_Key_Inputs(void) {
     uint32_t current_time = HAL_GetTick();
@@ -311,11 +269,7 @@ void Reset_Upper_Motor_Position(void) {
         upper_motor_target_angle = upper_motor->total_angle;
         upper_motor_needs_reset = 0;
         printf("Upper motor reset position saved: %.1f°\n", upper_motor_target_angle);
-    }
-    
-    // 使用串级位置控制，自动回到目标位置
-    Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_POS_CASCADE, upper_motor_target_angle);
-    
+        
     // 位置环PID参数优化 (增强抗干扰能力)
     PID_Init(&upper_motor->angle_pid, 
              UPPER_MOTOR_POS_KP,    
@@ -324,6 +278,11 @@ void Reset_Upper_Motor_Position(void) {
              UPPER_MOTOR_POS_MAX_SPEED,   
              0.0f,
              1.5f); // 0.5°死区
+    }
+    
+    // 使用串级位置控制，自动回到目标位置
+    Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_POS_CASCADE, upper_motor_target_angle);
+    
     
     static uint32_t last_debug = 0;
     uint32_t current_time = HAL_GetTick();
