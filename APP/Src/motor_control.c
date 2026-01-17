@@ -40,12 +40,20 @@ static int16_t limit_current(float val) {
 }
 
 // 角度处理 (保持不变)
-static void Motor_Process_Angle(GM6020_TypeDef *motor) {
-    int diff = motor->ecd_raw - motor->last_ecd;
-    if (diff > 4096) motor->round_cnt--;
-    else if (diff < -4096) motor->round_cnt++;
-    motor->total_angle = motor->round_cnt * 360.0f + (motor->ecd_raw / 8192.0f * 360.0f);
-    motor->last_ecd = motor->ecd_raw;
+static void Motor_Check_Stall(GM6020_TypeDef *motor) {
+    if (motor->mode == MOTOR_MODE_STOP || motor->is_stalled) return;
+
+    if (fabsf(motor->output_current) > STALL_CURRENT_THRESH && 
+        fabsf(motor->speed_rpm) < STALL_SPEED_THRESH) {
+        
+        motor->stall_cnt++;
+        if (motor->stall_cnt > STALL_TIME_MS) {
+            motor->is_stalled = 1;
+            motor->mode = MOTOR_MODE_STOP;
+        }
+    } else {
+        motor->stall_cnt = 0;
+    }
 }
 
 // 堵转检测逻辑
@@ -70,6 +78,7 @@ static void Motor_Check_Stall(GM6020_TypeDef *motor) {
 // 清除堵转状态
 void Motor_Clear_Stall(uint8_t id) {
     if (id < 1 || id > 4) return;
+    GM6020_TypeDef *motor = &gm6020_motors[id-1];
     gm6020_motors[id-1].is_stalled = 0;
     gm6020_motors[id-1].stall_cnt = 0;
     gm6020_motors[id-1].mode = MOTOR_MODE_CURRENT_SPEED; // 恢复到默认安全模式
@@ -83,29 +92,11 @@ void Motor_Init_All(void) {
         gm6020_motors[i].target_val = 0;
         gm6020_motors[i].round_cnt = 0;
         gm6020_motors[i].is_stalled = 0;
+        gm6020_motors[i].last_ecd = 0;
+        gm6020_motors[i].feedforward = 0;
+         gm6020_motors[i].horizon_ecd = 4096;
         
-        // === 1. 速度环 PID (内环) ===
-        // 输入：RPM 误差
-        // 输出：目标电流值 (-16384 ~ 16384) -> 直接发给电机
-        PID_Init(&gm6020_motors[i].speed_pid, 
-                 60.0f,    // Kp: 建议从 50-100 开始调试
-                 3.3f,      // Ki: 必须有，用于消除静差
-                 0.005f,      // Kd: 速度环通常设为 0，防止噪声放大导致抖动
-                 GM6020_MAX_CURRENT, // MaxOut: 16384
-                 5000.0f,1.0f);           // MaxIOut: 积分限幅不要太大，5000足够
-        
-        // === 2. 位置环 PID (外环) ===
-        // 输入：角度误差
-        // 输出：目标 RPM
-        PID_Init(&gm6020_motors[i].angle_pid, 
-                 5.0f,    // Kp: 1度误差 -> 10 RPM
-                 0.0f,     // Ki: 位置环通常不需要 I
-                 0.0f,     // Kd: 位置环 D 给 0 或极小
-                 GM6020_MAX_SPEED,   // MaxOut: 限制最大转速 320
-                 0.0f,1.0f);    // MaxIOut
-        gm6020_motors[i].horizon_ecd = 4096;    // 默认水平位置
-        gm6020_motors[i].gravity_gain = 0.0f;    // 默认关闭
-        
+      //
         //  上电机特殊处理
         if (i == 3) { // ID=4
             gm6020_motors[i].gravity_gain = 0.0f; // 强制禁用
@@ -133,7 +124,21 @@ void Motor_Init_All(void) {
         } 
         // 下电机保持原有参数
         else {
-            PID_Init(&gm6020_motors[i].speed_pid, 60.0f, 3.3f, 0.005f, GM6020_MAX_CURRENT, 5000.0f,0.0f);
+             // 下电机参数 (需要平滑的旋转控制)
+            float speed_kp = 60.0f;
+            float speed_ki = 3.3f;
+            float speed_kd = 0.005f;
+            float angle_kp = 5.0f;
+            
+            PID_Init(&gm6020_motors[i].speed_pid, 
+                     speed_kp, speed_ki, speed_kd,
+                     GM6020_MAX_CURRENT, 5000.0f, 0.0f);
+            
+            PID_Init(&gm6020_motors[i].angle_pid, 
+                     angle_kp, 0.0f, 0.0f,
+                     GM6020_MAX_SPEED, 0.0f, 0.0f);
+            
+            gm6020_motors[i].gravity_gain = 0.0f; // 水平轴通常不需要
         }
         // [删除] 绝对不要初始化 current_pid
     }

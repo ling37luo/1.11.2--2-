@@ -110,17 +110,7 @@ void Brake_Upper_Motor(void);
 /**
   * @brief 初始化按键GPIO
   */
-void Key_GPIO_Init(void) {
-    GPIO_InitTypeDef GPIO_InitStruct = {0};
-    
-    __HAL_RCC_GPIOA_CLK_ENABLE(); // 启用GPIOA时钟
-    
-    // 配置模式按键 (PA0) 为输入，上拉
-    GPIO_InitStruct.Pin = KEY_MODE_PIN;
-    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-    GPIO_InitStruct.Pull = GPIO_PULLUP; // 内部上拉
-    HAL_GPIO_Init(KEY_MODE_GPIO, &GPIO_InitStruct);
-}
+
 
 /**
   * @brief 检测按键输入
