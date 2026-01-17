@@ -6,7 +6,8 @@ GM6020_TypeDef gm6020_motors[4];
 //int16_t motor_current_send_buf[4]; // 添加发送缓冲区定义
 
 #define PI 3.1415926535f
-
+static float Calculate_Static_Friction_Compensation(GM6020_TypeDef *motor);
+static float Handle_Static_Motor(GM6020_TypeDef *motor);
 /**
  * @brief 角度处理
  */
@@ -59,21 +60,6 @@ static void Motor_Check_Stall(GM6020_TypeDef *motor) {
         }
     } else {
         motor->stall_cnt = 0;
-    }
-}
-static void Handle_Static_Motor(GM6020_TypeDef *motor, float *current_target) {
-    // 速度死区：实际速度在±0.5 RPM内视为静止
-    if (fabsf(motor->speed_rpm) < 0.5f) {
-        // 电流死区：防止微小调整
-        if (fabsf(motor->output_current) < 200.0f) {
-            *current_target = 0;
-        } else {
-            // 保持微小电流抵消摩擦
-            *current_target = motor->output_current * 0.95f;
-        }
-    } else {
-        // 仍然有速度，使用常规控制
-        *current_target = PID_Calc(&motor->speed_pid, 0, motor->speed_rpm);
     }
 }
 
@@ -198,20 +184,28 @@ void Motor_Control_Loop(void) {
 
          if (fabsf(motor->target_val) < 1.0f && 
             motor->mode == MOTOR_MODE_CURRENT_SPEED) {
-            Handle_Static_Motor(motor, &current_target);
+            Handle_Static_Motor(motor);
         } else {
             switch (motor->mode) {
                 case MOTOR_MODE_CURRENT_OPEN:
                     current_target = motor->target_val;
-                    break;
-                    
+                    break;   
                 case MOTOR_MODE_CURRENT_SPEED:
                     current_target = PID_Calc(&motor->speed_pid, motor->target_val, motor->speed_rpm);
                     break;
                     
-                case MOTOR_MODE_CURRENT_POS_CASCADE:
-                    float speed_target = PID_Calc(&motor->angle_pid, motor->target_val, motor->total_angle);
-                    current_target = PID_Calc(&motor->speed_pid, speed_target, motor->speed_rpm);
+                case MOTOR_MODE_CURRENT_POS_CASCADE:{
+                    // ✅ 位置环死区处理
+                    float angle_error = motor->target_val - motor->total_angle;
+                    if (fabsf(angle_error) < 1.0f) {
+                        // 接近目标位置，降低速度
+                        float speed_target = 0.0f;
+                        current_target = PID_Calc(&motor->speed_pid, speed_target, motor->speed_rpm);
+                    } else {
+                        float speed_target = PID_Calc(&motor->angle_pid, motor->target_val, motor->total_angle);
+                        current_target = PID_Calc(&motor->speed_pid, speed_target, motor->speed_rpm);
+                    }
+                }
                     break;
                     
                 default:
@@ -225,6 +219,9 @@ void Motor_Control_Loop(void) {
             
             motor->feedforward = Motor_Calc_Gravity_FF(motor);
             current_target += motor->feedforward;
+        }
+        if (i == 3) { // 上电机
+            current_target += Calculate_Static_Friction_Compensation(motor);
         }
 
         // 限制电流范围
@@ -240,7 +237,31 @@ void Motor_Control_Loop(void) {
     // ✅ 修复函数名拼写错误
     BSP_CAN_Send_Current_Cmd(); // 注意是 'Sned' 不是 'Send'
 }
+static float Calculate_Static_Friction_Compensation(GM6020_TypeDef *motor) {
+    // 静摩擦补偿：当速度接近0时，添加小的补偿电流
+    if (fabsf(motor->speed_rpm) < 0.5f) {
+        // 根据角度位置计算补偿（上电机需要）
+        float static_friction = 150.0f; // 150mA静摩擦补偿
+        return (motor->total_angle > 0) ? static_friction : -static_friction;
+    }
+    return 0.0f;
+}
 
+// ✅ 新增：静止电机处理
+static float Handle_Static_Motor(GM6020_TypeDef *motor) {
+    // 智能静止保持：根据历史电流调整
+    static float last_current[4] = {0};
+    uint8_t idx = motor->id - 1;
+    
+    if (fabsf(motor->speed_rpm) < 0.3f) {
+        // 保持之前的电流，但逐渐衰减
+        return last_current[idx] * 0.98f;
+    } else {
+        // 有微小速度，使用小比例控制
+        float small_kp = 20.0f; // 小比例系数
+        return small_kp * (-motor->speed_rpm);
+    }
+}
 void Motor_Set_Dual_Target(uint8_t id1, Motor_Mode_e mode1, float target1,
                            uint8_t id2, Motor_Mode_e mode2, float target2) {
     Motor_Set_Target(id1, mode1, target1);

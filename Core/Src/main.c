@@ -43,9 +43,9 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 #define ANGLE_ACCUMULATION_THRESHOLD 2340.0f  // 累计角度阈值 (6.5圈)
-#define LOWER_MOTOR_SPEED  50.0f    // 恒定转速 (RPM)下面电机的移动速度，建议是180.0f
+#define LOWER_MOTOR_SPEED  73.0f    // 恒定转速 (RPM)下面电机的移动速度，建议是180.0f
 #define SMOOTH_TRANSITION_TIME 500   // 平滑过渡时间 (ms)
-#define UPPER_MOTOR_SPEED 30.0f   // 上电机目标速度(这里要么给0要么给37)
+#define UPPER_MOTOR_SPEED 37.0f   // 上电机目标速度(这里要么给0要么给37)
 #define KEY_DEBOUNCE_TIME  50       // 按键消抖时间 (ms)
 #define POSITION_RETURN_SPEED 120.0f // 归位速度 (RPM)
 /* USER CODE END PM */
@@ -131,7 +131,15 @@ void Return_Lower_Motor_To_Initial_Position(void) {
     if (lower_motor_state == STATE_NORMAL) {
         lower_motor_state = STATE_RETURNING;
         lower_motor_target_angle = lower_motor_initial_angle;
+        
+        //启用位置控制模式（而不是速度模式）
+        Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_POS_CASCADE, lower_motor_target_angle);
+        
         printf("Returning lower motor to initial position: %.1f°\n", lower_motor_initial_angle);
+        
+        //重置PID状态，防止积分饱和
+        GM6020_TypeDef *motor = &gm6020_motors[LOWER_MOTOR_ID-1];
+        PID_Clear(&motor->angle_pid);
     }
 }
 /* USER CODE BEGIN PD */
@@ -272,21 +280,30 @@ void Reset_Upper_Motor_Position(void) {
         
     // 位置环PID参数优化 (增强抗干扰能力)
     PID_Init(&upper_motor->angle_pid, 
-             UPPER_MOTOR_POS_KP,    
-             UPPER_MOTOR_POS_KI,     
-             UPPER_MOTOR_POS_KD,     
-             UPPER_MOTOR_POS_MAX_SPEED,   
-             0.0f,
-             1.5f); // 0.5°死区
+            3.0f,    // ✅ Kp从8.0→3.0，减少超调
+            0.02f,   // ✅ Ki从0.0→0.02，消除静差
+            0.1f,    // ✅ Kd=0.1，抑制振荡
+            50.0f,   // ✅ MaxSpeed从100→50，限制最大速度
+            1000.0f, // ✅ 积分限幅
+            2.0f); // 0.5°死区
     }
     
-    // 使用串级位置控制，自动回到目标位置
-    Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_POS_CASCADE, upper_motor_target_angle);
-    
-    
+     // ✅ 智能死区处理
+    float angle_error = upper_motor_target_angle - upper_motor->total_angle;
+    if (fabsf(angle_error) < 2.0f) {
+        // 在死区内，使用小电流保持位置
+        if (upper_motor->mode != MOTOR_MODE_CURRENT_OPEN) {
+            // 逐渐降低到保持电流
+            static float brake_current = 200.0f; // 200mA保持力
+            Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_OPEN, brake_current);
+        }
+    } else {
+        // 使用位置闭环控制
+        Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_POS_CASCADE, upper_motor_target_angle);
+    }
     static uint32_t last_debug = 0;
     uint32_t current_time = HAL_GetTick();
-    if (current_time - last_debug > 200) {
+    if (current_time - last_debug > 500) {
         last_debug = current_time;
         float angle_error = upper_motor_target_angle - upper_motor->total_angle;
         printf("[Upper] RESET MODE: Target=%.1f°, Current=%.1f°, Error=%.1f°\n",
@@ -297,9 +314,17 @@ void Reset_Upper_Motor_Position(void) {
 /**
   * @brief 上电机制动停止 (改为智能复位)
   */
-void Brake_Upper_Motor(void) {
-    upper_motor_needs_reset = 1; // 标记需要重新保存位置
-    printf("Upper motor entering auto-reset mode\n");
+void Brake_Upper_Motor(void) {upper_motor_needs_reset = 1;
+    printf("Upper motor entering stable brake mode\n");
+    
+    GM6020_TypeDef *upper_motor = &gm6020_motors[UPPER_MOTOR_ID-1];
+    if (upper_motor->mode != MOTOR_MODE_CURRENT_OPEN) {
+        // 渐进式制动，防止冲击
+        float brake_current = 300.0f; // 300mA制动力
+        Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_OPEN, brake_current);
+        
+        PID_Clear(&upper_motor->angle_pid);
+    }
 }
 /* USER CODE END 0 */
 
@@ -361,31 +386,41 @@ void Update_Lower_Motor_Control(void) {
     else if (lower_motor_state == STATE_RETURNING) {
         // 计算角度误差
         float angle_error = lower_motor_target_angle - lower_motor->total_angle;
+        float abs_error = fabsf(angle_error);
         
+        const float DECELERATION_ZONE = 30.0f; // 30°减速区
+        const float STOP_THRESHOLD = 2.0f;    // 2°停止阈值
         // 如果接近目标位置，停止返回
-        if (fabsf(angle_error) < 1.0f) {
+        if (abs_error < STOP_THRESHOLD) {
+            // ✅ 到达目标位置，平滑停止
             lower_motor_state = STATE_NORMAL;
-            lower_state = ACCUM_POS; // 重置状态机
+            lower_state = ACCUM_POS;
             accumulated_angle = 0.0f;
             target_speed = 0.0f;
             printf("=== RETURN TO INITIAL POSITION COMPLETE ===\n");
             
             // 根据当前模式设置下电机状态
             if (current_mode == MODE_UPPER_MOVING || current_mode == MODE_BOTH_STOPPED) {
-                // 保持停止
-                Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_OPEN, 300.0f); // 300mA制动力
+                // 精确位置保持
+                Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_POS_CASCADE, lower_motor_target_angle);
             } else {
                 // 恢复正常运行
-                target_speed = LOWER_MOTOR_SPEED;
+                Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, LOWER_MOTOR_SPEED);
             }
         } 
         // 否则，向目标位置移动
         else {
-            // 根据误差方向设置速度
-            if (angle_error > 0) {
-                target_speed = POSITION_RETURN_SPEED; // 正向
+            // ✅ 使用PID控制代替固定速度
+            if (abs_error > DECELERATION_ZONE) {
+                // 远距离：最大速度
+                target_speed = (angle_error > 0) ? POSITION_RETURN_SPEED : -POSITION_RETURN_SPEED;
+                Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, target_speed);
             } else {
-                target_speed = -POSITION_RETURN_SPEED; // 反向
+                // ✅ 减速区：使用位置控制
+                float speed_target = PID_Calc(&lower_motor->angle_pid, 
+                                             lower_motor_target_angle, 
+                                             lower_motor->total_angle);
+                Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, speed_target);
             }
         }
     }
