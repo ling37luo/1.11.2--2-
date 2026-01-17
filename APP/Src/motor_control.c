@@ -23,8 +23,10 @@ static void Motor_Process_Angle(GM6020_TypeDef *motor) {
  */
 static int16_t Motor_Calc_Gravity_FF(GM6020_TypeDef *motor) {
     if (motor->id == 4) {
-        return 0;
+        const float PITCH_GRAVITY_GAIN = 800.0f;
+        return (int16_t)(PITCH_GRAVITY_GAIN * sinf(motor->total_angle * PI / 180.0f));
     }
+     if (motor->id == 4) return 0;
     int32_t ecd_diff = motor->ecd_raw - motor->horizon_ecd;
     
     if (ecd_diff > 4096)  ecd_diff -= 8192;
@@ -57,6 +59,21 @@ static void Motor_Check_Stall(GM6020_TypeDef *motor) {
         }
     } else {
         motor->stall_cnt = 0;
+    }
+}
+static void Handle_Static_Motor(GM6020_TypeDef *motor, float *current_target) {
+    // 速度死区：实际速度在±0.5 RPM内视为静止
+    if (fabsf(motor->speed_rpm) < 0.5f) {
+        // 电流死区：防止微小调整
+        if (fabsf(motor->output_current) < 200.0f) {
+            *current_target = 0;
+        } else {
+            // 保持微小电流抵消摩擦
+            *current_target = motor->output_current * 0.95f;
+        }
+    } else {
+        // 仍然有速度，使用常规控制
+        *current_target = PID_Calc(&motor->speed_pid, 0, motor->speed_rpm);
     }
 }
 
@@ -179,23 +196,28 @@ void Motor_Control_Loop(void) {
             continue;
         }
 
-        switch (motor->mode) {
-            case MOTOR_MODE_CURRENT_OPEN:
-                current_target = motor->target_val;
-                break;
-                
-            case MOTOR_MODE_CURRENT_SPEED:
-                current_target = PID_Calc(&motor->speed_pid, motor->target_val, motor->speed_rpm);
-                break;
-                
-            case MOTOR_MODE_CURRENT_POS_CASCADE:
-                speed_target = PID_Calc(&motor->angle_pid, motor->target_val, motor->total_angle);
-                current_target = PID_Calc(&motor->speed_pid, speed_target, motor->speed_rpm);
-                break;
-                
-            default:
-                current_target = 0;
-                break;
+         if (fabsf(motor->target_val) < 1.0f && 
+            motor->mode == MOTOR_MODE_CURRENT_SPEED) {
+            Handle_Static_Motor(motor, &current_target);
+        } else {
+            switch (motor->mode) {
+                case MOTOR_MODE_CURRENT_OPEN:
+                    current_target = motor->target_val;
+                    break;
+                    
+                case MOTOR_MODE_CURRENT_SPEED:
+                    current_target = PID_Calc(&motor->speed_pid, motor->target_val, motor->speed_rpm);
+                    break;
+                    
+                case MOTOR_MODE_CURRENT_POS_CASCADE:
+                    float speed_target = PID_Calc(&motor->angle_pid, motor->target_val, motor->total_angle);
+                    current_target = PID_Calc(&motor->speed_pid, speed_target, motor->speed_rpm);
+                    break;
+                    
+                default:
+                    current_target = 0;
+                    break;
+            }
         }
 
         if (motor->id != 4 && (motor->mode == MOTOR_MODE_CURRENT_SPEED || 

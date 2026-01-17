@@ -43,9 +43,9 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 #define ANGLE_ACCUMULATION_THRESHOLD 2340.0f  // 累计角度阈值 (6.5圈)
-#define LOWER_MOTOR_SPEED  180.0f    // 恒定转速 (RPM)下面电机的移动速度，建议是180.0f
+#define LOWER_MOTOR_SPEED  100.0f    // 恒定转速 (RPM)下面电机的移动速度，建议是180.0f
 #define SMOOTH_TRANSITION_TIME 500   // 平滑过渡时间 (ms)
-#define UPPER_MOTOR_SPEED 37.0f   // 上电机目标速度(这里要么给0要么给37)
+#define UPPER_MOTOR_SPEED 10.0f   // 上电机目标速度(这里要么给0要么给37)
 #define KEY_DEBOUNCE_TIME  50       // 按键消抖时间 (ms)
 #define POSITION_RETURN_SPEED 120.0f // 归位速度 (RPM)
 /* USER CODE END PM */
@@ -185,7 +185,114 @@ void Return_Lower_Motor_To_Initial_Position(void) {
 float upper_motor_target_angle = 0.0f;     // 上电机目标角度
 uint8_t upper_motor_needs_reset = 0;       // 是否需要复位标志
 /* USER CODE END PV */
+// 全局状态变量
+ControlMode current_mode = MODE_BOTH_MOVING;
+ControlMode target_mode = MODE_BOTH_MOVING; // 目标模式
+uint32_t mode_transition_start = 0;
+const uint32_t MODE_TRANSITION_TIME = 200; // 200ms平滑过渡
 
+void Check_Key_Inputs(void) {
+    uint32_t current_time = HAL_GetTick();
+    
+    if (HAL_GPIO_ReadPin(KEY_MODE_GPIO, KEY_MODE_PIN) == GPIO_PIN_SET) {
+        if (current_time - last_key_press > KEY_DEBOUNCE_TIME) {
+            last_key_press = current_time;
+            
+            // 仅在状态稳定时接受新指令
+            if (current_mode == target_mode) {
+                target_mode = (ControlMode)((current_mode + 1) % 4);
+                mode_transition_start = current_time;
+                printf("=== REQUESTING MODE CHANGE: %d ===\n", target_mode);
+                
+                // 准备模式切换
+                Prepare_Mode_Transition(target_mode);
+            }
+        }
+    }
+}
+
+void Prepare_Mode_Transition(ControlMode new_mode) {
+    GM6020_TypeDef *lower_motor = &gm6020_motors[LOWER_MOTOR_ID-1];
+    GM6020_TypeDef *upper_motor = &gm6020_motors[UPPER_MOTOR_ID-1];
+    
+    switch (new_mode) {
+        case MODE_BOTH_MOVING:
+            // 确保两电机都在速度模式
+            if (lower_motor_state == STATE_RETURNING) {
+                lower_motor_state = STATE_NORMAL;
+            }
+            upper_motor_needs_reset = 1;
+            break;
+            
+        case MODE_UPPER_MOVING:
+            // 下电机归位，上电机速度控制
+            if (lower_motor_state != STATE_RETURNING) {
+                Return_Lower_Motor_To_Initial_Position();
+            }
+            Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, UPPER_MOTOR_SPEED);
+            break;
+            
+        case MODE_LOWER_MOVING:
+            // 上电机制动，下电机速度控制
+            Brake_Upper_Motor();
+            Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, LOWER_MOTOR_SPEED);
+            break;
+            
+        case MODE_BOTH_STOPPED:
+            // 两电机都进入保持模式
+            Brake_Upper_Motor();
+            if (lower_motor_state != STATE_RETURNING) {
+                Return_Lower_Motor_To_Initial_Position();
+            }
+            break;
+    }
+}
+
+// 在主循环中调用
+void Process_Mode_Transition(void) {
+    uint32_t current_time = HAL_GetTick();
+    
+    if (current_mode != target_mode && 
+        current_time - mode_transition_start > MODE_TRANSITION_TIME) {
+        
+        // 确认模式切换
+        current_mode = target_mode;
+        printf("=== MODE TRANSITION COMPLETE: %d ===\n", current_mode);
+        
+        // 根据模式设置电机控制
+        Configure_Motors_For_Mode(current_mode);
+    }
+}
+
+void Configure_Motors_For_Mode(ControlMode mode) {
+    switch (mode) {
+        case MODE_BOTH_MOVING:
+            Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, UPPER_MOTOR_SPEED);
+            Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, LOWER_MOTOR_SPEED);
+            break;
+            
+        case MODE_UPPER_MOVING:
+            // 下电机制动保持位置
+            if (lower_motor_state == STATE_NORMAL) {
+                Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_OPEN, 400.0f); // 400mA制动力
+            }
+            Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, UPPER_MOTOR_SPEED);
+            break;
+            
+        case MODE_LOWER_MOVING:
+            // 上电机进入位置保持模式
+            Reset_Upper_Motor_Position();
+            Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, LOWER_MOTOR_SPEED);
+            break;
+            
+        case MODE_BOTH_STOPPED:
+            Reset_Upper_Motor_Position();
+            if (lower_motor_state == STATE_NORMAL) {
+                Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_OPEN, 400.0f); // 400mA制动力
+            }
+            break;
+    }
+}
 /* USER CODE BEGIN PFP */
 void Reset_Upper_Motor_Position(void);
 /* USER CODE END PFP */
@@ -195,6 +302,7 @@ void Reset_Upper_Motor_Position(void);
   * @brief 上电机位置复位 (优化版)
   * 当给0速度时，使用位置闭环控制，即使被打中也会自动回到目标位置
   */
+ 
 void Reset_Upper_Motor_Position(void) {
     GM6020_TypeDef *upper_motor = &gm6020_motors[UPPER_MOTOR_ID-1];
     
@@ -215,7 +323,7 @@ void Reset_Upper_Motor_Position(void) {
              UPPER_MOTOR_POS_KD,     
              UPPER_MOTOR_POS_MAX_SPEED,   
              0.0f,
-             0.5f); // 0.5°死区
+             1.5f); // 0.5°死区
     
     static uint32_t last_debug = 0;
     uint32_t current_time = HAL_GetTick();
@@ -388,35 +496,32 @@ int main(void)
     {
         /* USER CODE END WHILE */
         static uint32_t last_update = 0;
-        if (HAL_GetTick() - last_update >= 5)  // 5ms控制周期
-        {
+        if (HAL_GetTick() - last_update >= 5) {
             last_update = HAL_GetTick();
             
             // 1. 检测按键输入
             Check_Key_Inputs();
             
-            // 2. 更新下电机控制 (根据模式)
+            // 2. 处理模式过渡
+            Process_Mode_Transition();
+            
+            // 3. 更新下电机控制
             if (current_mode == MODE_BOTH_MOVING || 
                 current_mode == MODE_LOWER_MOVING) {
                 Update_Lower_Motor_Control();
             }
             
-            // 3. 更新上电机控制 (根据模式)
+            // 4. 更新上电机控制
             if (current_mode == MODE_BOTH_MOVING || 
                 current_mode == MODE_UPPER_MOVING) {
-                // 上电机正常运行
                 Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, UPPER_MOTOR_SPEED);
-                upper_motor_needs_reset = 1;
             } else {
-                // 上电机制动
-                 Reset_Upper_Motor_Position();
+                Reset_Upper_Motor_Position();
             }
             
-            // 4. 执行电机控制循环
+            // 5. 执行电机控制
             Motor_Control_Loop();
         }
-        
-        /* USER CODE BEGIN 3 */
         HAL_Delay(1);
         /* USER CODE BEGIN 3 */
     }
