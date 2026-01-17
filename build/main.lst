@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
   18:Core/Src/main.c **** /* USER CODE END Header */
   19:Core/Src/main.c **** /* Includes ------------------------------------------------------------------*/
   20:Core/Src/main.c **** #include "main.h"
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 2
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 2
 
 
   21:Core/Src/main.c **** #include "can.h"
@@ -86,7 +86,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
   43:Core/Src/main.c **** /* Private macro -------------------------------------------------------------*/
   44:Core/Src/main.c **** /* USER CODE BEGIN PM */
   45:Core/Src/main.c **** #define ANGLE_ACCUMULATION_THRESHOLD 2340.0f  // 累计角度阈值 (6.5圈)
-  46:Core/Src/main.c **** #define LOWER_MOTOR_SPEED  0.0f    // 恒定转速 (RPM)下面电机的移动速度，建议是180.
+  46:Core/Src/main.c **** #define LOWER_MOTOR_SPEED  180.0f    // 恒定转速 (RPM)下面电机的移动速度，建议是18
   47:Core/Src/main.c **** #define SMOOTH_TRANSITION_TIME 500   // 平滑过渡时间 (ms)
   48:Core/Src/main.c **** #define UPPER_MOTOR_SPEED 37.0f   // 上电机目标速度(这里要么给0要么给37)
   49:Core/Src/main.c **** #define KEY_DEBOUNCE_TIME  50       // 按键消抖时间 (ms)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
   75:Core/Src/main.c **** 
   76:Core/Src/main.c **** // 系统状态
   77:Core/Src/main.c **** ControlMode current_mode = MODE_BOTH_MOVING; // 初始模式
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 3
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 3
 
 
   78:Core/Src/main.c **** uint8_t last_mode = MODE_BOTH_MOVING;        // 上次模式
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  132:Core/Src/main.c ****             switch (current_mode) {
  133:Core/Src/main.c ****                 case MODE_BOTH_MOVING:
  134:Core/Src/main.c ****                     // 恢复下电机正常运行
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 4
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 4
 
 
  135:Core/Src/main.c ****                     Motor_Set_Target(UPPER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, UPPER_MOTOR_SPEED);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  173:Core/Src/main.c ****     }
  174:Core/Src/main.c **** }
   51              		.loc 1 174 1 view .LVU4
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 5
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 5
 
 
   52 0008 08BD     		pop	{r3, pc}
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
   92      726F723D 
   92      252E3166 
   92      C2B00A00 
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 6
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 6
 
 
   93              		.section	.text.Reset_Upper_Motor_Position,"ax",%progbits
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  201:Core/Src/main.c ****     // 保存当前角度作为目标位置 (只在第一次进入时保存)
  202:Core/Src/main.c ****     if (upper_motor_needs_reset) {
  122              		.loc 1 202 5 view .LVU13
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 7
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 7
 
 
  123              		.loc 1 202 9 is_stmt 0 view .LVU14
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  157 0044 C82B     		cmp	r3, #200
  158 0046 13D8     		bhi	.L12
  159              	.LVL6:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 8
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 8
 
 
  160              	.L7:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  201              		.loc 1 223 9 view .LVU31
  223:Core/Src/main.c ****         float angle_error = upper_motor_target_angle - upper_motor->total_angle;
  202              		.loc 1 223 20 is_stmt 0 view .LVU32
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 9
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 9
 
 
  203 0070 154B     		ldr	r3, .L13+20
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  250 00d0 00000000 		.word	.LC1
  251 00d4 2C000000 		.word	.LC2
  252              		.cfi_endproc
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 10
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 10
 
 
  253              	.LFE139:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  298              	.LC4:
  299 0000 3D3D3D20 		.ascii	"=== MODE CHANGED: %d ===\012\000"
  299      4D4F4445 
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 11
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 11
 
 
  299      20434841 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  344              	.LCFI10:
  345              		.cfi_remember_state
  346              		.cfi_restore 80
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 12
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 12
 
 
  347              		.cfi_restore 81
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  388              		.loc 1 132 13 view .LVU66
  389 004c 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  390 004e 032B     		cmp	r3, #3
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 13
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 13
 
 
  391 0050 0FD8     		bhi	.L21
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  435              		.loc 1 147 21 view .LVU76
  436 008e FFF7FEFF 		bl	Brake_Upper_Motor
  437              	.LVL30:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 14
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 14
 
 
  148:Core/Src/main.c ****                     break;
@@ -802,7 +802,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  452              	.LVL33:
  155:Core/Src/main.c ****                     Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, 0);
  453              		.loc 1 155 21 view .LVU81
- 454 00a8 9FED0D8A 		vldr.32	s16, .L30+24
+ 454 00a8 9FED0E8A 		vldr.32	s16, .L30+28
  455 00ac B0EE480A 		vmov.f32	s0, s16
  456 00b0 0121     		movs	r1, #1
  457 00b2 0420     		movs	r0, #4
@@ -827,392 +827,394 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  474 00d4 00000000 		.word	current_mode
  475 00d8 00000000 		.word	.LC4
  476 00dc 00001442 		.word	1108606976
- 477 00e0 00000000 		.word	0
- 478              		.cfi_endproc
- 479              	.LFE137:
- 481              		.section	.rodata.Update_Lower_Motor_Control.str1.4,"aMS",%progbits,1
- 482              		.align	2
- 483              	.LC5:
- 484 0000 3D3D3D20 		.ascii	"=== SWITCHING TO NEGATIVE TRANSITION ===\000"
- 484      53574954 
- 484      4348494E 
- 484      4720544F 
- 484      204E4547 
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 15
+ 477 00e0 00003443 		.word	1127481344
+ 478 00e4 00000000 		.word	0
+ 479              		.cfi_endproc
+ 480              	.LFE137:
+ 482              		.section	.rodata.Update_Lower_Motor_Control.str1.4,"aMS",%progbits,1
+ 483              		.align	2
+ 484              	.LC5:
+ 485 0000 3D3D3D20 		.ascii	"=== SWITCHING TO NEGATIVE TRANSITION ===\000"
+ 485      53574954 
+ 485      4348494E 
+ 485      4720544F 
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 15
 
 
- 485 0029 000000   		.align	2
- 486              	.LC6:
- 487 002c 3D3D3D20 		.ascii	"=== TRANSITION TO NEGATIVE COMPLETE ===\000"
- 487      5452414E 
- 487      53495449 
- 487      4F4E2054 
- 487      4F204E45 
- 488              		.align	2
- 489              	.LC7:
- 490 0054 3D3D3D20 		.ascii	"=== SWITCHING TO POSITIVE TRANSITION ===\000"
- 490      53574954 
- 490      4348494E 
- 490      4720544F 
- 490      20504F53 
- 491 007d 000000   		.align	2
- 492              	.LC8:
- 493 0080 3D3D3D20 		.ascii	"=== TRANSITION TO POSITIVE COMPLETE ===\000"
- 493      5452414E 
- 493      53495449 
- 493      4F4E2054 
- 493      4F20504F 
- 494              		.align	2
- 495              	.LC9:
- 496 00a8 3D3D3D20 		.ascii	"=== RETURN TO INITIAL POSITION COMPLETE ===\000"
- 496      52455455 
- 496      524E2054 
- 496      4F20494E 
- 496      49544941 
- 497              		.align	2
- 498              	.LC10:
- 499 00d4 5B4C6F77 		.ascii	"[Lower] Mode=%d, State=%d, Angle=%.1f\302\260, Spee"
- 499      65725D20 
- 499      4D6F6465 
- 499      3D25642C 
- 499      20537461 
- 500 0101 643D252E 		.ascii	"d=%.1f RPM\012\000"
- 500      31662052 
- 500      504D0A00 
- 501 010d 000000   		.align	2
- 502              	.LC11:
- 503 0110 5B4C6F77 		.ascii	"[Lower] RETURNING: Current=%.1f\302\260, Target=%.1"
- 503      65725D20 
- 503      52455455 
- 503      524E494E 
- 503      473A2043 
- 504 013d 66C2B02C 		.ascii	"f\302\260, Error=%.1f\302\260\012\000"
- 504      20457272 
- 504      6F723D25 
- 504      2E3166C2 
- 504      B00A00
- 505              		.section	.text.Update_Lower_Motor_Control,"ax",%progbits
- 506              		.align	1
- 507              		.global	Update_Lower_Motor_Control
- 508              		.syntax unified
- 509              		.thumb
- 510              		.thumb_func
- 512              	Update_Lower_Motor_Control:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 16
+ 485      204E4547 
+ 486 0029 000000   		.align	2
+ 487              	.LC6:
+ 488 002c 3D3D3D20 		.ascii	"=== TRANSITION TO NEGATIVE COMPLETE ===\000"
+ 488      5452414E 
+ 488      53495449 
+ 488      4F4E2054 
+ 488      4F204E45 
+ 489              		.align	2
+ 490              	.LC7:
+ 491 0054 3D3D3D20 		.ascii	"=== SWITCHING TO POSITIVE TRANSITION ===\000"
+ 491      53574954 
+ 491      4348494E 
+ 491      4720544F 
+ 491      20504F53 
+ 492 007d 000000   		.align	2
+ 493              	.LC8:
+ 494 0080 3D3D3D20 		.ascii	"=== TRANSITION TO POSITIVE COMPLETE ===\000"
+ 494      5452414E 
+ 494      53495449 
+ 494      4F4E2054 
+ 494      4F20504F 
+ 495              		.align	2
+ 496              	.LC9:
+ 497 00a8 3D3D3D20 		.ascii	"=== RETURN TO INITIAL POSITION COMPLETE ===\000"
+ 497      52455455 
+ 497      524E2054 
+ 497      4F20494E 
+ 497      49544941 
+ 498              		.align	2
+ 499              	.LC10:
+ 500 00d4 5B4C6F77 		.ascii	"[Lower] Mode=%d, State=%d, Angle=%.1f\302\260, Spee"
+ 500      65725D20 
+ 500      4D6F6465 
+ 500      3D25642C 
+ 500      20537461 
+ 501 0101 643D252E 		.ascii	"d=%.1f RPM\012\000"
+ 501      31662052 
+ 501      504D0A00 
+ 502 010d 000000   		.align	2
+ 503              	.LC11:
+ 504 0110 5B4C6F77 		.ascii	"[Lower] RETURNING: Current=%.1f\302\260, Target=%.1"
+ 504      65725D20 
+ 504      52455455 
+ 504      524E494E 
+ 504      473A2043 
+ 505 013d 66C2B02C 		.ascii	"f\302\260, Error=%.1f\302\260\012\000"
+ 505      20457272 
+ 505      6F723D25 
+ 505      2E3166C2 
+ 505      B00A00
+ 506              		.section	.text.Update_Lower_Motor_Control,"ax",%progbits
+ 507              		.align	1
+ 508              		.global	Update_Lower_Motor_Control
+ 509              		.syntax unified
+ 510              		.thumb
+ 511              		.thumb_func
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 16
 
 
- 513              	.LFB141:
+ 513              	Update_Lower_Motor_Control:
+ 514              	.LFB141:
  237:Core/Src/main.c **** /* USER CODE END 0 */
  238:Core/Src/main.c **** 
  239:Core/Src/main.c **** /**
  240:Core/Src/main.c ****   * @brief 更新下电机控制
  241:Core/Src/main.c ****   */
  242:Core/Src/main.c **** void Update_Lower_Motor_Control(void) {
- 514              		.loc 1 242 39 view -0
- 515              		.cfi_startproc
- 516              		@ args = 0, pretend = 0, frame = 0
- 517              		@ frame_needed = 0, uses_anonymous_args = 0
- 518 0000 30B5     		push	{r4, r5, lr}
- 519              	.LCFI12:
- 520              		.cfi_def_cfa_offset 12
- 521              		.cfi_offset 4, -12
- 522              		.cfi_offset 5, -8
- 523              		.cfi_offset 14, -4
- 524 0002 2DED048B 		vpush.64	{d8, d9}
- 525              	.LCFI13:
- 526              		.cfi_def_cfa_offset 28
- 527              		.cfi_offset 80, -28
- 528              		.cfi_offset 81, -24
- 529              		.cfi_offset 82, -20
- 530              		.cfi_offset 83, -16
- 531 0006 85B0     		sub	sp, sp, #20
- 532              	.LCFI14:
- 533              		.cfi_def_cfa_offset 48
+ 515              		.loc 1 242 39 view -0
+ 516              		.cfi_startproc
+ 517              		@ args = 0, pretend = 0, frame = 0
+ 518              		@ frame_needed = 0, uses_anonymous_args = 0
+ 519 0000 30B5     		push	{r4, r5, lr}
+ 520              	.LCFI12:
+ 521              		.cfi_def_cfa_offset 12
+ 522              		.cfi_offset 4, -12
+ 523              		.cfi_offset 5, -8
+ 524              		.cfi_offset 14, -4
+ 525 0002 2DED048B 		vpush.64	{d8, d9}
+ 526              	.LCFI13:
+ 527              		.cfi_def_cfa_offset 28
+ 528              		.cfi_offset 80, -28
+ 529              		.cfi_offset 81, -24
+ 530              		.cfi_offset 82, -20
+ 531              		.cfi_offset 83, -16
+ 532 0006 85B0     		sub	sp, sp, #20
+ 533              	.LCFI14:
+ 534              		.cfi_def_cfa_offset 48
  243:Core/Src/main.c ****     uint32_t current_time = HAL_GetTick();
- 534              		.loc 1 243 5 view .LVU85
- 535              		.loc 1 243 29 is_stmt 0 view .LVU86
- 536 0008 FFF7FEFF 		bl	HAL_GetTick
- 537              	.LVL36:
- 538 000c 0446     		mov	r4, r0
- 539              	.LVL37:
+ 535              		.loc 1 243 5 view .LVU85
+ 536              		.loc 1 243 29 is_stmt 0 view .LVU86
+ 537 0008 FFF7FEFF 		bl	HAL_GetTick
+ 538              	.LVL36:
+ 539 000c 0446     		mov	r4, r0
+ 540              	.LVL37:
  244:Core/Src/main.c ****     GM6020_TypeDef *lower_motor = &gm6020_motors[LOWER_MOTOR_ID-1];
- 540              		.loc 1 244 5 is_stmt 1 view .LVU87
+ 541              		.loc 1 244 5 is_stmt 1 view .LVU87
  245:Core/Src/main.c ****     float target_speed = 0.0f;
- 541              		.loc 1 245 5 view .LVU88
+ 542              		.loc 1 245 5 view .LVU88
  246:Core/Src/main.c ****     
  247:Core/Src/main.c ****     accumulated_angle = lower_motor->total_angle;
- 542              		.loc 1 247 5 view .LVU89
- 543              		.loc 1 247 36 is_stmt 0 view .LVU90
- 544 000e 8D4B     		ldr	r3, .L71
- 545 0010 D3ED807A 		vldr.32	s15, [r3, #512]
- 546              		.loc 1 247 23 view .LVU91
- 547 0014 8C4B     		ldr	r3, .L71+4
- 548 0016 C3ED007A 		vstr.32	s15, [r3]
+ 543              		.loc 1 247 5 view .LVU89
+ 544              		.loc 1 247 36 is_stmt 0 view .LVU90
+ 545 000e 8D4B     		ldr	r3, .L71
+ 546 0010 D3ED807A 		vldr.32	s15, [r3, #512]
+ 547              		.loc 1 247 23 view .LVU91
+ 548 0014 8C4B     		ldr	r3, .L71+4
+ 549 0016 C3ED007A 		vstr.32	s15, [r3]
  248:Core/Src/main.c ****     
  249:Core/Src/main.c ****     // 根据状态机更新控制
  250:Core/Src/main.c ****     if (lower_motor_state == STATE_NORMAL) {
- 549              		.loc 1 250 5 is_stmt 1 view .LVU92
- 550              		.loc 1 250 27 is_stmt 0 view .LVU93
- 551 001a 8C4B     		ldr	r3, .L71+8
- 552 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 553              		.loc 1 250 8 view .LVU94
- 554 001e 002B     		cmp	r3, #0
- 555 0020 7CD1     		bne	.L33
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 17
+ 550              		.loc 1 250 5 is_stmt 1 view .LVU92
+ 551              		.loc 1 250 27 is_stmt 0 view .LVU93
+ 552 001a 8C4B     		ldr	r3, .L71+8
+ 553 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 554              		.loc 1 250 8 view .LVU94
+ 555 001e 002B     		cmp	r3, #0
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 17
 
 
+ 556 0020 7CD1     		bne	.L33
  251:Core/Src/main.c ****         switch (lower_state) {
- 556              		.loc 1 251 9 is_stmt 1 view .LVU95
- 557 0022 8B4B     		ldr	r3, .L71+12
- 558 0024 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 559 0026 032B     		cmp	r3, #3
- 560 0028 00F2DD80 		bhi	.L52
- 561 002c DFE803F0 		tbb	[pc, r3]
- 562              	.L36:
- 563 0030 02       		.byte	(.L39-.L36)/2
- 564 0031 17       		.byte	(.L38-.L36)/2
- 565 0032 3C       		.byte	(.L37-.L36)/2
- 566 0033 51       		.byte	(.L35-.L36)/2
- 567              		.p2align 1
- 568              	.L39:
+ 557              		.loc 1 251 9 is_stmt 1 view .LVU95
+ 558 0022 8B4B     		ldr	r3, .L71+12
+ 559 0024 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 560 0026 032B     		cmp	r3, #3
+ 561 0028 00F2DD80 		bhi	.L52
+ 562 002c DFE803F0 		tbb	[pc, r3]
+ 563              	.L36:
+ 564 0030 02       		.byte	(.L39-.L36)/2
+ 565 0031 17       		.byte	(.L38-.L36)/2
+ 566 0032 3C       		.byte	(.L37-.L36)/2
+ 567 0033 51       		.byte	(.L35-.L36)/2
+ 568              		.p2align 1
+ 569              	.L39:
  252:Core/Src/main.c ****             case ACCUM_POS:
  253:Core/Src/main.c ****                 target_speed = LOWER_MOTOR_SPEED;
- 569              		.loc 1 253 17 view .LVU96
+ 570              		.loc 1 253 17 view .LVU96
+ 571              	.LVL38:
  254:Core/Src/main.c ****                 if (accumulated_angle >= ANGLE_ACCUMULATION_THRESHOLD) {
- 570              		.loc 1 254 17 view .LVU97
- 571              		.loc 1 254 20 is_stmt 0 view .LVU98
- 572 0034 9FED877A 		vldr.32	s14, .L71+16
- 573 0038 F4EEC77A 		vcmpe.f32	s15, s14
- 574 003c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 575 0040 02DA     		bge	.L67
+ 572              		.loc 1 254 17 view .LVU97
+ 573              		.loc 1 254 20 is_stmt 0 view .LVU98
+ 574 0034 9FED877A 		vldr.32	s14, .L71+16
+ 575 0038 F4EEC77A 		vcmpe.f32	s15, s14
+ 576 003c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 577 0040 02DA     		bge	.L67
  253:Core/Src/main.c ****                 if (accumulated_angle >= ANGLE_ACCUMULATION_THRESHOLD) {
- 576              		.loc 1 253 30 view .LVU99
- 577 0042 9FED858A 		vldr.32	s16, .L71+20
- 578 0046 6DE0     		b	.L34
- 579              	.L67:
+ 578              		.loc 1 253 30 view .LVU99
+ 579 0042 9FED858A 		vldr.32	s16, .L71+20
+ 580 0046 6DE0     		b	.L34
+ 581              	.L67:
  255:Core/Src/main.c ****                     lower_state = TRANS_NEG;
- 580              		.loc 1 255 21 is_stmt 1 view .LVU100
- 581              		.loc 1 255 33 is_stmt 0 view .LVU101
- 582 0048 814B     		ldr	r3, .L71+12
- 583 004a 0122     		movs	r2, #1
- 584 004c 1A70     		strb	r2, [r3]
+ 582              		.loc 1 255 21 is_stmt 1 view .LVU100
+ 583              		.loc 1 255 33 is_stmt 0 view .LVU101
+ 584 0048 814B     		ldr	r3, .L71+12
+ 585 004a 0122     		movs	r2, #1
+ 586 004c 1A70     		strb	r2, [r3]
  256:Core/Src/main.c ****                     transition_start_time = current_time;
- 585              		.loc 1 256 21 is_stmt 1 view .LVU102
- 586              		.loc 1 256 43 is_stmt 0 view .LVU103
- 587 004e 834B     		ldr	r3, .L71+24
- 588 0050 1860     		str	r0, [r3]
+ 587              		.loc 1 256 21 is_stmt 1 view .LVU102
+ 588              		.loc 1 256 43 is_stmt 0 view .LVU103
+ 589 004e 834B     		ldr	r3, .L71+24
+ 590 0050 1860     		str	r0, [r3]
  257:Core/Src/main.c ****                     printf("=== SWITCHING TO NEGATIVE TRANSITION ===\n");
- 589              		.loc 1 257 21 is_stmt 1 view .LVU104
- 590 0052 8348     		ldr	r0, .L71+28
- 591              	.LVL38:
- 592              		.loc 1 257 21 is_stmt 0 view .LVU105
- 593 0054 FFF7FEFF 		bl	puts
- 594              	.LVL39:
+ 591              		.loc 1 257 21 is_stmt 1 view .LVU104
+ 592 0052 8348     		ldr	r0, .L71+28
+ 593              	.LVL39:
+ 594              		.loc 1 257 21 is_stmt 0 view .LVU105
+ 595 0054 FFF7FEFF 		bl	puts
+ 596              	.LVL40:
  253:Core/Src/main.c ****                 if (accumulated_angle >= ANGLE_ACCUMULATION_THRESHOLD) {
- 595              		.loc 1 253 30 view .LVU106
- 596 0058 9FED7F8A 		vldr.32	s16, .L71+20
- 597 005c 62E0     		b	.L34
- 598              	.LVL40:
- 599              	.L38:
+ 597              		.loc 1 253 30 view .LVU106
+ 598 0058 9FED7F8A 		vldr.32	s16, .L71+20
+ 599 005c 62E0     		b	.L34
+ 600              	.LVL41:
+ 601              	.L38:
  258:Core/Src/main.c ****                 }
  259:Core/Src/main.c ****                 break;
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 18
+
+
  260:Core/Src/main.c ****                 
  261:Core/Src/main.c ****             case TRANS_NEG:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 18
-
-
  262:Core/Src/main.c ****                 if (current_time - transition_start_time < SMOOTH_TRANSITION_TIME) {
- 600              		.loc 1 262 17 is_stmt 1 view .LVU107
- 601              		.loc 1 262 34 is_stmt 0 view .LVU108
- 602 005e 7F4B     		ldr	r3, .L71+24
- 603 0060 1B68     		ldr	r3, [r3]
- 604 0062 C31A     		subs	r3, r0, r3
- 605              		.loc 1 262 20 view .LVU109
- 606 0064 B3F5FA7F 		cmp	r3, #500
- 607 0068 12D2     		bcs	.L41
- 608              	.LBB5:
+ 602              		.loc 1 262 17 is_stmt 1 view .LVU107
+ 603              		.loc 1 262 34 is_stmt 0 view .LVU108
+ 604 005e 7F4B     		ldr	r3, .L71+24
+ 605 0060 1B68     		ldr	r3, [r3]
+ 606 0062 C31A     		subs	r3, r0, r3
+ 607              		.loc 1 262 20 view .LVU109
+ 608 0064 B3F5FA7F 		cmp	r3, #500
+ 609 0068 12D2     		bcs	.L41
+ 610              	.LBB5:
  263:Core/Src/main.c ****                     float ratio = (float)(current_time - transition_start_time) / SMOOTH_TRANSITION
- 609              		.loc 1 263 21 is_stmt 1 view .LVU110
- 610              		.loc 1 263 35 is_stmt 0 view .LVU111
- 611 006a 07EE903A 		vmov	s15, r3	@ int
- 612 006e F8EE677A 		vcvt.f32.u32	s15, s15
- 613              		.loc 1 263 27 view .LVU112
- 614 0072 DFED7C6A 		vldr.32	s13, .L71+32
- 615 0076 87EEA67A 		vdiv.f32	s14, s15, s13
- 616              	.LVL41:
+ 611              		.loc 1 263 21 is_stmt 1 view .LVU110
+ 612              		.loc 1 263 35 is_stmt 0 view .LVU111
+ 613 006a 07EE903A 		vmov	s15, r3	@ int
+ 614 006e F8EE677A 		vcvt.f32.u32	s15, s15
+ 615              		.loc 1 263 27 view .LVU112
+ 616 0072 DFED7C6A 		vldr.32	s13, .L71+32
+ 617 0076 87EEA67A 		vdiv.f32	s14, s15, s13
+ 618              	.LVL42:
  264:Core/Src/main.c ****                     target_speed = LOWER_MOTOR_SPEED * (1.0f - 2.0f * ratio);
- 617              		.loc 1 264 21 is_stmt 1 view .LVU113
- 618              		.loc 1 264 69 is_stmt 0 view .LVU114
- 619 007a 37EE077A 		vadd.f32	s14, s14, s14
- 620              	.LVL42:
- 621              		.loc 1 264 62 view .LVU115
- 622 007e B7EE008A 		vmov.f32	s16, #1.0e+0
- 623 0082 38EE478A 		vsub.f32	s16, s16, s14
- 624              		.loc 1 264 34 view .LVU116
- 625 0086 DFED747A 		vldr.32	s15, .L71+20
- 626              	.LVL43:
- 627              		.loc 1 264 34 view .LVU117
- 628 008a 28EE278A 		vmul.f32	s16, s16, s15
- 629              	.LVL44:
- 630              		.loc 1 264 34 view .LVU118
- 631              	.LBE5:
- 632 008e 49E0     		b	.L34
- 633              	.LVL45:
- 634              	.L41:
+ 619              		.loc 1 264 21 is_stmt 1 view .LVU113
+ 620              		.loc 1 264 69 is_stmt 0 view .LVU114
+ 621 007a 37EE077A 		vadd.f32	s14, s14, s14
+ 622              	.LVL43:
+ 623              		.loc 1 264 62 view .LVU115
+ 624 007e B7EE008A 		vmov.f32	s16, #1.0e+0
+ 625 0082 38EE478A 		vsub.f32	s16, s16, s14
+ 626              		.loc 1 264 34 view .LVU116
+ 627 0086 DFED747A 		vldr.32	s15, .L71+20
+ 628              	.LVL44:
+ 629              		.loc 1 264 34 view .LVU117
+ 630 008a 28EE278A 		vmul.f32	s16, s16, s15
+ 631              	.LVL45:
+ 632              		.loc 1 264 34 view .LVU118
+ 633              	.LBE5:
+ 634 008e 49E0     		b	.L34
+ 635              	.LVL46:
+ 636              	.L41:
  265:Core/Src/main.c ****                 } else {
  266:Core/Src/main.c ****                     lower_state = ACCUM_NEG;
- 635              		.loc 1 266 21 is_stmt 1 view .LVU119
- 636              		.loc 1 266 33 is_stmt 0 view .LVU120
- 637 0090 6F4B     		ldr	r3, .L71+12
- 638 0092 0222     		movs	r2, #2
- 639 0094 1A70     		strb	r2, [r3]
+ 637              		.loc 1 266 21 is_stmt 1 view .LVU119
+ 638              		.loc 1 266 33 is_stmt 0 view .LVU120
+ 639 0090 6F4B     		ldr	r3, .L71+12
+ 640 0092 0222     		movs	r2, #2
+ 641 0094 1A70     		strb	r2, [r3]
  267:Core/Src/main.c ****                     accumulated_angle = 0.0f;
- 640              		.loc 1 267 21 is_stmt 1 view .LVU121
- 641              		.loc 1 267 39 is_stmt 0 view .LVU122
- 642 0096 9FED708A 		vldr.32	s16, .L71+20
- 643 009a 6B4B     		ldr	r3, .L71+4
- 644 009c 83ED008A 		vstr.32	s16, [r3]
+ 642              		.loc 1 267 21 is_stmt 1 view .LVU121
+ 643              		.loc 1 267 39 is_stmt 0 view .LVU122
+ 644 0096 9FED748A 		vldr.32	s16, .L71+36
+ 645 009a 6B4B     		ldr	r3, .L71+4
+ 646 009c 83ED008A 		vstr.32	s16, [r3]
  268:Core/Src/main.c ****                     printf("=== TRANSITION TO NEGATIVE COMPLETE ===\n");
- 645              		.loc 1 268 21 is_stmt 1 view .LVU123
- 646 00a0 7148     		ldr	r0, .L71+36
- 647              	.LVL46:
- 648              		.loc 1 268 21 is_stmt 0 view .LVU124
- 649 00a2 FFF7FEFF 		bl	puts
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 19
+ 647              		.loc 1 268 21 is_stmt 1 view .LVU123
+ 648 00a0 7248     		ldr	r0, .L71+40
+ 649              	.LVL47:
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 19
 
 
- 650              	.LVL47:
- 651 00a6 3DE0     		b	.L34
+ 650              		.loc 1 268 21 is_stmt 0 view .LVU124
+ 651 00a2 FFF7FEFF 		bl	puts
  652              	.LVL48:
- 653              	.L37:
+ 653 00a6 3DE0     		b	.L34
+ 654              	.LVL49:
+ 655              	.L37:
  269:Core/Src/main.c ****                 }
  270:Core/Src/main.c ****                 break;
  271:Core/Src/main.c ****                 
  272:Core/Src/main.c ****             case ACCUM_NEG:
  273:Core/Src/main.c ****                 target_speed = -LOWER_MOTOR_SPEED;
- 654              		.loc 1 273 17 is_stmt 1 view .LVU125
+ 656              		.loc 1 273 17 is_stmt 1 view .LVU125
  274:Core/Src/main.c ****                 if (accumulated_angle <= -ANGLE_ACCUMULATION_THRESHOLD) {
- 655              		.loc 1 274 17 view .LVU126
- 656              		.loc 1 274 20 is_stmt 0 view .LVU127
- 657 00a8 9FED707A 		vldr.32	s14, .L71+40
- 658 00ac F4EEC77A 		vcmpe.f32	s15, s14
- 659 00b0 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 660 00b4 02D9     		bls	.L68
+ 657              		.loc 1 274 17 view .LVU126
+ 658              		.loc 1 274 20 is_stmt 0 view .LVU127
+ 659 00a8 9FED717A 		vldr.32	s14, .L71+44
+ 660 00ac F4EEC77A 		vcmpe.f32	s15, s14
+ 661 00b0 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 662 00b4 02D9     		bls	.L68
  273:Core/Src/main.c ****                 if (accumulated_angle <= -ANGLE_ACCUMULATION_THRESHOLD) {
- 661              		.loc 1 273 30 view .LVU128
- 662 00b6 9FED6E8A 		vldr.32	s16, .L71+44
- 663 00ba 33E0     		b	.L34
- 664              	.L68:
+ 663              		.loc 1 273 30 view .LVU128
+ 664 00b6 9FED6F8A 		vldr.32	s16, .L71+48
+ 665 00ba 33E0     		b	.L34
+ 666              	.L68:
  275:Core/Src/main.c ****                     lower_state = TRANS_POS;
- 665              		.loc 1 275 21 is_stmt 1 view .LVU129
- 666              		.loc 1 275 33 is_stmt 0 view .LVU130
- 667 00bc 644B     		ldr	r3, .L71+12
- 668 00be 0322     		movs	r2, #3
- 669 00c0 1A70     		strb	r2, [r3]
+ 667              		.loc 1 275 21 is_stmt 1 view .LVU129
+ 668              		.loc 1 275 33 is_stmt 0 view .LVU130
+ 669 00bc 644B     		ldr	r3, .L71+12
+ 670 00be 0322     		movs	r2, #3
+ 671 00c0 1A70     		strb	r2, [r3]
  276:Core/Src/main.c ****                     transition_start_time = current_time;
- 670              		.loc 1 276 21 is_stmt 1 view .LVU131
- 671              		.loc 1 276 43 is_stmt 0 view .LVU132
- 672 00c2 664B     		ldr	r3, .L71+24
- 673 00c4 1860     		str	r0, [r3]
+ 672              		.loc 1 276 21 is_stmt 1 view .LVU131
+ 673              		.loc 1 276 43 is_stmt 0 view .LVU132
+ 674 00c2 664B     		ldr	r3, .L71+24
+ 675 00c4 1860     		str	r0, [r3]
  277:Core/Src/main.c ****                     printf("=== SWITCHING TO POSITIVE TRANSITION ===\n");
- 674              		.loc 1 277 21 is_stmt 1 view .LVU133
- 675 00c6 6B48     		ldr	r0, .L71+48
- 676              	.LVL49:
- 677              		.loc 1 277 21 is_stmt 0 view .LVU134
- 678 00c8 FFF7FEFF 		bl	puts
- 679              	.LVL50:
+ 676              		.loc 1 277 21 is_stmt 1 view .LVU133
+ 677 00c6 6C48     		ldr	r0, .L71+52
+ 678              	.LVL50:
+ 679              		.loc 1 277 21 is_stmt 0 view .LVU134
+ 680 00c8 FFF7FEFF 		bl	puts
+ 681              	.LVL51:
  273:Core/Src/main.c ****                 if (accumulated_angle <= -ANGLE_ACCUMULATION_THRESHOLD) {
- 680              		.loc 1 273 30 view .LVU135
- 681 00cc 9FED688A 		vldr.32	s16, .L71+44
- 682 00d0 28E0     		b	.L34
- 683              	.LVL51:
- 684              	.L35:
+ 682              		.loc 1 273 30 view .LVU135
+ 683 00cc 9FED698A 		vldr.32	s16, .L71+48
+ 684 00d0 28E0     		b	.L34
+ 685              	.LVL52:
+ 686              	.L35:
  278:Core/Src/main.c ****                 }
  279:Core/Src/main.c ****                 break;
  280:Core/Src/main.c ****                 
  281:Core/Src/main.c ****             case TRANS_POS:
  282:Core/Src/main.c ****                 if (current_time - transition_start_time < SMOOTH_TRANSITION_TIME) {
- 685              		.loc 1 282 17 is_stmt 1 view .LVU136
- 686              		.loc 1 282 34 is_stmt 0 view .LVU137
- 687 00d2 624B     		ldr	r3, .L71+24
- 688 00d4 1B68     		ldr	r3, [r3]
- 689 00d6 C31A     		subs	r3, r0, r3
- 690              		.loc 1 282 20 view .LVU138
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 20
+ 687              		.loc 1 282 17 is_stmt 1 view .LVU136
+ 688              		.loc 1 282 34 is_stmt 0 view .LVU137
+ 689 00d2 624B     		ldr	r3, .L71+24
+ 690 00d4 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 20
 
 
- 691 00d8 B3F5FA7F 		cmp	r3, #500
- 692 00dc 12D2     		bcs	.L43
- 693              	.LBB6:
+ 691 00d6 C31A     		subs	r3, r0, r3
+ 692              		.loc 1 282 20 view .LVU138
+ 693 00d8 B3F5FA7F 		cmp	r3, #500
+ 694 00dc 12D2     		bcs	.L43
+ 695              	.LBB6:
  283:Core/Src/main.c ****                     float ratio = (float)(current_time - transition_start_time) / SMOOTH_TRANSITION
- 694              		.loc 1 283 21 is_stmt 1 view .LVU139
- 695              		.loc 1 283 35 is_stmt 0 view .LVU140
- 696 00de 07EE903A 		vmov	s15, r3	@ int
- 697 00e2 F8EE677A 		vcvt.f32.u32	s15, s15
- 698              		.loc 1 283 27 view .LVU141
- 699 00e6 DFED5F6A 		vldr.32	s13, .L71+32
- 700 00ea 87EEA67A 		vdiv.f32	s14, s15, s13
- 701              	.LVL52:
+ 696              		.loc 1 283 21 is_stmt 1 view .LVU139
+ 697              		.loc 1 283 35 is_stmt 0 view .LVU140
+ 698 00de 07EE903A 		vmov	s15, r3	@ int
+ 699 00e2 F8EE677A 		vcvt.f32.u32	s15, s15
+ 700              		.loc 1 283 27 view .LVU141
+ 701 00e6 DFED5F6A 		vldr.32	s13, .L71+32
+ 702 00ea 87EEA67A 		vdiv.f32	s14, s15, s13
+ 703              	.LVL53:
  284:Core/Src/main.c ****                     target_speed = -LOWER_MOTOR_SPEED * (1.0f - 2.0f * ratio);
- 702              		.loc 1 284 21 is_stmt 1 view .LVU142
- 703              		.loc 1 284 70 is_stmt 0 view .LVU143
- 704 00ee 37EE077A 		vadd.f32	s14, s14, s14
- 705              	.LVL53:
- 706              		.loc 1 284 63 view .LVU144
- 707 00f2 B7EE008A 		vmov.f32	s16, #1.0e+0
- 708 00f6 38EE478A 		vsub.f32	s16, s16, s14
- 709              		.loc 1 284 34 view .LVU145
- 710 00fa DFED5D7A 		vldr.32	s15, .L71+44
- 711              	.LVL54:
- 712              		.loc 1 284 34 view .LVU146
- 713 00fe 28EE278A 		vmul.f32	s16, s16, s15
- 714              	.LVL55:
- 715              		.loc 1 284 34 view .LVU147
- 716              	.LBE6:
- 717 0102 0FE0     		b	.L34
- 718              	.LVL56:
- 719              	.L43:
+ 704              		.loc 1 284 21 is_stmt 1 view .LVU142
+ 705              		.loc 1 284 70 is_stmt 0 view .LVU143
+ 706 00ee 37EE077A 		vadd.f32	s14, s14, s14
+ 707              	.LVL54:
+ 708              		.loc 1 284 63 view .LVU144
+ 709 00f2 B7EE008A 		vmov.f32	s16, #1.0e+0
+ 710 00f6 38EE478A 		vsub.f32	s16, s16, s14
+ 711              		.loc 1 284 34 view .LVU145
+ 712 00fa DFED5E7A 		vldr.32	s15, .L71+48
+ 713              	.LVL55:
+ 714              		.loc 1 284 34 view .LVU146
+ 715 00fe 28EE278A 		vmul.f32	s16, s16, s15
+ 716              	.LVL56:
+ 717              		.loc 1 284 34 view .LVU147
+ 718              	.LBE6:
+ 719 0102 0FE0     		b	.L34
+ 720              	.LVL57:
+ 721              	.L43:
  285:Core/Src/main.c ****                 } else {
  286:Core/Src/main.c ****                     lower_state = ACCUM_POS;
- 720              		.loc 1 286 21 is_stmt 1 view .LVU148
- 721              		.loc 1 286 33 is_stmt 0 view .LVU149
- 722 0104 524B     		ldr	r3, .L71+12
- 723 0106 0022     		movs	r2, #0
- 724 0108 1A70     		strb	r2, [r3]
+ 722              		.loc 1 286 21 is_stmt 1 view .LVU148
+ 723              		.loc 1 286 33 is_stmt 0 view .LVU149
+ 724 0104 524B     		ldr	r3, .L71+12
+ 725 0106 0022     		movs	r2, #0
+ 726 0108 1A70     		strb	r2, [r3]
  287:Core/Src/main.c ****                     accumulated_angle = 0.0f;
- 725              		.loc 1 287 21 is_stmt 1 view .LVU150
- 726              		.loc 1 287 39 is_stmt 0 view .LVU151
- 727 010a 9FED538A 		vldr.32	s16, .L71+20
- 728 010e 4E4B     		ldr	r3, .L71+4
- 729 0110 83ED008A 		vstr.32	s16, [r3]
+ 727              		.loc 1 287 21 is_stmt 1 view .LVU150
+ 728              		.loc 1 287 39 is_stmt 0 view .LVU151
+ 729 010a 9FED578A 		vldr.32	s16, .L71+36
+ 730 010e 4E4B     		ldr	r3, .L71+4
+ 731 0110 83ED008A 		vstr.32	s16, [r3]
  288:Core/Src/main.c ****                     printf("=== TRANSITION TO POSITIVE COMPLETE ===\n");
- 730              		.loc 1 288 21 is_stmt 1 view .LVU152
- 731 0114 5848     		ldr	r0, .L71+52
- 732              	.LVL57:
- 733              		.loc 1 288 21 is_stmt 0 view .LVU153
- 734 0116 FFF7FEFF 		bl	puts
- 735              	.LVL58:
- 736 011a 03E0     		b	.L34
+ 732              		.loc 1 288 21 is_stmt 1 view .LVU152
+ 733 0114 5948     		ldr	r0, .L71+56
+ 734              	.LVL58:
+ 735              		.loc 1 288 21 is_stmt 0 view .LVU153
+ 736 0116 FFF7FEFF 		bl	puts
  737              	.LVL59:
- 738              	.L33:
+ 738 011a 03E0     		b	.L34
+ 739              	.LVL60:
+ 740              	.L33:
  289:Core/Src/main.c ****                 }
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 21
+
+
  290:Core/Src/main.c ****                 break;
  291:Core/Src/main.c ****         }
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 21
-
-
  292:Core/Src/main.c ****     } 
  293:Core/Src/main.c ****     // 返回初始位置模式
  294:Core/Src/main.c ****     else if (lower_motor_state == STATE_RETURNING) {
- 739              		.loc 1 294 10 is_stmt 1 view .LVU154
- 740              		.loc 1 294 13 is_stmt 0 view .LVU155
- 741 011c 012B     		cmp	r3, #1
- 742 011e 2FD0     		beq	.L69
+ 741              		.loc 1 294 10 is_stmt 1 view .LVU154
+ 742              		.loc 1 294 13 is_stmt 0 view .LVU155
+ 743 011c 012B     		cmp	r3, #1
+ 744 011e 2FD0     		beq	.L69
  245:Core/Src/main.c ****     
- 743              		.loc 1 245 11 view .LVU156
- 744 0120 9FED4D8A 		vldr.32	s16, .L71+20
- 745              	.LVL60:
- 746              	.L34:
+ 745              		.loc 1 245 11 view .LVU156
+ 746 0120 9FED518A 		vldr.32	s16, .L71+36
+ 747              	.LVL61:
+ 748              	.L34:
  295:Core/Src/main.c ****         // 计算角度误差
  296:Core/Src/main.c ****         float angle_error = lower_motor_target_angle - lower_motor->total_angle;
  297:Core/Src/main.c ****         
@@ -1246,56 +1248,56 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  325:Core/Src/main.c ****     
  326:Core/Src/main.c ****     // 始终显示当前状态
  327:Core/Src/main.c ****     static uint32_t last_debug = 0;
- 747              		.loc 1 327 5 is_stmt 1 view .LVU157
+ 749              		.loc 1 327 5 is_stmt 1 view .LVU157
  328:Core/Src/main.c ****     if (current_time - last_debug > 200) {
- 748              		.loc 1 328 5 view .LVU158
- 749              		.loc 1 328 22 is_stmt 0 view .LVU159
- 750 0124 554B     		ldr	r3, .L71+56
- 751 0126 1B68     		ldr	r3, [r3]
- 752 0128 E31A     		subs	r3, r4, r3
- 753              		.loc 1 328 8 view .LVU160
- 754 012a C82B     		cmp	r3, #200
- 755 012c 1AD9     		bls	.L48
+ 750              		.loc 1 328 5 view .LVU158
+ 751              		.loc 1 328 22 is_stmt 0 view .LVU159
+ 752 0124 564B     		ldr	r3, .L71+60
+ 753 0126 1B68     		ldr	r3, [r3]
+ 754 0128 E31A     		subs	r3, r4, r3
+ 755              		.loc 1 328 8 view .LVU160
+ 756 012a C82B     		cmp	r3, #200
+ 757 012c 1AD9     		bls	.L48
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 22
+
+
  329:Core/Src/main.c ****         last_debug = current_time;
- 756              		.loc 1 329 9 is_stmt 1 view .LVU161
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 22
-
-
- 757              		.loc 1 329 20 is_stmt 0 view .LVU162
- 758 012e 534B     		ldr	r3, .L71+56
- 759 0130 1C60     		str	r4, [r3]
+ 758              		.loc 1 329 9 is_stmt 1 view .LVU161
+ 759              		.loc 1 329 20 is_stmt 0 view .LVU162
+ 760 012e 544B     		ldr	r3, .L71+60
+ 761 0130 1C60     		str	r4, [r3]
  330:Core/Src/main.c ****         if (lower_motor_state == STATE_NORMAL) {
- 760              		.loc 1 330 9 is_stmt 1 view .LVU163
- 761              		.loc 1 330 31 is_stmt 0 view .LVU164
- 762 0132 464B     		ldr	r3, .L71+8
- 763 0134 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 764              		.loc 1 330 12 view .LVU165
- 765 0136 002B     		cmp	r3, #0
- 766 0138 5BD1     		bne	.L49
+ 762              		.loc 1 330 9 is_stmt 1 view .LVU163
+ 763              		.loc 1 330 31 is_stmt 0 view .LVU164
+ 764 0132 464B     		ldr	r3, .L71+8
+ 765 0134 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 766              		.loc 1 330 12 view .LVU165
+ 767 0136 002B     		cmp	r3, #0
+ 768 0138 5BD1     		bne	.L49
  331:Core/Src/main.c ****             printf("[Lower] Mode=%d, State=%d, Angle=%.1f°, Speed=%.1f RPM\n",
- 767              		.loc 1 331 13 is_stmt 1 view .LVU166
- 768 013a 454B     		ldr	r3, .L71+12
- 769 013c 1D78     		ldrb	r5, [r3]	@ zero_extendqisi2
- 770 013e 504B     		ldr	r3, .L71+60
- 771 0140 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
- 772              	.LVL61:
- 773              		.loc 1 331 13 is_stmt 0 view .LVU167
- 774 0142 18EE100A 		vmov	r0, s16
- 775 0146 FFF7FEFF 		bl	__aeabi_f2d
- 776              	.LVL62:
- 777              		.loc 1 331 13 view .LVU168
- 778 014a CDE90201 		strd	r0, [sp, #8]
- 779 014e 3E4B     		ldr	r3, .L71+4
- 780 0150 1868     		ldr	r0, [r3]	@ float
- 781 0152 FFF7FEFF 		bl	__aeabi_f2d
- 782              	.LVL63:
- 783 0156 CDE90001 		strd	r0, [sp]
- 784 015a 2A46     		mov	r2, r5
- 785 015c 2146     		mov	r1, r4
- 786 015e 4948     		ldr	r0, .L71+64
- 787 0160 FFF7FEFF 		bl	printf
- 788              	.LVL64:
- 789              	.L48:
+ 769              		.loc 1 331 13 is_stmt 1 view .LVU166
+ 770 013a 454B     		ldr	r3, .L71+12
+ 771 013c 1D78     		ldrb	r5, [r3]	@ zero_extendqisi2
+ 772 013e 514B     		ldr	r3, .L71+64
+ 773 0140 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+ 774              	.LVL62:
+ 775              		.loc 1 331 13 is_stmt 0 view .LVU167
+ 776 0142 18EE100A 		vmov	r0, s16
+ 777 0146 FFF7FEFF 		bl	__aeabi_f2d
+ 778              	.LVL63:
+ 779              		.loc 1 331 13 view .LVU168
+ 780 014a CDE90201 		strd	r0, [sp, #8]
+ 781 014e 3E4B     		ldr	r3, .L71+4
+ 782 0150 1868     		ldr	r0, [r3]	@ float
+ 783 0152 FFF7FEFF 		bl	__aeabi_f2d
+ 784              	.LVL64:
+ 785 0156 CDE90001 		strd	r0, [sp]
+ 786 015a 2A46     		mov	r2, r5
+ 787 015c 2146     		mov	r1, r4
+ 788 015e 4A48     		ldr	r0, .L71+68
+ 789 0160 FFF7FEFF 		bl	printf
+ 790              	.LVL65:
+ 791              	.L48:
  332:Core/Src/main.c ****                    current_mode, lower_state, accumulated_angle, target_speed);
  333:Core/Src/main.c ****         } else {
  334:Core/Src/main.c ****             printf("[Lower] RETURNING: Current=%.1f°, Target=%.1f°, Error=%.1f°\n",
@@ -1306,262 +1308,263 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  339:Core/Src/main.c ****     
  340:Core/Src/main.c ****     // 设置下电机目标
  341:Core/Src/main.c ****     if (lower_motor_state == STATE_NORMAL) {
- 790              		.loc 1 341 5 is_stmt 1 view .LVU169
- 791              		.loc 1 341 27 is_stmt 0 view .LVU170
- 792 0164 394B     		ldr	r3, .L71+8
- 793 0166 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 794              		.loc 1 341 8 view .LVU171
- 795 0168 002B     		cmp	r3, #0
- 796 016a 62D1     		bne	.L50
+ 792              		.loc 1 341 5 is_stmt 1 view .LVU169
+ 793              		.loc 1 341 27 is_stmt 0 view .LVU170
+ 794 0164 394B     		ldr	r3, .L71+8
+ 795 0166 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 796              		.loc 1 341 8 view .LVU171
+ 797 0168 002B     		cmp	r3, #0
+ 798 016a 62D1     		bne	.L50
  342:Core/Src/main.c ****         Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, target_speed);
- 797              		.loc 1 342 9 is_stmt 1 view .LVU172
- 798 016c B0EE480A 		vmov.f32	s0, s16
- 799 0170 0121     		movs	r1, #1
- 800 0172 0320     		movs	r0, #3
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 23
+ 799              		.loc 1 342 9 is_stmt 1 view .LVU172
+ 800 016c B0EE480A 		vmov.f32	s0, s16
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 23
 
 
- 801 0174 FFF7FEFF 		bl	Motor_Set_Target
- 802              	.LVL65:
- 803              	.L32:
+ 801 0170 0121     		movs	r1, #1
+ 802 0172 0320     		movs	r0, #3
+ 803 0174 FFF7FEFF 		bl	Motor_Set_Target
+ 804              	.LVL66:
+ 805              	.L32:
  343:Core/Src/main.c ****     } else {
  344:Core/Src/main.c ****         // 位置模式需要串级控制
  345:Core/Src/main.c ****         Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_POS_CASCADE, lower_motor_target_angle);
  346:Core/Src/main.c ****     }
  347:Core/Src/main.c **** }
- 804              		.loc 1 347 1 is_stmt 0 view .LVU173
- 805 0178 05B0     		add	sp, sp, #20
- 806              	.LCFI15:
- 807              		.cfi_remember_state
- 808              		.cfi_def_cfa_offset 28
- 809              		@ sp needed
- 810 017a BDEC048B 		vldm	sp!, {d8-d9}
- 811              	.LCFI16:
- 812              		.cfi_restore 82
- 813              		.cfi_restore 83
- 814              		.cfi_restore 80
- 815              		.cfi_restore 81
- 816              		.cfi_def_cfa_offset 12
- 817              	.LVL66:
- 818              		.loc 1 347 1 view .LVU174
- 819 017e 30BD     		pop	{r4, r5, pc}
- 820              	.LVL67:
- 821              	.L69:
- 822              	.LCFI17:
- 823              		.cfi_restore_state
- 824              	.LBB7:
+ 806              		.loc 1 347 1 is_stmt 0 view .LVU173
+ 807 0178 05B0     		add	sp, sp, #20
+ 808              	.LCFI15:
+ 809              		.cfi_remember_state
+ 810              		.cfi_def_cfa_offset 28
+ 811              		@ sp needed
+ 812 017a BDEC048B 		vldm	sp!, {d8-d9}
+ 813              	.LCFI16:
+ 814              		.cfi_restore 82
+ 815              		.cfi_restore 83
+ 816              		.cfi_restore 80
+ 817              		.cfi_restore 81
+ 818              		.cfi_def_cfa_offset 12
+ 819              	.LVL67:
+ 820              		.loc 1 347 1 view .LVU174
+ 821 017e 30BD     		pop	{r4, r5, pc}
+ 822              	.LVL68:
+ 823              	.L69:
+ 824              	.LCFI17:
+ 825              		.cfi_restore_state
+ 826              	.LBB7:
  296:Core/Src/main.c ****         
- 825              		.loc 1 296 9 is_stmt 1 view .LVU175
+ 827              		.loc 1 296 9 is_stmt 1 view .LVU175
  296:Core/Src/main.c ****         
- 826              		.loc 1 296 54 is_stmt 0 view .LVU176
- 827 0180 414B     		ldr	r3, .L71+68
- 828 0182 93ED007A 		vldr.32	s14, [r3]
+ 828              		.loc 1 296 54 is_stmt 0 view .LVU176
+ 829 0180 424B     		ldr	r3, .L71+72
+ 830 0182 93ED007A 		vldr.32	s14, [r3]
  296:Core/Src/main.c ****         
- 829              		.loc 1 296 15 view .LVU177
- 830 0186 77EE677A 		vsub.f32	s15, s14, s15
- 831              	.LVL68:
+ 831              		.loc 1 296 15 view .LVU177
+ 832 0186 77EE677A 		vsub.f32	s15, s14, s15
+ 833              	.LVL69:
  299:Core/Src/main.c ****             lower_motor_state = STATE_NORMAL;
- 832              		.loc 1 299 9 is_stmt 1 view .LVU178
+ 834              		.loc 1 299 9 is_stmt 1 view .LVU178
  299:Core/Src/main.c ****             lower_motor_state = STATE_NORMAL;
- 833              		.loc 1 299 13 is_stmt 0 view .LVU179
- 834 018a F0EEE76A 		vabs.f32	s13, s15
+ 835              		.loc 1 299 13 is_stmt 0 view .LVU179
+ 836 018a F0EEE76A 		vabs.f32	s13, s15
  299:Core/Src/main.c ****             lower_motor_state = STATE_NORMAL;
- 835              		.loc 1 299 12 view .LVU180
- 836 018e B7EE007A 		vmov.f32	s14, #1.0e+0
- 837 0192 F4EEC76A 		vcmpe.f32	s13, s14
- 838 0196 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 839 019a 07D4     		bmi	.L70
+ 837              		.loc 1 299 12 view .LVU180
+ 838 018e B7EE007A 		vmov.f32	s14, #1.0e+0
+ 839 0192 F4EEC76A 		vcmpe.f32	s13, s14
+ 840 0196 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 841 019a 07D4     		bmi	.L70
  318:Core/Src/main.c ****                 target_speed = POSITION_RETURN_SPEED; // 正向
- 840              		.loc 1 318 13 is_stmt 1 view .LVU181
+ 842              		.loc 1 318 13 is_stmt 1 view .LVU181
  318:Core/Src/main.c ****                 target_speed = POSITION_RETURN_SPEED; // 正向
- 841              		.loc 1 318 16 is_stmt 0 view .LVU182
- 842 019c F5EEC07A 		vcmpe.f32	s15, #0
- 843 01a0 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 844 01a4 22DD     		ble	.L65
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 24
+ 843              		.loc 1 318 16 is_stmt 0 view .LVU182
+ 844 019c F5EEC07A 		vcmpe.f32	s15, #0
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 24
 
 
+ 845 01a0 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 846 01a4 22DD     		ble	.L65
  319:Core/Src/main.c ****             } else {
- 845              		.loc 1 319 30 view .LVU183
- 846 01a6 9FED398A 		vldr.32	s16, .L71+72
- 847 01aa BBE7     		b	.L34
- 848              	.L70:
+ 847              		.loc 1 319 30 view .LVU183
+ 848 01a6 9FED3A8A 		vldr.32	s16, .L71+76
+ 849 01aa BBE7     		b	.L34
+ 850              	.L70:
  300:Core/Src/main.c ****             lower_state = ACCUM_POS; // 重置状态机
- 849              		.loc 1 300 13 is_stmt 1 view .LVU184
+ 851              		.loc 1 300 13 is_stmt 1 view .LVU184
  300:Core/Src/main.c ****             lower_state = ACCUM_POS; // 重置状态机
- 850              		.loc 1 300 31 is_stmt 0 view .LVU185
- 851 01ac 0023     		movs	r3, #0
- 852 01ae 274A     		ldr	r2, .L71+8
- 853 01b0 1370     		strb	r3, [r2]
+ 852              		.loc 1 300 31 is_stmt 0 view .LVU185
+ 853 01ac 0023     		movs	r3, #0
+ 854 01ae 274A     		ldr	r2, .L71+8
+ 855 01b0 1370     		strb	r3, [r2]
  301:Core/Src/main.c ****             accumulated_angle = 0.0f;
- 854              		.loc 1 301 13 is_stmt 1 view .LVU186
+ 856              		.loc 1 301 13 is_stmt 1 view .LVU186
  301:Core/Src/main.c ****             accumulated_angle = 0.0f;
- 855              		.loc 1 301 25 is_stmt 0 view .LVU187
- 856 01b2 274A     		ldr	r2, .L71+12
- 857 01b4 1370     		strb	r3, [r2]
+ 857              		.loc 1 301 25 is_stmt 0 view .LVU187
+ 858 01b2 274A     		ldr	r2, .L71+12
+ 859 01b4 1370     		strb	r3, [r2]
  302:Core/Src/main.c ****             target_speed = 0.0f;
- 858              		.loc 1 302 13 is_stmt 1 view .LVU188
+ 860              		.loc 1 302 13 is_stmt 1 view .LVU188
  302:Core/Src/main.c ****             target_speed = 0.0f;
- 859              		.loc 1 302 31 is_stmt 0 view .LVU189
- 860 01b6 244B     		ldr	r3, .L71+4
- 861 01b8 0022     		movs	r2, #0
- 862 01ba 1A60     		str	r2, [r3]	@ float
+ 861              		.loc 1 302 31 is_stmt 0 view .LVU189
+ 862 01b6 244B     		ldr	r3, .L71+4
+ 863 01b8 0022     		movs	r2, #0
+ 864 01ba 1A60     		str	r2, [r3]	@ float
  303:Core/Src/main.c ****             printf("=== RETURN TO INITIAL POSITION COMPLETE ===\n");
- 863              		.loc 1 303 13 is_stmt 1 view .LVU190
+ 865              		.loc 1 303 13 is_stmt 1 view .LVU190
  304:Core/Src/main.c ****             
- 864              		.loc 1 304 13 view .LVU191
- 865 01bc 3448     		ldr	r0, .L71+76
- 866              	.LVL69:
+ 866              		.loc 1 304 13 view .LVU191
+ 867 01bc 3548     		ldr	r0, .L71+80
+ 868              	.LVL70:
  304:Core/Src/main.c ****             
- 867              		.loc 1 304 13 is_stmt 0 view .LVU192
- 868 01be FFF7FEFF 		bl	puts
- 869              	.LVL70:
+ 869              		.loc 1 304 13 is_stmt 0 view .LVU192
+ 870 01be FFF7FEFF 		bl	puts
+ 871              	.LVL71:
  307:Core/Src/main.c ****                 // 保持停止
- 870              		.loc 1 307 13 is_stmt 1 view .LVU193
+ 872              		.loc 1 307 13 is_stmt 1 view .LVU193
  307:Core/Src/main.c ****                 // 保持停止
- 871              		.loc 1 307 30 is_stmt 0 view .LVU194
- 872 01c2 2F4B     		ldr	r3, .L71+60
- 873 01c4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 873              		.loc 1 307 30 is_stmt 0 view .LVU194
+ 874 01c2 304B     		ldr	r3, .L71+64
+ 875 01c4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  307:Core/Src/main.c ****                 // 保持停止
- 874              		.loc 1 307 16 view .LVU195
- 875 01c6 012B     		cmp	r3, #1
- 876 01c8 04D0     		beq	.L46
+ 876              		.loc 1 307 16 view .LVU195
+ 877 01c6 012B     		cmp	r3, #1
+ 878 01c8 04D0     		beq	.L46
  307:Core/Src/main.c ****                 // 保持停止
- 877              		.loc 1 307 51 discriminator 1 view .LVU196
- 878 01ca 032B     		cmp	r3, #3
- 879 01cc 02D0     		beq	.L46
+ 879              		.loc 1 307 51 discriminator 1 view .LVU196
+ 880 01ca 032B     		cmp	r3, #3
+ 881 01cc 02D0     		beq	.L46
  312:Core/Src/main.c ****             }
- 880              		.loc 1 312 30 view .LVU197
- 881 01ce 9FED228A 		vldr.32	s16, .L71+20
- 882 01d2 A7E7     		b	.L34
- 883              	.L46:
+ 882              		.loc 1 312 30 view .LVU197
+ 883 01ce 9FED228A 		vldr.32	s16, .L71+20
+ 884 01d2 A7E7     		b	.L34
+ 885              	.L46:
  309:Core/Src/main.c ****             } else {
- 884              		.loc 1 309 17 is_stmt 1 view .LVU198
- 885 01d4 9FED2F0A 		vldr.32	s0, .L71+80
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 25
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 25
 
 
- 886 01d8 0021     		movs	r1, #0
- 887 01da 0320     		movs	r0, #3
- 888 01dc FFF7FEFF 		bl	Motor_Set_Target
- 889              	.LVL71:
+ 886              		.loc 1 309 17 is_stmt 1 view .LVU198
+ 887 01d4 9FED300A 		vldr.32	s0, .L71+84
+ 888 01d8 0021     		movs	r1, #0
+ 889 01da 0320     		movs	r0, #3
+ 890 01dc FFF7FEFF 		bl	Motor_Set_Target
+ 891              	.LVL72:
  303:Core/Src/main.c ****             printf("=== RETURN TO INITIAL POSITION COMPLETE ===\n");
- 890              		.loc 1 303 26 is_stmt 0 view .LVU199
- 891 01e0 9FED1D8A 		vldr.32	s16, .L71+20
+ 892              		.loc 1 303 26 is_stmt 0 view .LVU199
+ 893 01e0 9FED218A 		vldr.32	s16, .L71+36
  309:Core/Src/main.c ****             } else {
- 892              		.loc 1 309 17 view .LVU200
- 893 01e4 9EE7     		b	.L34
- 894              	.LVL72:
- 895              	.L52:
+ 894              		.loc 1 309 17 view .LVU200
+ 895 01e4 9EE7     		b	.L34
+ 896              	.LVL73:
+ 897              	.L52:
  309:Core/Src/main.c ****             } else {
- 896              		.loc 1 309 17 view .LVU201
- 897              	.LBE7:
+ 898              		.loc 1 309 17 view .LVU201
+ 899              	.LBE7:
  251:Core/Src/main.c ****             case ACCUM_POS:
- 898              		.loc 1 251 9 view .LVU202
- 899 01e6 9FED1C8A 		vldr.32	s16, .L71+20
- 900 01ea 9BE7     		b	.L34
- 901              	.LVL73:
- 902              	.L65:
- 903              	.LBB8:
+ 900              		.loc 1 251 9 view .LVU202
+ 901 01e6 9FED208A 		vldr.32	s16, .L71+36
+ 902 01ea 9BE7     		b	.L34
+ 903              	.LVL74:
+ 904              	.L65:
+ 905              	.LBB8:
  321:Core/Src/main.c ****             }
- 904              		.loc 1 321 30 view .LVU203
- 905 01ec 9FED2A8A 		vldr.32	s16, .L71+84
- 906 01f0 98E7     		b	.L34
- 907              	.LVL74:
- 908              	.L49:
+ 906              		.loc 1 321 30 view .LVU203
+ 907 01ec 9FED2B8A 		vldr.32	s16, .L71+88
+ 908 01f0 98E7     		b	.L34
+ 909              	.LVL75:
+ 910              	.L49:
  321:Core/Src/main.c ****             }
- 909              		.loc 1 321 30 view .LVU204
- 910              	.LBE8:
+ 911              		.loc 1 321 30 view .LVU204
+ 912              	.LBE8:
  334:Core/Src/main.c ****                    lower_motor->total_angle, lower_motor_target_angle, 
- 911              		.loc 1 334 13 is_stmt 1 view .LVU205
+ 913              		.loc 1 334 13 is_stmt 1 view .LVU205
  335:Core/Src/main.c ****                    lower_motor_target_angle - lower_motor->total_angle);
- 912              		.loc 1 335 31 is_stmt 0 view .LVU206
- 913 01f2 144B     		ldr	r3, .L71
- 914 01f4 D3ED807A 		vldr.32	s15, [r3, #512]
+ 914              		.loc 1 335 31 is_stmt 0 view .LVU206
+ 915 01f2 144B     		ldr	r3, .L71
+ 916 01f4 D3ED807A 		vldr.32	s15, [r3, #512]
  334:Core/Src/main.c ****                    lower_motor->total_angle, lower_motor_target_angle, 
- 915              		.loc 1 334 13 view .LVU207
- 916 01f8 234B     		ldr	r3, .L71+68
- 917 01fa D3ED008A 		vldr.32	s17, [r3]
+ 917              		.loc 1 334 13 view .LVU207
+ 918 01f8 244B     		ldr	r3, .L71+72
+ 919 01fa D3ED008A 		vldr.32	s17, [r3]
  336:Core/Src/main.c ****         }
- 918              		.loc 1 336 45 view .LVU208
- 919 01fe 38EEE79A 		vsub.f32	s18, s17, s15
+ 920              		.loc 1 336 45 view .LVU208
+ 921 01fe 38EEE79A 		vsub.f32	s18, s17, s15
  334:Core/Src/main.c ****                    lower_motor->total_angle, lower_motor_target_angle, 
- 920              		.loc 1 334 13 view .LVU209
- 921 0202 17EE900A 		vmov	r0, s15
- 922 0206 FFF7FEFF 		bl	__aeabi_f2d
- 923              	.LVL75:
- 924 020a 0446     		mov	r4, r0
+ 922              		.loc 1 334 13 view .LVU209
+ 923 0202 17EE900A 		vmov	r0, s15
+ 924 0206 FFF7FEFF 		bl	__aeabi_f2d
  925              	.LVL76:
+ 926 020a 0446     		mov	r4, r0
+ 927              	.LVL77:
  334:Core/Src/main.c ****                    lower_motor->total_angle, lower_motor_target_angle, 
- 926              		.loc 1 334 13 view .LVU210
- 927 020c 0D46     		mov	r5, r1
- 928 020e 19EE100A 		vmov	r0, s18
- 929 0212 FFF7FEFF 		bl	__aeabi_f2d
- 930              	.LVL77:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 26
+ 928              		.loc 1 334 13 view .LVU210
+ 929 020c 0D46     		mov	r5, r1
+ 930 020e 19EE100A 		vmov	r0, s18
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 26
 
 
- 931 0216 CDE90201 		strd	r0, [sp, #8]
- 932 021a 18EE900A 		vmov	r0, s17
- 933 021e FFF7FEFF 		bl	__aeabi_f2d
- 934              	.LVL78:
- 935 0222 CDE90001 		strd	r0, [sp]
- 936 0226 2246     		mov	r2, r4
- 937 0228 2B46     		mov	r3, r5
- 938 022a 1C48     		ldr	r0, .L71+88
- 939 022c FFF7FEFF 		bl	printf
- 940              	.LVL79:
- 941 0230 98E7     		b	.L48
- 942              	.L50:
+ 931 0212 FFF7FEFF 		bl	__aeabi_f2d
+ 932              	.LVL78:
+ 933 0216 CDE90201 		strd	r0, [sp, #8]
+ 934 021a 18EE900A 		vmov	r0, s17
+ 935 021e FFF7FEFF 		bl	__aeabi_f2d
+ 936              	.LVL79:
+ 937 0222 CDE90001 		strd	r0, [sp]
+ 938 0226 2246     		mov	r2, r4
+ 939 0228 2B46     		mov	r3, r5
+ 940 022a 1D48     		ldr	r0, .L71+92
+ 941 022c FFF7FEFF 		bl	printf
+ 942              	.LVL80:
+ 943 0230 98E7     		b	.L48
+ 944              	.L50:
  345:Core/Src/main.c ****     }
- 943              		.loc 1 345 9 is_stmt 1 view .LVU211
- 944 0232 154B     		ldr	r3, .L71+68
- 945 0234 93ED000A 		vldr.32	s0, [r3]
- 946 0238 0221     		movs	r1, #2
- 947 023a 0320     		movs	r0, #3
- 948 023c FFF7FEFF 		bl	Motor_Set_Target
- 949              	.LVL80:
- 950              		.loc 1 347 1 is_stmt 0 view .LVU212
- 951 0240 9AE7     		b	.L32
- 952              	.L72:
- 953 0242 00BF     		.align	2
- 954              	.L71:
- 955 0244 00000000 		.word	gm6020_motors
- 956 0248 00000000 		.word	accumulated_angle
- 957 024c 00000000 		.word	lower_motor_state
- 958 0250 00000000 		.word	lower_state
- 959 0254 00401245 		.word	1158823936
- 960 0258 00000000 		.word	0
- 961 025c 00000000 		.word	transition_start_time
- 962 0260 00000000 		.word	.LC5
- 963 0264 0000FA43 		.word	1140457472
- 964 0268 2C000000 		.word	.LC6
- 965 026c 004012C5 		.word	-988659712
- 966 0270 00000080 		.word	-2147483648
- 967 0274 54000000 		.word	.LC7
- 968 0278 80000000 		.word	.LC8
- 969 027c 00000000 		.word	last_debug.1
- 970 0280 00000000 		.word	current_mode
- 971 0284 D4000000 		.word	.LC10
- 972 0288 00000000 		.word	lower_motor_target_angle
- 973 028c 0000F042 		.word	1123024896
- 974 0290 A8000000 		.word	.LC9
- 975 0294 00009643 		.word	1133903872
- 976 0298 0000F0C2 		.word	-1024458752
- 977 029c 10010000 		.word	.LC11
- 978              		.cfi_endproc
- 979              	.LFE141:
- 981              		.section	.text.Error_Handler,"ax",%progbits
- 982              		.align	1
- 983              		.global	Error_Handler
- 984              		.syntax unified
- 985              		.thumb
- 986              		.thumb_func
- 988              	Error_Handler:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 27
+ 945              		.loc 1 345 9 is_stmt 1 view .LVU211
+ 946 0232 164B     		ldr	r3, .L71+72
+ 947 0234 93ED000A 		vldr.32	s0, [r3]
+ 948 0238 0221     		movs	r1, #2
+ 949 023a 0320     		movs	r0, #3
+ 950 023c FFF7FEFF 		bl	Motor_Set_Target
+ 951              	.LVL81:
+ 952              		.loc 1 347 1 is_stmt 0 view .LVU212
+ 953 0240 9AE7     		b	.L32
+ 954              	.L72:
+ 955 0242 00BF     		.align	2
+ 956              	.L71:
+ 957 0244 00000000 		.word	gm6020_motors
+ 958 0248 00000000 		.word	accumulated_angle
+ 959 024c 00000000 		.word	lower_motor_state
+ 960 0250 00000000 		.word	lower_state
+ 961 0254 00401245 		.word	1158823936
+ 962 0258 00003443 		.word	1127481344
+ 963 025c 00000000 		.word	transition_start_time
+ 964 0260 00000000 		.word	.LC5
+ 965 0264 0000FA43 		.word	1140457472
+ 966 0268 00000000 		.word	0
+ 967 026c 2C000000 		.word	.LC6
+ 968 0270 004012C5 		.word	-988659712
+ 969 0274 000034C3 		.word	-1020002304
+ 970 0278 54000000 		.word	.LC7
+ 971 027c 80000000 		.word	.LC8
+ 972 0280 00000000 		.word	last_debug.1
+ 973 0284 00000000 		.word	current_mode
+ 974 0288 D4000000 		.word	.LC10
+ 975 028c 00000000 		.word	lower_motor_target_angle
+ 976 0290 0000F042 		.word	1123024896
+ 977 0294 A8000000 		.word	.LC9
+ 978 0298 00009643 		.word	1133903872
+ 979 029c 0000F0C2 		.word	-1024458752
+ 980 02a0 10010000 		.word	.LC11
+ 981              		.cfi_endproc
+ 982              	.LFE141:
+ 984              		.section	.text.Error_Handler,"ax",%progbits
+ 985              		.align	1
+ 986              		.global	Error_Handler
+ 987              		.syntax unified
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 27
 
 
- 989              	.LFB144:
+ 988              		.thumb
+ 989              		.thumb_func
+ 991              	Error_Handler:
+ 992              	.LFB144:
  348:Core/Src/main.c **** /* USER CODE END 0 */
  349:Core/Src/main.c **** 
  350:Core/Src/main.c **** /**
@@ -1615,12 +1618,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  398:Core/Src/main.c ****             // 2. 更新下电机控制 (根据模式)
  399:Core/Src/main.c ****             if (current_mode == MODE_BOTH_MOVING || 
  400:Core/Src/main.c ****                 current_mode == MODE_LOWER_MOVING) {
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 28
+
+
  401:Core/Src/main.c ****                 Update_Lower_Motor_Control();
  402:Core/Src/main.c ****             }
  403:Core/Src/main.c ****             
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 28
-
-
  404:Core/Src/main.c ****             // 3. 更新上电机控制 (根据模式)
  405:Core/Src/main.c ****             if (current_mode == MODE_BOTH_MOVING || 
  406:Core/Src/main.c ****                 current_mode == MODE_UPPER_MOVING) {
@@ -1675,12 +1678,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  455:Core/Src/main.c ****     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
  456:Core/Src/main.c ****     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
  457:Core/Src/main.c **** 
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 29
+
+
  458:Core/Src/main.c ****     if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
  459:Core/Src/main.c ****     {
  460:Core/Src/main.c ****         Error_Handler();
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 29
-
-
  461:Core/Src/main.c ****     }
  462:Core/Src/main.c **** }
  463:Core/Src/main.c **** 
@@ -1694,18 +1697,18 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  471:Core/Src/main.c ****   */
  472:Core/Src/main.c **** void Error_Handler(void)
  473:Core/Src/main.c **** {
- 990              		.loc 1 473 1 is_stmt 1 view -0
- 991              		.cfi_startproc
- 992              		@ Volatile: function does not return.
- 993              		@ args = 0, pretend = 0, frame = 0
- 994              		@ frame_needed = 0, uses_anonymous_args = 0
- 995              		@ link register save eliminated.
+ 993              		.loc 1 473 1 is_stmt 1 view -0
+ 994              		.cfi_startproc
+ 995              		@ Volatile: function does not return.
+ 996              		@ args = 0, pretend = 0, frame = 0
+ 997              		@ frame_needed = 0, uses_anonymous_args = 0
+ 998              		@ link register save eliminated.
  474:Core/Src/main.c ****     /* USER CODE BEGIN Error_Handler_Debug */
  475:Core/Src/main.c ****     __disable_irq();
- 996              		.loc 1 475 5 view .LVU214
- 997              	.LBB9:
- 998              	.LBI9:
- 999              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ 999              		.loc 1 475 5 view .LVU214
+ 1000              	.LBB9:
+ 1001              	.LBI9:
+ 1002              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -1735,12 +1738,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
   27:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   28:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ignore some GCC warnings */
   29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 30
+
+
   30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
   32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 30
-
-
   33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
   35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
@@ -1795,12 +1798,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
   84:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
   85:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 31
+
+
   87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 31
-
-
   90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
   91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
   92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
@@ -1855,12 +1858,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  141:Drivers/CMSIS/Include/cmsis_gcc.h ****   typedef struct {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t* dest;
  143:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t  wlen;
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 32
+
+
  144:Drivers/CMSIS/Include/cmsis_gcc.h ****   } __zero_table_t;
  145:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  146:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_start__;
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 32
-
-
  147:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_end__;
  148:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_start__;
  149:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_end__;
@@ -1915,12 +1918,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  198:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  199:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_STACKSEAL_S (uint32_t* stackTop) {
  200:Drivers/CMSIS/Include/cmsis_gcc.h ****   *((uint64_t *)stackTop) = __TZ_STACK_SEAL_VALUE;
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 33
+
+
  201:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  202:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  203:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 33
-
-
  204:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  205:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ##########################  Core Instruction Access  ######################### */
  206:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
@@ -1975,12 +1978,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  255:Drivers/CMSIS/Include/cmsis_gcc.h ****            so that all instructions following the ISB are fetched from cache or memory,
  256:Drivers/CMSIS/Include/cmsis_gcc.h ****            after the instruction has been completed.
  257:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 34
+
+
  258:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __ISB(void)
  259:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  260:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("isb 0xF":::"memory");
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 34
-
-
  261:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  262:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  263:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -2035,12 +2038,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  312:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  313:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  314:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 35
+
+
  315:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM ("rev16 %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
  316:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
  317:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 35
-
-
  318:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  319:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  320:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -2095,12 +2098,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  369:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Reverses the bit order of the given value.
  370:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    value  Value to reverse
  371:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Reversed value
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 36
+
+
  372:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  373:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __RBIT(uint32_t value)
  374:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 36
-
-
  375:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  376:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  377:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
@@ -2155,12 +2158,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  426:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  427:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   LDR Exclusive (8 bit)
  428:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a exclusive LDR instruction for 8 bit value.
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 37
+
+
  429:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  430:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return             value of type uint8_t at (*ptr)
  431:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 37
-
-
  432:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint8_t __LDREXB(volatile uint8_t *addr)
  433:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  434:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t result;
@@ -2215,12 +2218,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  483:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  484:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  485:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 38
+
+
  486:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   STR Exclusive (8 bit)
  487:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a exclusive STR instruction for 8 bit values.
  488:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 38
-
-
  489:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  490:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          0  Function succeeded
  491:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          1  Function failed
@@ -2275,12 +2278,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  540:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __CLREX(void)
  541:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  542:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("clrex" ::: "memory");
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 39
+
+
  543:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  544:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  545:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 39
-
-
  546:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
  547:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
  548:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
@@ -2335,12 +2338,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  597:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("rrx %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
  598:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  599:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 40
+
+
  600:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  601:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  602:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 40
-
-
  603:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   LDRT Unprivileged (8 bit)
  604:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a Unprivileged LDRT instruction for 8 bit value.
  605:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
@@ -2395,12 +2398,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  654:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t result;
  655:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  656:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 41
+
+
  657:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
  658:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  659:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 41
-
-
  660:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  661:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  662:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   STRT Unprivileged (8 bit)
@@ -2455,12 +2458,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  711:Drivers/CMSIS/Include/cmsis_gcc.h ****     const int32_t max = (int32_t)((1U << (sat - 1U)) - 1U);
  712:Drivers/CMSIS/Include/cmsis_gcc.h ****     const int32_t min = -1 - max ;
  713:Drivers/CMSIS/Include/cmsis_gcc.h ****     if (val > max)
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 42
+
+
  714:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
  715:Drivers/CMSIS/Include/cmsis_gcc.h ****       return max;
  716:Drivers/CMSIS/Include/cmsis_gcc.h ****     }
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 42
-
-
  717:Drivers/CMSIS/Include/cmsis_gcc.h ****     else if (val < min)
  718:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
  719:Drivers/CMSIS/Include/cmsis_gcc.h ****       return min;
@@ -2515,12 +2518,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  768:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  769:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  770:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 43
+
+
  771:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  772:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Load-Acquire (16 bit)
  773:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a LDAH instruction for 16 bit values.
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 43
-
-
  774:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  775:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
  776:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -2575,12 +2578,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  825:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  826:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Store-Release (32 bit)
  827:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a STL instruction for 32 bit values.
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 44
+
+
  828:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  829:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  830:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 44
-
-
  831:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __STL(uint32_t value, volatile uint32_t *ptr)
  832:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  833:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("stl %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) : "memory" );
@@ -2635,12 +2638,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  882:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  883:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Store-Release Exclusive (8 bit)
  884:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a STLB exclusive instruction for 8 bit values.
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 45
+
+
  885:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  886:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  887:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          0  Function succeeded
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 45
-
-
  888:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          1  Function failed
  889:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  890:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STLEXB(uint8_t value, volatile uint8_t *ptr)
@@ -2695,12 +2698,12 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  939:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
  940:Drivers/CMSIS/Include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
  941:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 46
+
+
  942:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  943:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  944:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 46
-
-
  945:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
  946:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing special-purpose register PRIMASK.
  947:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
@@ -2717,634 +2720,634 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 1
  958:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  959:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  960:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
- 1000              		.loc 2 960 27 view .LVU215
- 1001              	.LBB10:
+ 1003              		.loc 2 960 27 view .LVU215
+ 1004              	.LBB10:
  961:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  962:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 1002              		.loc 2 962 3 view .LVU216
- 1003              		.syntax unified
- 1004              	@ 962 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 1005 0000 72B6     		cpsid i
- 1006              	@ 0 "" 2
- 1007              		.thumb
- 1008              		.syntax unified
- 1009              	.L74:
- 1010              	.LBE10:
- 1011              	.LBE9:
+ 1005              		.loc 2 962 3 view .LVU216
+ 1006              		.syntax unified
+ 1007              	@ 962 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 1008 0000 72B6     		cpsid i
+ 1009              	@ 0 "" 2
+ 1010              		.thumb
+ 1011              		.syntax unified
+ 1012              	.L74:
+ 1013              	.LBE10:
+ 1014              	.LBE9:
  476:Core/Src/main.c ****     while (1)
- 1012              		.loc 1 476 5 view .LVU217
+ 1015              		.loc 1 476 5 view .LVU217
  477:Core/Src/main.c ****     {
  478:Core/Src/main.c ****     }
- 1013              		.loc 1 478 5 view .LVU218
+ 1016              		.loc 1 478 5 view .LVU218
  476:Core/Src/main.c ****     while (1)
- 1014              		.loc 1 476 11 view .LVU219
- 1015 0002 FEE7     		b	.L74
- 1016              		.cfi_endproc
- 1017              	.LFE144:
- 1019              		.section	.text.SystemClock_Config,"ax",%progbits
- 1020              		.align	1
- 1021              		.global	SystemClock_Config
- 1022              		.syntax unified
- 1023              		.thumb
- 1024              		.thumb_func
- 1026              	SystemClock_Config:
- 1027              	.LFB143:
+ 1017              		.loc 1 476 11 view .LVU219
+ 1018 0002 FEE7     		b	.L74
+ 1019              		.cfi_endproc
+ 1020              	.LFE144:
+ 1022              		.section	.text.SystemClock_Config,"ax",%progbits
+ 1023              		.align	1
+ 1024              		.global	SystemClock_Config
+ 1025              		.syntax unified
+ 1026              		.thumb
+ 1027              		.thumb_func
+ 1029              	SystemClock_Config:
+ 1030              	.LFB143:
  431:Core/Src/main.c ****     RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 1028              		.loc 1 431 1 view -0
- 1029              		.cfi_startproc
- 1030              		@ args = 0, pretend = 0, frame = 80
- 1031              		@ frame_needed = 0, uses_anonymous_args = 0
- 1032 0000 00B5     		push	{lr}
- 1033              	.LCFI18:
- 1034              		.cfi_def_cfa_offset 4
- 1035              		.cfi_offset 14, -4
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 47
+ 1031              		.loc 1 431 1 view -0
+ 1032              		.cfi_startproc
+ 1033              		@ args = 0, pretend = 0, frame = 80
+ 1034              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1035 0000 00B5     		push	{lr}
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 47
 
 
- 1036 0002 95B0     		sub	sp, sp, #84
- 1037              	.LCFI19:
- 1038              		.cfi_def_cfa_offset 88
+ 1036              	.LCFI18:
+ 1037              		.cfi_def_cfa_offset 4
+ 1038              		.cfi_offset 14, -4
+ 1039 0002 95B0     		sub	sp, sp, #84
+ 1040              	.LCFI19:
+ 1041              		.cfi_def_cfa_offset 88
  432:Core/Src/main.c ****     RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 1039              		.loc 1 432 5 view .LVU221
+ 1042              		.loc 1 432 5 view .LVU221
  432:Core/Src/main.c ****     RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 1040              		.loc 1 432 24 is_stmt 0 view .LVU222
- 1041 0004 3022     		movs	r2, #48
- 1042 0006 0021     		movs	r1, #0
- 1043 0008 08A8     		add	r0, sp, #32
- 1044 000a FFF7FEFF 		bl	memset
- 1045              	.LVL81:
+ 1043              		.loc 1 432 24 is_stmt 0 view .LVU222
+ 1044 0004 3022     		movs	r2, #48
+ 1045 0006 0021     		movs	r1, #0
+ 1046 0008 08A8     		add	r0, sp, #32
+ 1047 000a FFF7FEFF 		bl	memset
+ 1048              	.LVL82:
  433:Core/Src/main.c **** 
- 1046              		.loc 1 433 5 is_stmt 1 view .LVU223
+ 1049              		.loc 1 433 5 is_stmt 1 view .LVU223
  433:Core/Src/main.c **** 
- 1047              		.loc 1 433 24 is_stmt 0 view .LVU224
- 1048 000e 0023     		movs	r3, #0
- 1049 0010 0393     		str	r3, [sp, #12]
- 1050 0012 0493     		str	r3, [sp, #16]
- 1051 0014 0593     		str	r3, [sp, #20]
- 1052 0016 0693     		str	r3, [sp, #24]
- 1053 0018 0793     		str	r3, [sp, #28]
+ 1050              		.loc 1 433 24 is_stmt 0 view .LVU224
+ 1051 000e 0023     		movs	r3, #0
+ 1052 0010 0393     		str	r3, [sp, #12]
+ 1053 0012 0493     		str	r3, [sp, #16]
+ 1054 0014 0593     		str	r3, [sp, #20]
+ 1055 0016 0693     		str	r3, [sp, #24]
+ 1056 0018 0793     		str	r3, [sp, #28]
  435:Core/Src/main.c ****     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 1054              		.loc 1 435 5 is_stmt 1 view .LVU225
- 1055              	.LBB11:
+ 1057              		.loc 1 435 5 is_stmt 1 view .LVU225
+ 1058              	.LBB11:
  435:Core/Src/main.c ****     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 1056              		.loc 1 435 5 view .LVU226
- 1057 001a 0193     		str	r3, [sp, #4]
+ 1059              		.loc 1 435 5 view .LVU226
+ 1060 001a 0193     		str	r3, [sp, #4]
  435:Core/Src/main.c ****     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 1058              		.loc 1 435 5 view .LVU227
- 1059 001c 204A     		ldr	r2, .L81
- 1060 001e 116C     		ldr	r1, [r2, #64]
- 1061 0020 41F08051 		orr	r1, r1, #268435456
- 1062 0024 1164     		str	r1, [r2, #64]
+ 1061              		.loc 1 435 5 view .LVU227
+ 1062 001c 204A     		ldr	r2, .L81
+ 1063 001e 116C     		ldr	r1, [r2, #64]
+ 1064 0020 41F08051 		orr	r1, r1, #268435456
+ 1065 0024 1164     		str	r1, [r2, #64]
  435:Core/Src/main.c ****     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 1063              		.loc 1 435 5 view .LVU228
- 1064 0026 126C     		ldr	r2, [r2, #64]
- 1065 0028 02F08052 		and	r2, r2, #268435456
- 1066 002c 0192     		str	r2, [sp, #4]
+ 1066              		.loc 1 435 5 view .LVU228
+ 1067 0026 126C     		ldr	r2, [r2, #64]
+ 1068 0028 02F08052 		and	r2, r2, #268435456
+ 1069 002c 0192     		str	r2, [sp, #4]
  435:Core/Src/main.c ****     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 1067              		.loc 1 435 5 view .LVU229
- 1068 002e 019A     		ldr	r2, [sp, #4]
- 1069              	.LBE11:
+ 1070              		.loc 1 435 5 view .LVU229
+ 1071 002e 019A     		ldr	r2, [sp, #4]
+ 1072              	.LBE11:
  435:Core/Src/main.c ****     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 1070              		.loc 1 435 5 view .LVU230
+ 1073              		.loc 1 435 5 view .LVU230
  436:Core/Src/main.c **** 
- 1071              		.loc 1 436 5 view .LVU231
- 1072              	.LBB12:
+ 1074              		.loc 1 436 5 view .LVU231
+ 1075              	.LBB12:
  436:Core/Src/main.c **** 
- 1073              		.loc 1 436 5 view .LVU232
- 1074 0030 0293     		str	r3, [sp, #8]
+ 1076              		.loc 1 436 5 view .LVU232
+ 1077 0030 0293     		str	r3, [sp, #8]
  436:Core/Src/main.c **** 
- 1075              		.loc 1 436 5 view .LVU233
- 1076 0032 1C4B     		ldr	r3, .L81+4
- 1077 0034 1A68     		ldr	r2, [r3]
- 1078 0036 42F44042 		orr	r2, r2, #49152
- 1079 003a 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 48
+ 1078              		.loc 1 436 5 view .LVU233
+ 1079 0032 1C4B     		ldr	r3, .L81+4
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 48
 
 
+ 1080 0034 1A68     		ldr	r2, [r3]
+ 1081 0036 42F44042 		orr	r2, r2, #49152
+ 1082 003a 1A60     		str	r2, [r3]
  436:Core/Src/main.c **** 
- 1080              		.loc 1 436 5 view .LVU234
- 1081 003c 1B68     		ldr	r3, [r3]
- 1082 003e 03F44043 		and	r3, r3, #49152
- 1083 0042 0293     		str	r3, [sp, #8]
+ 1083              		.loc 1 436 5 view .LVU234
+ 1084 003c 1B68     		ldr	r3, [r3]
+ 1085 003e 03F44043 		and	r3, r3, #49152
+ 1086 0042 0293     		str	r3, [sp, #8]
  436:Core/Src/main.c **** 
- 1084              		.loc 1 436 5 view .LVU235
- 1085 0044 029B     		ldr	r3, [sp, #8]
- 1086              	.LBE12:
+ 1087              		.loc 1 436 5 view .LVU235
+ 1088 0044 029B     		ldr	r3, [sp, #8]
+ 1089              	.LBE12:
  436:Core/Src/main.c **** 
- 1087              		.loc 1 436 5 view .LVU236
+ 1090              		.loc 1 436 5 view .LVU236
  438:Core/Src/main.c ****     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
- 1088              		.loc 1 438 5 view .LVU237
+ 1091              		.loc 1 438 5 view .LVU237
  438:Core/Src/main.c ****     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
- 1089              		.loc 1 438 38 is_stmt 0 view .LVU238
- 1090 0046 0123     		movs	r3, #1
- 1091 0048 0893     		str	r3, [sp, #32]
+ 1092              		.loc 1 438 38 is_stmt 0 view .LVU238
+ 1093 0046 0123     		movs	r3, #1
+ 1094 0048 0893     		str	r3, [sp, #32]
  439:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 1092              		.loc 1 439 5 is_stmt 1 view .LVU239
+ 1095              		.loc 1 439 5 is_stmt 1 view .LVU239
  439:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 1093              		.loc 1 439 32 is_stmt 0 view .LVU240
- 1094 004a 4FF48033 		mov	r3, #65536
- 1095 004e 0993     		str	r3, [sp, #36]
+ 1096              		.loc 1 439 32 is_stmt 0 view .LVU240
+ 1097 004a 4FF48033 		mov	r3, #65536
+ 1098 004e 0993     		str	r3, [sp, #36]
  440:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
- 1096              		.loc 1 440 5 is_stmt 1 view .LVU241
+ 1099              		.loc 1 440 5 is_stmt 1 view .LVU241
  440:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
- 1097              		.loc 1 440 36 is_stmt 0 view .LVU242
- 1098 0050 0223     		movs	r3, #2
- 1099 0052 0E93     		str	r3, [sp, #56]
+ 1100              		.loc 1 440 36 is_stmt 0 view .LVU242
+ 1101 0050 0223     		movs	r3, #2
+ 1102 0052 0E93     		str	r3, [sp, #56]
  441:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLM = 6;
- 1100              		.loc 1 441 5 is_stmt 1 view .LVU243
+ 1103              		.loc 1 441 5 is_stmt 1 view .LVU243
  441:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLM = 6;
- 1101              		.loc 1 441 37 is_stmt 0 view .LVU244
- 1102 0054 4FF48002 		mov	r2, #4194304
- 1103 0058 0F92     		str	r2, [sp, #60]
+ 1104              		.loc 1 441 37 is_stmt 0 view .LVU244
+ 1105 0054 4FF48002 		mov	r2, #4194304
+ 1106 0058 0F92     		str	r2, [sp, #60]
  442:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLN = 168;
- 1104              		.loc 1 442 5 is_stmt 1 view .LVU245
+ 1107              		.loc 1 442 5 is_stmt 1 view .LVU245
  442:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLN = 168;
- 1105              		.loc 1 442 32 is_stmt 0 view .LVU246
- 1106 005a 0622     		movs	r2, #6
- 1107 005c 1092     		str	r2, [sp, #64]
+ 1108              		.loc 1 442 32 is_stmt 0 view .LVU246
+ 1109 005a 0622     		movs	r2, #6
+ 1110 005c 1092     		str	r2, [sp, #64]
  443:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
- 1108              		.loc 1 443 5 is_stmt 1 view .LVU247
+ 1111              		.loc 1 443 5 is_stmt 1 view .LVU247
  443:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
- 1109              		.loc 1 443 32 is_stmt 0 view .LVU248
- 1110 005e A822     		movs	r2, #168
- 1111 0060 1192     		str	r2, [sp, #68]
+ 1112              		.loc 1 443 32 is_stmt 0 view .LVU248
+ 1113 005e A822     		movs	r2, #168
+ 1114 0060 1192     		str	r2, [sp, #68]
  444:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLQ = 4;
- 1112              		.loc 1 444 5 is_stmt 1 view .LVU249
+ 1115              		.loc 1 444 5 is_stmt 1 view .LVU249
  444:Core/Src/main.c ****     RCC_OscInitStruct.PLL.PLLQ = 4;
- 1113              		.loc 1 444 32 is_stmt 0 view .LVU250
- 1114 0062 1293     		str	r3, [sp, #72]
+ 1116              		.loc 1 444 32 is_stmt 0 view .LVU250
+ 1117 0062 1293     		str	r3, [sp, #72]
  445:Core/Src/main.c ****     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 1115              		.loc 1 445 5 is_stmt 1 view .LVU251
- 445:Core/Src/main.c ****     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 1116              		.loc 1 445 32 is_stmt 0 view .LVU252
- 1117 0064 0423     		movs	r3, #4
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 49
+ 1118              		.loc 1 445 5 is_stmt 1 view .LVU251
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 49
 
 
- 1118 0066 1393     		str	r3, [sp, #76]
+ 445:Core/Src/main.c ****     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 1119              		.loc 1 445 32 is_stmt 0 view .LVU252
+ 1120 0064 0423     		movs	r3, #4
+ 1121 0066 1393     		str	r3, [sp, #76]
  446:Core/Src/main.c ****     {
- 1119              		.loc 1 446 5 is_stmt 1 view .LVU253
+ 1122              		.loc 1 446 5 is_stmt 1 view .LVU253
  446:Core/Src/main.c ****     {
- 1120              		.loc 1 446 9 is_stmt 0 view .LVU254
- 1121 0068 08A8     		add	r0, sp, #32
- 1122 006a FFF7FEFF 		bl	HAL_RCC_OscConfig
- 1123              	.LVL82:
+ 1123              		.loc 1 446 9 is_stmt 0 view .LVU254
+ 1124 0068 08A8     		add	r0, sp, #32
+ 1125 006a FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 1126              	.LVL83:
  446:Core/Src/main.c ****     {
- 1124              		.loc 1 446 8 discriminator 1 view .LVU255
- 1125 006e 98B9     		cbnz	r0, .L79
+ 1127              		.loc 1 446 8 discriminator 1 view .LVU255
+ 1128 006e 98B9     		cbnz	r0, .L79
  451:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 1126              		.loc 1 451 5 is_stmt 1 view .LVU256
+ 1129              		.loc 1 451 5 is_stmt 1 view .LVU256
  451:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 1127              		.loc 1 451 33 is_stmt 0 view .LVU257
- 1128 0070 0F23     		movs	r3, #15
- 1129 0072 0393     		str	r3, [sp, #12]
+ 1130              		.loc 1 451 33 is_stmt 0 view .LVU257
+ 1131 0070 0F23     		movs	r3, #15
+ 1132 0072 0393     		str	r3, [sp, #12]
  453:Core/Src/main.c ****     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 1130              		.loc 1 453 5 is_stmt 1 view .LVU258
+ 1133              		.loc 1 453 5 is_stmt 1 view .LVU258
  453:Core/Src/main.c ****     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 1131              		.loc 1 453 36 is_stmt 0 view .LVU259
- 1132 0074 0223     		movs	r3, #2
- 1133 0076 0493     		str	r3, [sp, #16]
+ 1134              		.loc 1 453 36 is_stmt 0 view .LVU259
+ 1135 0074 0223     		movs	r3, #2
+ 1136 0076 0493     		str	r3, [sp, #16]
  454:Core/Src/main.c ****     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
- 1134              		.loc 1 454 5 is_stmt 1 view .LVU260
+ 1137              		.loc 1 454 5 is_stmt 1 view .LVU260
  454:Core/Src/main.c ****     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
- 1135              		.loc 1 454 37 is_stmt 0 view .LVU261
- 1136 0078 0023     		movs	r3, #0
- 1137 007a 0593     		str	r3, [sp, #20]
+ 1138              		.loc 1 454 37 is_stmt 0 view .LVU261
+ 1139 0078 0023     		movs	r3, #0
+ 1140 007a 0593     		str	r3, [sp, #20]
  455:Core/Src/main.c ****     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
- 1138              		.loc 1 455 5 is_stmt 1 view .LVU262
+ 1141              		.loc 1 455 5 is_stmt 1 view .LVU262
  455:Core/Src/main.c ****     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
- 1139              		.loc 1 455 38 is_stmt 0 view .LVU263
- 1140 007c 4FF4A053 		mov	r3, #5120
- 1141 0080 0693     		str	r3, [sp, #24]
+ 1142              		.loc 1 455 38 is_stmt 0 view .LVU263
+ 1143 007c 4FF4A053 		mov	r3, #5120
+ 1144 0080 0693     		str	r3, [sp, #24]
  456:Core/Src/main.c **** 
- 1142              		.loc 1 456 5 is_stmt 1 view .LVU264
+ 1145              		.loc 1 456 5 is_stmt 1 view .LVU264
  456:Core/Src/main.c **** 
- 1143              		.loc 1 456 38 is_stmt 0 view .LVU265
- 1144 0082 4FF48053 		mov	r3, #4096
- 1145 0086 0793     		str	r3, [sp, #28]
+ 1146              		.loc 1 456 38 is_stmt 0 view .LVU265
+ 1147 0082 4FF48053 		mov	r3, #4096
+ 1148 0086 0793     		str	r3, [sp, #28]
  458:Core/Src/main.c ****     {
- 1146              		.loc 1 458 5 is_stmt 1 view .LVU266
+ 1149              		.loc 1 458 5 is_stmt 1 view .LVU266
  458:Core/Src/main.c ****     {
- 1147              		.loc 1 458 9 is_stmt 0 view .LVU267
- 1148 0088 0521     		movs	r1, #5
- 1149 008a 03A8     		add	r0, sp, #12
- 1150 008c FFF7FEFF 		bl	HAL_RCC_ClockConfig
- 1151              	.LVL83:
+ 1150              		.loc 1 458 9 is_stmt 0 view .LVU267
+ 1151 0088 0521     		movs	r1, #5
+ 1152 008a 03A8     		add	r0, sp, #12
+ 1153 008c FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 1154              	.LVL84:
  458:Core/Src/main.c ****     {
- 1152              		.loc 1 458 8 discriminator 1 view .LVU268
- 1153 0090 20B9     		cbnz	r0, .L80
+ 1155              		.loc 1 458 8 discriminator 1 view .LVU268
+ 1156 0090 20B9     		cbnz	r0, .L80
  462:Core/Src/main.c **** 
- 1154              		.loc 1 462 1 view .LVU269
- 1155 0092 15B0     		add	sp, sp, #84
- 1156              	.LCFI20:
- 1157              		.cfi_remember_state
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 50
+ 1157              		.loc 1 462 1 view .LVU269
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 50
 
 
- 1158              		.cfi_def_cfa_offset 4
- 1159              		@ sp needed
- 1160 0094 5DF804FB 		ldr	pc, [sp], #4
- 1161              	.L79:
- 1162              	.LCFI21:
- 1163              		.cfi_restore_state
+ 1158 0092 15B0     		add	sp, sp, #84
+ 1159              	.LCFI20:
+ 1160              		.cfi_remember_state
+ 1161              		.cfi_def_cfa_offset 4
+ 1162              		@ sp needed
+ 1163 0094 5DF804FB 		ldr	pc, [sp], #4
+ 1164              	.L79:
+ 1165              	.LCFI21:
+ 1166              		.cfi_restore_state
  448:Core/Src/main.c ****     }
- 1164              		.loc 1 448 9 is_stmt 1 view .LVU270
- 1165 0098 FFF7FEFF 		bl	Error_Handler
- 1166              	.LVL84:
- 1167              	.L80:
+ 1167              		.loc 1 448 9 is_stmt 1 view .LVU270
+ 1168 0098 FFF7FEFF 		bl	Error_Handler
+ 1169              	.LVL85:
+ 1170              	.L80:
  460:Core/Src/main.c ****     }
- 1168              		.loc 1 460 9 view .LVU271
- 1169 009c FFF7FEFF 		bl	Error_Handler
- 1170              	.LVL85:
- 1171              	.L82:
- 1172              		.align	2
- 1173              	.L81:
- 1174 00a0 00380240 		.word	1073887232
- 1175 00a4 00700040 		.word	1073770496
- 1176              		.cfi_endproc
- 1177              	.LFE143:
- 1179              		.section	.rodata.main.str1.4,"aMS",%progbits,1
- 1180              		.align	2
- 1181              	.LC12:
- 1182 0000 4C6F7765 		.ascii	"Lower motor initial angle: %.1f\302\260\012\000"
- 1182      72206D6F 
- 1182      746F7220 
- 1182      696E6974 
- 1182      69616C20 
- 1183              		.section	.text.main,"ax",%progbits
- 1184              		.align	1
- 1185              		.global	main
- 1186              		.syntax unified
- 1187              		.thumb
- 1188              		.thumb_func
- 1190              	main:
- 1191              	.LFB142:
+ 1171              		.loc 1 460 9 view .LVU271
+ 1172 009c FFF7FEFF 		bl	Error_Handler
+ 1173              	.LVL86:
+ 1174              	.L82:
+ 1175              		.align	2
+ 1176              	.L81:
+ 1177 00a0 00380240 		.word	1073887232
+ 1178 00a4 00700040 		.word	1073770496
+ 1179              		.cfi_endproc
+ 1180              	.LFE143:
+ 1182              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 1183              		.align	2
+ 1184              	.LC12:
+ 1185 0000 4C6F7765 		.ascii	"Lower motor initial angle: %.1f\302\260\012\000"
+ 1185      72206D6F 
+ 1185      746F7220 
+ 1185      696E6974 
+ 1185      69616C20 
+ 1186              		.section	.text.main,"ax",%progbits
+ 1187              		.align	1
+ 1188              		.global	main
+ 1189              		.syntax unified
+ 1190              		.thumb
+ 1191              		.thumb_func
+ 1193              	main:
+ 1194              	.LFB142:
  355:Core/Src/main.c ****     /* USER CODE BEGIN 1 */
- 1192              		.loc 1 355 1 view -0
- 1193              		.cfi_startproc
- 1194              		@ Volatile: function does not return.
- 1195              		@ args = 0, pretend = 0, frame = 0
- 1196              		@ frame_needed = 0, uses_anonymous_args = 0
- 1197 0000 08B5     		push	{r3, lr}
- 1198              	.LCFI22:
- 1199              		.cfi_def_cfa_offset 8
- 1200              		.cfi_offset 3, -8
- 1201              		.cfi_offset 14, -4
+ 1195              		.loc 1 355 1 view -0
+ 1196              		.cfi_startproc
+ 1197              		@ Volatile: function does not return.
+ 1198              		@ args = 0, pretend = 0, frame = 0
+ 1199              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1200 0000 08B5     		push	{r3, lr}
+ 1201              	.LCFI22:
+ 1202              		.cfi_def_cfa_offset 8
+ 1203              		.cfi_offset 3, -8
+ 1204              		.cfi_offset 14, -4
  361:Core/Src/main.c ****     SystemClock_Config();
- 1202              		.loc 1 361 5 view .LVU273
- 1203 0002 FFF7FEFF 		bl	HAL_Init
- 1204              	.LVL86:
- 362:Core/Src/main.c ****     MX_GPIO_Init();
- 1205              		.loc 1 362 5 view .LVU274
- 1206 0006 FFF7FEFF 		bl	SystemClock_Config
+ 1205              		.loc 1 361 5 view .LVU273
+ 1206 0002 FFF7FEFF 		bl	HAL_Init
  1207              	.LVL87:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 51
+ 362:Core/Src/main.c ****     MX_GPIO_Init();
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 51
 
 
- 363:Core/Src/main.c ****     MX_CAN1_Init();
- 1208              		.loc 1 363 5 view .LVU275
- 1209 000a FFF7FEFF 		bl	MX_GPIO_Init
+ 1208              		.loc 1 362 5 view .LVU274
+ 1209 0006 FFF7FEFF 		bl	SystemClock_Config
  1210              	.LVL88:
- 364:Core/Src/main.c ****     
- 1211              		.loc 1 364 5 view .LVU276
- 1212 000e FFF7FEFF 		bl	MX_CAN1_Init
+ 363:Core/Src/main.c ****     MX_CAN1_Init();
+ 1211              		.loc 1 363 5 view .LVU275
+ 1212 000a FFF7FEFF 		bl	MX_GPIO_Init
  1213              	.LVL89:
- 369:Core/Src/main.c ****     BSP_CAN_Init();
- 1214              		.loc 1 369 5 view .LVU277
- 1215 0012 FFF7FEFF 		bl	Motor_Init_All
+ 364:Core/Src/main.c ****     
+ 1214              		.loc 1 364 5 view .LVU276
+ 1215 000e FFF7FEFF 		bl	MX_CAN1_Init
  1216              	.LVL90:
- 370:Core/Src/main.c ****     
- 1217              		.loc 1 370 5 view .LVU278
- 1218 0016 FFF7FEFF 		bl	BSP_CAN_Init
+ 369:Core/Src/main.c ****     BSP_CAN_Init();
+ 1217              		.loc 1 369 5 view .LVU277
+ 1218 0012 FFF7FEFF 		bl	Motor_Init_All
  1219              	.LVL91:
+ 370:Core/Src/main.c ****     
+ 1220              		.loc 1 370 5 view .LVU278
+ 1221 0016 FFF7FEFF 		bl	BSP_CAN_Init
+ 1222              	.LVL92:
  373:Core/Src/main.c ****     printf("Lower motor initial angle: %.1f°\n", lower_motor_initial_angle);
- 1220              		.loc 1 373 5 view .LVU279
+ 1223              		.loc 1 373 5 view .LVU279
  373:Core/Src/main.c ****     printf("Lower motor initial angle: %.1f°\n", lower_motor_initial_angle);
- 1221              		.loc 1 373 64 is_stmt 0 view .LVU280
- 1222 001a 264C     		ldr	r4, .L92
- 1223 001c D4F80002 		ldr	r0, [r4, #512]	@ float
+ 1224              		.loc 1 373 64 is_stmt 0 view .LVU280
+ 1225 001a 254C     		ldr	r4, .L92
+ 1226 001c D4F80002 		ldr	r0, [r4, #512]	@ float
  373:Core/Src/main.c ****     printf("Lower motor initial angle: %.1f°\n", lower_motor_initial_angle);
- 1224              		.loc 1 373 31 view .LVU281
- 1225 0020 254B     		ldr	r3, .L92+4
- 1226 0022 1860     		str	r0, [r3]	@ float
+ 1227              		.loc 1 373 31 view .LVU281
+ 1228 0020 244B     		ldr	r3, .L92+4
+ 1229 0022 1860     		str	r0, [r3]	@ float
  374:Core/Src/main.c ****     
- 1227              		.loc 1 374 5 is_stmt 1 view .LVU282
- 1228 0024 FFF7FEFF 		bl	__aeabi_f2d
- 1229              	.LVL92:
- 1230 0028 0246     		mov	r2, r0
- 1231 002a 0B46     		mov	r3, r1
- 1232 002c 2348     		ldr	r0, .L92+8
- 1233 002e FFF7FEFF 		bl	printf
- 1234              	.LVL93:
+ 1230              		.loc 1 374 5 is_stmt 1 view .LVU282
+ 1231 0024 FFF7FEFF 		bl	__aeabi_f2d
+ 1232              	.LVL93:
+ 1233 0028 0246     		mov	r2, r0
+ 1234 002a 0B46     		mov	r3, r1
+ 1235 002c 2248     		ldr	r0, .L92+8
+ 1236 002e FFF7FEFF 		bl	printf
+ 1237              	.LVL94:
  377:Core/Src/main.c ****     Motor_Set_Target(LOWER_MOTOR_ID, MOTOR_MODE_CURRENT_SPEED, LOWER_MOTOR_SPEED);
- 1235              		.loc 1 377 5 view .LVU283
- 1236 0032 9FED230A 		vldr.32	s0, .L92+12
- 1237 0036 0121     		movs	r1, #1
- 1238 0038 0420     		movs	r0, #4
- 1239 003a FFF7FEFF 		bl	Motor_Set_Target
- 1240              	.LVL94:
+ 1238              		.loc 1 377 5 view .LVU283
+ 1239 0032 9FED220A 		vldr.32	s0, .L92+12
+ 1240 0036 0121     		movs	r1, #1
+ 1241 0038 0420     		movs	r0, #4
+ 1242 003a FFF7FEFF 		bl	Motor_Set_Target
+ 1243              	.LVL95:
  378:Core/Src/main.c ****     
- 1241              		.loc 1 378 5 view .LVU284
- 1242 003e 9FED218A 		vldr.32	s16, .L92+16
- 1243 0042 B0EE480A 		vmov.f32	s0, s16
- 1244 0046 0121     		movs	r1, #1
- 1245 0048 0320     		movs	r0, #3
- 1246 004a FFF7FEFF 		bl	Motor_Set_Target
- 1247              	.LVL95:
+ 1244              		.loc 1 378 5 view .LVU284
+ 1245 003e 9FED200A 		vldr.32	s0, .L92+16
+ 1246 0042 0121     		movs	r1, #1
+ 1247 0044 0320     		movs	r0, #3
+ 1248 0046 FFF7FEFF 		bl	Motor_Set_Target
+ 1249              	.LVL96:
  381:Core/Src/main.c ****     gm6020_motors[3].gravity_gain = 0.0f;
- 1248              		.loc 1 381 5 view .LVU285
+ 1250              		.loc 1 381 5 view .LVU285
  381:Core/Src/main.c ****     gm6020_motors[3].gravity_gain = 0.0f;
- 1249              		.loc 1 381 34 is_stmt 0 view .LVU286
- 1250 004e 4FF48053 		mov	r3, #4096
- 1251 0052 A4F8D633 		strh	r3, [r4, #982]	@ movhi
- 382:Core/Src/main.c ****     /* USER CODE END 2 */
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 52
+ 1251              		.loc 1 381 34 is_stmt 0 view .LVU286
+ 1252 004a 4FF48053 		mov	r3, #4096
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 52
 
 
- 1252              		.loc 1 382 5 is_stmt 1 view .LVU287
+ 1253 004e A4F8D633 		strh	r3, [r4, #982]	@ movhi
  382:Core/Src/main.c ****     /* USER CODE END 2 */
- 1253              		.loc 1 382 35 is_stmt 0 view .LVU288
- 1254 0056 84EDF68A 		vstr.32	s16, [r4, #984]
- 1255 005a 0CE0     		b	.L89
- 1256              	.L85:
- 1257              	.LBB13:
+ 1254              		.loc 1 382 5 is_stmt 1 view .LVU287
+ 382:Core/Src/main.c ****     /* USER CODE END 2 */
+ 1255              		.loc 1 382 35 is_stmt 0 view .LVU288
+ 1256 0052 0023     		movs	r3, #0
+ 1257 0054 C4F8D833 		str	r3, [r4, #984]	@ float
+ 1258 0058 0CE0     		b	.L89
+ 1259              	.L85:
+ 1260              	.LBB13:
  401:Core/Src/main.c ****             }
- 1258              		.loc 1 401 17 is_stmt 1 view .LVU289
- 1259 005c FFF7FEFF 		bl	Update_Lower_Motor_Control
- 1260              	.LVL96:
- 1261              	.L86:
+ 1261              		.loc 1 401 17 is_stmt 1 view .LVU289
+ 1262 005a FFF7FEFF 		bl	Update_Lower_Motor_Control
+ 1263              	.LVL97:
+ 1264              	.L86:
  405:Core/Src/main.c ****                 current_mode == MODE_UPPER_MOVING) {
- 1262              		.loc 1 405 13 view .LVU290
+ 1265              		.loc 1 405 13 view .LVU290
  405:Core/Src/main.c ****                 current_mode == MODE_UPPER_MOVING) {
- 1263              		.loc 1 405 50 is_stmt 0 view .LVU291
- 1264 0060 194B     		ldr	r3, .L92+20
- 1265 0062 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1266              		.loc 1 405 50 is_stmt 0 view .LVU291
+ 1267 005e 194B     		ldr	r3, .L92+20
+ 1268 0060 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  405:Core/Src/main.c ****                 current_mode == MODE_UPPER_MOVING) {
- 1266              		.loc 1 405 16 view .LVU292
- 1267 0064 012B     		cmp	r3, #1
- 1268 0066 1AD9     		bls	.L91
+ 1269              		.loc 1 405 16 view .LVU292
+ 1270 0062 012B     		cmp	r3, #1
+ 1271 0064 1AD9     		bls	.L91
  412:Core/Src/main.c ****             }
- 1269              		.loc 1 412 18 is_stmt 1 view .LVU293
- 1270 0068 FFF7FEFF 		bl	Reset_Upper_Motor_Position
- 1271              	.LVL97:
- 1272              	.L88:
+ 1272              		.loc 1 412 18 is_stmt 1 view .LVU293
+ 1273 0066 FFF7FEFF 		bl	Reset_Upper_Motor_Position
+ 1274              	.LVL98:
+ 1275              	.L88:
  416:Core/Src/main.c ****         }
- 1273              		.loc 1 416 13 view .LVU294
- 1274 006c FFF7FEFF 		bl	Motor_Control_Loop
- 1275              	.LVL98:
- 1276              	.L84:
+ 1276              		.loc 1 416 13 view .LVU294
+ 1277 006a FFF7FEFF 		bl	Motor_Control_Loop
+ 1278              	.LVL99:
+ 1279              	.L84:
  420:Core/Src/main.c ****         /* USER CODE BEGIN 3 */
- 1277              		.loc 1 420 9 view .LVU295
- 1278 0070 0120     		movs	r0, #1
- 1279 0072 FFF7FEFF 		bl	HAL_Delay
- 1280              	.LVL99:
- 1281              	.LBE13:
+ 1280              		.loc 1 420 9 view .LVU295
+ 1281 006e 0120     		movs	r0, #1
+ 1282 0070 FFF7FEFF 		bl	HAL_Delay
+ 1283              	.LVL100:
+ 1284              	.LBE13:
  387:Core/Src/main.c ****     {
- 1282              		.loc 1 387 11 view .LVU296
- 1283              	.L89:
+ 1285              		.loc 1 387 11 view .LVU296
+ 1286              	.L89:
  387:Core/Src/main.c ****     {
- 1284              		.loc 1 387 5 view .LVU297
- 1285              	.LBB14:
+ 1287              		.loc 1 387 5 view .LVU297
+ 1288              	.LBB14:
  390:Core/Src/main.c ****         if (HAL_GetTick() - last_update >= 5)  // 5ms控制周期
- 1286              		.loc 1 390 9 view .LVU298
+ 1289              		.loc 1 390 9 view .LVU298
  391:Core/Src/main.c ****         {
- 1287              		.loc 1 391 9 view .LVU299
+ 1290              		.loc 1 391 9 view .LVU299
  391:Core/Src/main.c ****         {
- 1288              		.loc 1 391 13 is_stmt 0 view .LVU300
- 1289 0076 FFF7FEFF 		bl	HAL_GetTick
- 1290              	.LVL100:
+ 1291              		.loc 1 391 13 is_stmt 0 view .LVU300
+ 1292 0074 FFF7FEFF 		bl	HAL_GetTick
+ 1293              	.LVL101:
  391:Core/Src/main.c ****         {
- 1291              		.loc 1 391 27 discriminator 1 view .LVU301
- 1292 007a 144B     		ldr	r3, .L92+24
- 1293 007c 1B68     		ldr	r3, [r3]
- 1294 007e C01A     		subs	r0, r0, r3
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 53
+ 1294              		.loc 1 391 27 discriminator 1 view .LVU301
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 53
 
 
+ 1295 0078 134B     		ldr	r3, .L92+24
+ 1296 007a 1B68     		ldr	r3, [r3]
+ 1297 007c C01A     		subs	r0, r0, r3
  391:Core/Src/main.c ****         {
- 1295              		.loc 1 391 12 discriminator 1 view .LVU302
- 1296 0080 0428     		cmp	r0, #4
- 1297 0082 F5D9     		bls	.L84
+ 1298              		.loc 1 391 12 discriminator 1 view .LVU302
+ 1299 007e 0428     		cmp	r0, #4
+ 1300 0080 F5D9     		bls	.L84
  393:Core/Src/main.c ****             
- 1298              		.loc 1 393 13 is_stmt 1 view .LVU303
+ 1301              		.loc 1 393 13 is_stmt 1 view .LVU303
  393:Core/Src/main.c ****             
- 1299              		.loc 1 393 27 is_stmt 0 view .LVU304
- 1300 0084 FFF7FEFF 		bl	HAL_GetTick
- 1301              	.LVL101:
+ 1302              		.loc 1 393 27 is_stmt 0 view .LVU304
+ 1303 0082 FFF7FEFF 		bl	HAL_GetTick
+ 1304              	.LVL102:
  393:Core/Src/main.c ****             
- 1302              		.loc 1 393 25 discriminator 1 view .LVU305
- 1303 0088 104B     		ldr	r3, .L92+24
- 1304 008a 1860     		str	r0, [r3]
+ 1305              		.loc 1 393 25 discriminator 1 view .LVU305
+ 1306 0086 104B     		ldr	r3, .L92+24
+ 1307 0088 1860     		str	r0, [r3]
  396:Core/Src/main.c ****             
- 1305              		.loc 1 396 13 is_stmt 1 view .LVU306
- 1306 008c FFF7FEFF 		bl	Check_Key_Inputs
- 1307              	.LVL102:
+ 1308              		.loc 1 396 13 is_stmt 1 view .LVU306
+ 1309 008a FFF7FEFF 		bl	Check_Key_Inputs
+ 1310              	.LVL103:
  399:Core/Src/main.c ****                 current_mode == MODE_LOWER_MOVING) {
- 1308              		.loc 1 399 13 view .LVU307
+ 1311              		.loc 1 399 13 view .LVU307
  399:Core/Src/main.c ****                 current_mode == MODE_LOWER_MOVING) {
- 1309              		.loc 1 399 30 is_stmt 0 view .LVU308
- 1310 0090 0D4B     		ldr	r3, .L92+20
- 1311 0092 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1312              		.loc 1 399 30 is_stmt 0 view .LVU308
+ 1313 008e 0D4B     		ldr	r3, .L92+20
+ 1314 0090 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  399:Core/Src/main.c ****                 current_mode == MODE_LOWER_MOVING) {
- 1312              		.loc 1 399 16 view .LVU309
- 1313 0094 002B     		cmp	r3, #0
- 1314 0096 E1D0     		beq	.L85
+ 1315              		.loc 1 399 16 view .LVU309
+ 1316 0092 002B     		cmp	r3, #0
+ 1317 0094 E1D0     		beq	.L85
  399:Core/Src/main.c ****                 current_mode == MODE_LOWER_MOVING) {
- 1315              		.loc 1 399 50 discriminator 1 view .LVU310
- 1316 0098 022B     		cmp	r3, #2
- 1317 009a E1D1     		bne	.L86
- 1318 009c DEE7     		b	.L85
- 1319              	.L91:
+ 1318              		.loc 1 399 50 discriminator 1 view .LVU310
+ 1319 0096 022B     		cmp	r3, #2
+ 1320 0098 E1D1     		bne	.L86
+ 1321 009a DEE7     		b	.L85
+ 1322              	.L91:
  408:Core/Src/main.c ****                 upper_motor_needs_reset = 1;
- 1320              		.loc 1 408 17 is_stmt 1 view .LVU311
- 1321 009e 9FED080A 		vldr.32	s0, .L92+12
- 1322 00a2 0121     		movs	r1, #1
- 1323 00a4 0420     		movs	r0, #4
- 1324 00a6 FFF7FEFF 		bl	Motor_Set_Target
- 1325              	.LVL103:
+ 1323              		.loc 1 408 17 is_stmt 1 view .LVU311
+ 1324 009c 9FED070A 		vldr.32	s0, .L92+12
+ 1325 00a0 0121     		movs	r1, #1
+ 1326 00a2 0420     		movs	r0, #4
+ 1327 00a4 FFF7FEFF 		bl	Motor_Set_Target
+ 1328              	.LVL104:
  409:Core/Src/main.c ****             } else {
- 1326              		.loc 1 409 17 view .LVU312
+ 1329              		.loc 1 409 17 view .LVU312
  409:Core/Src/main.c ****             } else {
- 1327              		.loc 1 409 41 is_stmt 0 view .LVU313
- 1328 00aa 094B     		ldr	r3, .L92+28
- 1329 00ac 0122     		movs	r2, #1
- 1330 00ae 1A70     		strb	r2, [r3]
- 1331 00b0 DCE7     		b	.L88
- 1332              	.L93:
- 1333 00b2 00BF     		.align	2
- 1334              	.L92:
- 1335 00b4 00000000 		.word	gm6020_motors
- 1336 00b8 00000000 		.word	lower_motor_initial_angle
- 1337 00bc 00000000 		.word	.LC12
- 1338 00c0 00001442 		.word	1108606976
- 1339 00c4 00000000 		.word	0
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 54
+ 1330              		.loc 1 409 41 is_stmt 0 view .LVU313
+ 1331 00a8 084B     		ldr	r3, .L92+28
+ 1332 00aa 0122     		movs	r2, #1
+ 1333 00ac 1A70     		strb	r2, [r3]
+ 1334 00ae DCE7     		b	.L88
+ 1335              	.L93:
+ 1336              		.align	2
+ 1337              	.L92:
+ 1338 00b0 00000000 		.word	gm6020_motors
+ 1339 00b4 00000000 		.word	lower_motor_initial_angle
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 54
 
 
- 1340 00c8 00000000 		.word	current_mode
- 1341 00cc 00000000 		.word	last_update.0
- 1342 00d0 00000000 		.word	upper_motor_needs_reset
- 1343              	.LBE14:
- 1344              		.cfi_endproc
- 1345              	.LFE142:
- 1347              		.section	.bss.last_update.0,"aw",%nobits
- 1348              		.align	2
- 1351              	last_update.0:
- 1352 0000 00000000 		.space	4
- 1353              		.section	.bss.last_debug.1,"aw",%nobits
- 1354              		.align	2
- 1357              	last_debug.1:
- 1358 0000 00000000 		.space	4
- 1359              		.section	.bss.last_debug.2,"aw",%nobits
- 1360              		.align	2
- 1363              	last_debug.2:
- 1364 0000 00000000 		.space	4
- 1365              		.global	upper_motor_needs_reset
- 1366              		.section	.bss.upper_motor_needs_reset,"aw",%nobits
- 1369              	upper_motor_needs_reset:
- 1370 0000 00       		.space	1
- 1371              		.global	upper_motor_target_angle
- 1372              		.section	.bss.upper_motor_target_angle,"aw",%nobits
- 1373              		.align	2
- 1376              	upper_motor_target_angle:
- 1377 0000 00000000 		.space	4
- 1378              		.global	transition_start_time
- 1379              		.section	.bss.transition_start_time,"aw",%nobits
- 1380              		.align	2
- 1383              	transition_start_time:
- 1384 0000 00000000 		.space	4
- 1385              		.global	accumulated_angle
- 1386              		.section	.bss.accumulated_angle,"aw",%nobits
- 1387              		.align	2
- 1390              	accumulated_angle:
- 1391 0000 00000000 		.space	4
- 1392              		.global	lower_state
- 1393              		.section	.bss.lower_state,"aw",%nobits
- 1396              	lower_state:
- 1397 0000 00       		.space	1
- 1398              		.global	lower_motor_speed
- 1399              		.section	.bss.lower_motor_speed,"aw",%nobits
- 1400              		.align	2
- 1403              	lower_motor_speed:
- 1404 0000 00000000 		.space	4
- 1405              		.global	lower_motor_target_angle
- 1406              		.section	.bss.lower_motor_target_angle,"aw",%nobits
- 1407              		.align	2
- 1410              	lower_motor_target_angle:
- 1411 0000 00000000 		.space	4
- 1412              		.global	lower_motor_initial_angle
- 1413              		.section	.bss.lower_motor_initial_angle,"aw",%nobits
- 1414              		.align	2
- 1417              	lower_motor_initial_angle:
- 1418 0000 00000000 		.space	4
- 1419              		.global	lower_motor_state
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 55
+ 1340 00b8 00000000 		.word	.LC12
+ 1341 00bc 00001442 		.word	1108606976
+ 1342 00c0 00003443 		.word	1127481344
+ 1343 00c4 00000000 		.word	current_mode
+ 1344 00c8 00000000 		.word	last_update.0
+ 1345 00cc 00000000 		.word	upper_motor_needs_reset
+ 1346              	.LBE14:
+ 1347              		.cfi_endproc
+ 1348              	.LFE142:
+ 1350              		.section	.bss.last_update.0,"aw",%nobits
+ 1351              		.align	2
+ 1354              	last_update.0:
+ 1355 0000 00000000 		.space	4
+ 1356              		.section	.bss.last_debug.1,"aw",%nobits
+ 1357              		.align	2
+ 1360              	last_debug.1:
+ 1361 0000 00000000 		.space	4
+ 1362              		.section	.bss.last_debug.2,"aw",%nobits
+ 1363              		.align	2
+ 1366              	last_debug.2:
+ 1367 0000 00000000 		.space	4
+ 1368              		.global	upper_motor_needs_reset
+ 1369              		.section	.bss.upper_motor_needs_reset,"aw",%nobits
+ 1372              	upper_motor_needs_reset:
+ 1373 0000 00       		.space	1
+ 1374              		.global	upper_motor_target_angle
+ 1375              		.section	.bss.upper_motor_target_angle,"aw",%nobits
+ 1376              		.align	2
+ 1379              	upper_motor_target_angle:
+ 1380 0000 00000000 		.space	4
+ 1381              		.global	transition_start_time
+ 1382              		.section	.bss.transition_start_time,"aw",%nobits
+ 1383              		.align	2
+ 1386              	transition_start_time:
+ 1387 0000 00000000 		.space	4
+ 1388              		.global	accumulated_angle
+ 1389              		.section	.bss.accumulated_angle,"aw",%nobits
+ 1390              		.align	2
+ 1393              	accumulated_angle:
+ 1394 0000 00000000 		.space	4
+ 1395              		.global	lower_state
+ 1396              		.section	.bss.lower_state,"aw",%nobits
+ 1399              	lower_state:
+ 1400 0000 00       		.space	1
+ 1401              		.global	lower_motor_speed
+ 1402              		.section	.data.lower_motor_speed,"aw"
+ 1403              		.align	2
+ 1406              	lower_motor_speed:
+ 1407 0000 00003443 		.word	1127481344
+ 1408              		.global	lower_motor_target_angle
+ 1409              		.section	.bss.lower_motor_target_angle,"aw",%nobits
+ 1410              		.align	2
+ 1413              	lower_motor_target_angle:
+ 1414 0000 00000000 		.space	4
+ 1415              		.global	lower_motor_initial_angle
+ 1416              		.section	.bss.lower_motor_initial_angle,"aw",%nobits
+ 1417              		.align	2
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 55
 
 
- 1420              		.section	.bss.lower_motor_state,"aw",%nobits
- 1423              	lower_motor_state:
- 1424 0000 00       		.space	1
- 1425              		.global	last_key_press
- 1426              		.section	.bss.last_key_press,"aw",%nobits
- 1427              		.align	2
- 1430              	last_key_press:
- 1431 0000 00000000 		.space	4
- 1432              		.global	last_mode
- 1433              		.section	.bss.last_mode,"aw",%nobits
- 1436              	last_mode:
- 1437 0000 00       		.space	1
- 1438              		.global	current_mode
- 1439              		.section	.bss.current_mode,"aw",%nobits
- 1442              	current_mode:
- 1443 0000 00       		.space	1
- 1444              		.text
- 1445              	.Letext0:
- 1446              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
- 1447              		.file 4 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
- 1448              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h"
- 1449              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 1450              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 1451              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 1452              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 1453              		.file 10 "App/Inc/pid.h"
- 1454              		.file 11 "App/Inc/motor_control.h"
- 1455              		.file 12 "App/Inc/can_bsp.h"
- 1456              		.file 13 "Core/Inc/can.h"
- 1457              		.file 14 "Core/Inc/gpio.h"
- 1458              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 1459              		.file 16 "C:/msys64/mingw64/arm-none-eabi/include/stdio.h"
- 1460              		.file 17 "<built-in>"
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 56
+ 1420              	lower_motor_initial_angle:
+ 1421 0000 00000000 		.space	4
+ 1422              		.global	lower_motor_state
+ 1423              		.section	.bss.lower_motor_state,"aw",%nobits
+ 1426              	lower_motor_state:
+ 1427 0000 00       		.space	1
+ 1428              		.global	last_key_press
+ 1429              		.section	.bss.last_key_press,"aw",%nobits
+ 1430              		.align	2
+ 1433              	last_key_press:
+ 1434 0000 00000000 		.space	4
+ 1435              		.global	last_mode
+ 1436              		.section	.bss.last_mode,"aw",%nobits
+ 1439              	last_mode:
+ 1440 0000 00       		.space	1
+ 1441              		.global	current_mode
+ 1442              		.section	.bss.current_mode,"aw",%nobits
+ 1445              	current_mode:
+ 1446 0000 00       		.space	1
+ 1447              		.text
+ 1448              	.Letext0:
+ 1449              		.file 3 "C:/msys64/mingw64/arm-none-eabi/include/machine/_default_types.h"
+ 1450              		.file 4 "C:/msys64/mingw64/arm-none-eabi/include/sys/_stdint.h"
+ 1451              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h"
+ 1452              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1453              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 1454              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 1455              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1456              		.file 10 "App/Inc/pid.h"
+ 1457              		.file 11 "App/Inc/motor_control.h"
+ 1458              		.file 12 "App/Inc/can_bsp.h"
+ 1459              		.file 13 "Core/Inc/can.h"
+ 1460              		.file 14 "Core/Inc/gpio.h"
+ 1461              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1462              		.file 16 "C:/msys64/mingw64/arm-none-eabi/include/stdio.h"
+ 1463              		.file 17 "<built-in>"
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 56
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:22     .rodata.Return_Lower_Motor_To_Initial_Position.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:27     .text.Return_Lower_Motor_To_Initial_Position:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:33     .text.Return_Lower_Motor_To_Initial_Position:00000000 Return_Lower_Motor_To_Initial_Position
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:78     .text.Return_Lower_Motor_To_Initial_Position:00000028 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1423   .bss.lower_motor_state:00000000 lower_motor_state
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1417   .bss.lower_motor_initial_angle:00000000 lower_motor_initial_angle
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1410   .bss.lower_motor_target_angle:00000000 lower_motor_target_angle
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:86     .rodata.Reset_Upper_Motor_Position.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:94     .text.Reset_Upper_Motor_Position:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:100    .text.Reset_Upper_Motor_Position:00000000 Reset_Upper_Motor_Position
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:243    .text.Reset_Upper_Motor_Position:000000b4 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1369   .bss.upper_motor_needs_reset:00000000 upper_motor_needs_reset
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1376   .bss.upper_motor_target_angle:00000000 upper_motor_target_angle
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1363   .bss.last_debug.2:00000000 last_debug.2
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:256    .rodata.Brake_Upper_Motor.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:260    .text.Brake_Upper_Motor:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:266    .text.Brake_Upper_Motor:00000000 Brake_Upper_Motor
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:291    .text.Brake_Upper_Motor:00000010 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:297    .rodata.Check_Key_Inputs.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:301    .text.Check_Key_Inputs:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:307    .text.Check_Key_Inputs:00000000 Check_Key_Inputs
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:394    .text.Check_Key_Inputs:00000056 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:398    .text.Check_Key_Inputs:0000005a $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:471    .text.Check_Key_Inputs:000000c8 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1430   .bss.last_key_press:00000000 last_key_press
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1436   .bss.last_mode:00000000 last_mode
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1442   .bss.current_mode:00000000 current_mode
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:482    .rodata.Update_Lower_Motor_Control.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:506    .text.Update_Lower_Motor_Control:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:512    .text.Update_Lower_Motor_Control:00000000 Update_Lower_Motor_Control
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:563    .text.Update_Lower_Motor_Control:00000030 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:567    .text.Update_Lower_Motor_Control:00000034 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:955    .text.Update_Lower_Motor_Control:00000244 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1390   .bss.accumulated_angle:00000000 accumulated_angle
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1396   .bss.lower_state:00000000 lower_state
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1383   .bss.transition_start_time:00000000 transition_start_time
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1357   .bss.last_debug.1:00000000 last_debug.1
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:982    .text.Error_Handler:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:988    .text.Error_Handler:00000000 Error_Handler
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1020   .text.SystemClock_Config:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1026   .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1174   .text.SystemClock_Config:000000a0 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1180   .rodata.main.str1.4:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1184   .text.main:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1190   .text.main:00000000 main
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1335   .text.main:000000b4 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1351   .bss.last_update.0:00000000 last_update.0
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1348   .bss.last_update.0:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1354   .bss.last_debug.1:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1360   .bss.last_debug.2:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1370   .bss.upper_motor_needs_reset:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1373   .bss.upper_motor_target_angle:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1380   .bss.transition_start_time:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1387   .bss.accumulated_angle:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1397   .bss.lower_state:00000000 $d
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s 			page 57
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:22     .rodata.Return_Lower_Motor_To_Initial_Position.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:27     .text.Return_Lower_Motor_To_Initial_Position:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:33     .text.Return_Lower_Motor_To_Initial_Position:00000000 Return_Lower_Motor_To_Initial_Position
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:78     .text.Return_Lower_Motor_To_Initial_Position:00000028 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1426   .bss.lower_motor_state:00000000 lower_motor_state
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1420   .bss.lower_motor_initial_angle:00000000 lower_motor_initial_angle
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1413   .bss.lower_motor_target_angle:00000000 lower_motor_target_angle
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:86     .rodata.Reset_Upper_Motor_Position.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:94     .text.Reset_Upper_Motor_Position:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:100    .text.Reset_Upper_Motor_Position:00000000 Reset_Upper_Motor_Position
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:243    .text.Reset_Upper_Motor_Position:000000b4 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1372   .bss.upper_motor_needs_reset:00000000 upper_motor_needs_reset
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1379   .bss.upper_motor_target_angle:00000000 upper_motor_target_angle
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1366   .bss.last_debug.2:00000000 last_debug.2
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:256    .rodata.Brake_Upper_Motor.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:260    .text.Brake_Upper_Motor:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:266    .text.Brake_Upper_Motor:00000000 Brake_Upper_Motor
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:291    .text.Brake_Upper_Motor:00000010 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:297    .rodata.Check_Key_Inputs.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:301    .text.Check_Key_Inputs:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:307    .text.Check_Key_Inputs:00000000 Check_Key_Inputs
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:394    .text.Check_Key_Inputs:00000056 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:398    .text.Check_Key_Inputs:0000005a $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:471    .text.Check_Key_Inputs:000000c8 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1433   .bss.last_key_press:00000000 last_key_press
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1439   .bss.last_mode:00000000 last_mode
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1445   .bss.current_mode:00000000 current_mode
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:483    .rodata.Update_Lower_Motor_Control.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:507    .text.Update_Lower_Motor_Control:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:513    .text.Update_Lower_Motor_Control:00000000 Update_Lower_Motor_Control
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:564    .text.Update_Lower_Motor_Control:00000030 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:568    .text.Update_Lower_Motor_Control:00000034 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:957    .text.Update_Lower_Motor_Control:00000244 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1393   .bss.accumulated_angle:00000000 accumulated_angle
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1399   .bss.lower_state:00000000 lower_state
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1386   .bss.transition_start_time:00000000 transition_start_time
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1360   .bss.last_debug.1:00000000 last_debug.1
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:985    .text.Error_Handler:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:991    .text.Error_Handler:00000000 Error_Handler
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1023   .text.SystemClock_Config:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1029   .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1177   .text.SystemClock_Config:000000a0 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1183   .rodata.main.str1.4:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1187   .text.main:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1193   .text.main:00000000 main
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1338   .text.main:000000b0 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1354   .bss.last_update.0:00000000 last_update.0
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1351   .bss.last_update.0:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1357   .bss.last_debug.1:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1363   .bss.last_debug.2:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1373   .bss.upper_motor_needs_reset:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1376   .bss.upper_motor_target_angle:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1383   .bss.transition_start_time:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1390   .bss.accumulated_angle:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1400   .bss.lower_state:00000000 $d
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s 			page 57
 
 
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1403   .bss.lower_motor_speed:00000000 lower_motor_speed
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1400   .bss.lower_motor_speed:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1407   .bss.lower_motor_target_angle:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1414   .bss.lower_motor_initial_angle:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1424   .bss.lower_motor_state:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1427   .bss.last_key_press:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1437   .bss.last_mode:00000000 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\cclaI6VC.s:1443   .bss.current_mode:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1406   .data.lower_motor_speed:00000000 lower_motor_speed
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1403   .data.lower_motor_speed:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1410   .bss.lower_motor_target_angle:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1417   .bss.lower_motor_initial_angle:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1427   .bss.lower_motor_state:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1430   .bss.last_key_press:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1440   .bss.last_mode:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\ccDIXk1R.s:1446   .bss.current_mode:00000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_f2d

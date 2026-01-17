@@ -43,7 +43,7 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 #define ANGLE_ACCUMULATION_THRESHOLD 2340.0f  // 累计角度阈值 (6.5圈)
-#define LOWER_MOTOR_SPEED  0.0f    // 恒定转速 (RPM)下面电机的移动速度，建议是180.0f
+#define LOWER_MOTOR_SPEED  180.0f    // 恒定转速 (RPM)下面电机的移动速度，建议是180.0f
 #define SMOOTH_TRANSITION_TIME 500   // 平滑过渡时间 (ms)
 #define UPPER_MOTOR_SPEED 37.0f   // 上电机目标速度(这里要么给0要么给37)
 #define KEY_DEBOUNCE_TIME  50       // 按键消抖时间 (ms)
