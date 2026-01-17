@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
   41              	.LVL1:
   16:App/Src/motor_control.c ****     if (diff > 4096) motor->round_cnt--;
   42              		.loc 1 16 5 is_stmt 1 view .LVU5
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 2
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 2
 
 
   43              		.loc 1 16 8 is_stmt 0 view .LVU6
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
   88 004a 0133     		adds	r3, r3, #1
   89 004c C360     		str	r3, [r0, #12]
   90 004e E0E7     		b	.L3
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 3
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 3
 
 
   91              	.L5:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  124 001a 08D4     		bmi	.L9
   44:App/Src/motor_control.c ****     return (int16_t)val;
  125              		.loc 1 44 5 is_stmt 1 view .LVU29
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 4
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 4
 
 
  126              		.loc 1 44 12 is_stmt 0 view .LVU30
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  173 0006 90F8EC30 		ldrb	r3, [r0, #236]	@ zero_extendqisi2
  174              		.loc 1 51 40 discriminator 2 view .LVU40
  175 000a 7BBB     		cbnz	r3, .L12
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 5
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 5
 
 
   52:App/Src/motor_control.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
   61:App/Src/motor_control.c ****     } else {
   62:App/Src/motor_control.c ****         motor->stall_cnt = 0;
  220              		.loc 1 62 9 is_stmt 1 view .LVU57
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 6
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 6
 
 
  221              		.loc 1 62 26 is_stmt 0 view .LVU58
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
   96:App/Src/motor_control.c ****         
   97:App/Src/motor_control.c ****         // 优化PID参数（上电机）
   98:App/Src/motor_control.c ****         if (i == 3) { // ID=4
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 7
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 7
 
 
   99:App/Src/motor_control.c ****             PID_Init(&gm6020_motors[i].speed_pid, 
@@ -373,27 +373,27 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  108:App/Src/motor_control.c ****                      7.0f,     // Kp
  109:App/Src/motor_control.c ****                      0.0f,     
  110:App/Src/motor_control.c ****                      0.0f,
- 111:App/Src/motor_control.c ****                      100.0f,   // MaxOut: 限制最大速度
+ 111:App/Src/motor_control.c ****                      150.0f,   // MaxOut: 限制最大速度
  112:App/Src/motor_control.c ****                      0.0f,
  113:App/Src/motor_control.c ****                      angle_dead_zone);
  114:App/Src/motor_control.c ****         } 
  115:App/Src/motor_control.c ****         // 下电机参数
  116:App/Src/motor_control.c ****         else {
  117:App/Src/motor_control.c ****             PID_Init(&gm6020_motors[i].speed_pid, 
- 118:App/Src/motor_control.c ****                      60.0f,    // Kp
- 119:App/Src/motor_control.c ****                      2.3f,     // Ki
- 120:App/Src/motor_control.c ****                      0.02f,   // Kd
+ 118:App/Src/motor_control.c ****                      45.0f,    // Kp
+ 119:App/Src/motor_control.c ****                      2.0f,     // Ki
+ 120:App/Src/motor_control.c ****                      0.1f,   // Kd
  121:App/Src/motor_control.c ****                      GM6020_MAX_CURRENT, 
- 122:App/Src/motor_control.c ****                      5000.0f,  // 积分限幅
- 123:App/Src/motor_control.c ****                      1.5f);    // 无死区
+ 122:App/Src/motor_control.c ****                      3000.0f,  // 积分限幅
+ 123:App/Src/motor_control.c ****                      3.0f);    // 无死区
  124:App/Src/motor_control.c ****             
  125:App/Src/motor_control.c ****             PID_Init(&gm6020_motors[i].angle_pid, 
- 126:App/Src/motor_control.c ****                      5.0f,     // Kp
- 127:App/Src/motor_control.c ****                      0.02f,     // Ki
- 128:App/Src/motor_control.c ****                      0.002f,     // Kd
+ 126:App/Src/motor_control.c ****                      3.0f,     // Kp
+ 127:App/Src/motor_control.c ****                      0.002f,     // Ki
+ 128:App/Src/motor_control.c ****                      0.004f,     // Kd
  129:App/Src/motor_control.c ****                      GM6020_MAX_SPEED, 
- 130:App/Src/motor_control.c ****                      0.0f,     // MaxIOut
- 131:App/Src/motor_control.c ****                      1.5f);    // 无死区
+ 130:App/Src/motor_control.c ****                      20.0f,     // MaxIOut
+ 131:App/Src/motor_control.c ****                      4.0f);    // 无死区
  132:App/Src/motor_control.c ****         }
  133:App/Src/motor_control.c ****         
  134:App/Src/motor_control.c ****         // 清除PID状态
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  153:App/Src/motor_control.c ****     if (id < 1 || id > 4) return;
  154:App/Src/motor_control.c ****     GM6020_TypeDef *motor = &gm6020_motors[id - 1];
  155:App/Src/motor_control.c ****     
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 8
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 8
 
 
  156:App/Src/motor_control.c ****     // 启用堵转保护
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  210:App/Src/motor_control.c ****                     
  211:App/Src/motor_control.c ****                 default:
  212:App/Src/motor_control.c ****                     current_target = 0;
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 9
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 9
 
 
  213:App/Src/motor_control.c ****                     break;
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  248:App/Src/motor_control.c **** }
  263              		.loc 1 248 1 view .LVU66
  264 0022 7047     		bx	lr
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 10
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 10
 
 
  265              	.L32:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  312              		.cfi_offset 14, -4
  313 0002 2DED028B 		vpush.64	{d8}
  314              	.LCFI1:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 11
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 11
 
 
  315              		.cfi_def_cfa_offset 16
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  351              		.loc 1 37 44 view .LVU93
  352 002a 9FED160A 		vldr.32	s0, .L42
  353 002e 27EE800A 		vmul.f32	s0, s15, s0
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 12
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 12
 
 
  354              	.LVL16:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  397 0072 18B2     		sxth	r0, r3
   28:App/Src/motor_control.c ****     }
  398              		.loc 1 28 16 view .LVU105
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 13
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 13
 
 
  399 0074 E6E7     		b	.L37
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  445 0006 0FD8     		bhi	.L44
   70:App/Src/motor_control.c ****     gm6020_motors[id-1].stall_cnt = 0;
  446              		.loc 1 70 5 is_stmt 1 view .LVU116
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 14
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 14
 
 
   70:App/Src/motor_control.c ****     gm6020_motors[id-1].stall_cnt = 0;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  493              	.LCFI4:
  494              		.cfi_def_cfa_offset 16
  495              		.cfi_offset 4, -16
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 15
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 15
 
 
  496              		.cfi_offset 5, -12
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  107:App/Src/motor_control.c ****                      7.0f,     // Kp
  540              		.loc 1 107 13 view .LVU137
  541 0040 2B1B     		subs	r3, r5, r4
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 16
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 16
 
 
  542 0042 D800     		lsls	r0, r3, #3
@@ -942,7 +942,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
   77:App/Src/motor_control.c ****         gm6020_motors[i].id = i + 1;
  577              		.loc 1 77 23 discriminator 1 view .LVU141
  578 0088 032C     		cmp	r4, #3
- 579 008a 48DC     		bgt	.L54
+ 579 008a 47DC     		bgt	.L54
  580              	.LBB6:
   78:App/Src/motor_control.c ****         gm6020_motors[i].mode = MOTOR_MODE_CURRENT_SPEED;
  581              		.loc 1 78 9 view .LVU142
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  589 0098 8154     		strb	r1, [r0, r2]
   79:App/Src/motor_control.c ****         gm6020_motors[i].target_val = 0;
  590              		.loc 1 79 9 is_stmt 1 view .LVU145
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 17
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 17
 
 
   79:App/Src/motor_control.c ****         gm6020_motors[i].target_val = 0;
@@ -1013,82 +1013,82 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  623 00c0 C4EB4412 		rsb	r2, r4, r4, lsl #5
  624 00c4 D300     		lsls	r3, r2, #3
  625 00c6 3344     		add	r3, r3, r6
- 626 00c8 DFED168A 		vldr.32	s17, .L56
- 627 00cc C3ED3C8A 		vstr.32	s17, [r3, #240]
+ 626 00c8 0022     		movs	r2, #0
+ 627 00ca C3F8F020 		str	r2, [r3, #240]	@ float
   94:App/Src/motor_control.c ****         float angle_dead_zone = 0.5f; 
  628              		.loc 1 94 9 is_stmt 1 view .LVU163
  629              	.LVL34:
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 18
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 18
 
 
   95:App/Src/motor_control.c ****         
  630              		.loc 1 95 9 view .LVU164
   98:App/Src/motor_control.c ****             PID_Init(&gm6020_motors[i].speed_pid, 
  631              		.loc 1 98 9 view .LVU165
- 117:App/Src/motor_control.c ****                      60.0f,    // Kp
+ 117:App/Src/motor_control.c ****                      45.0f,    // Kp
  632              		.loc 1 117 13 view .LVU166
- 633 00d0 9FED1B8A 		vldr.32	s16, .L56+28
- 634 00d4 D000     		lsls	r0, r2, #3
- 635 00d6 1830     		adds	r0, r0, #24
- 636 00d8 F7EE082A 		vmov.f32	s5, #1.5e+0
- 637 00dc 9FED122A 		vldr.32	s4, .L56+4
- 638 00e0 DFED121A 		vldr.32	s3, .L56+8
- 639 00e4 B0EE481A 		vmov.f32	s2, s16
- 640 00e8 DFED160A 		vldr.32	s1, .L56+32
- 641 00ec 9FED160A 		vldr.32	s0, .L56+36
- 642 00f0 3044     		add	r0, r0, r6
- 643 00f2 FFF7FEFF 		bl	PID_Init
+ 633 00ce C4EB4413 		rsb	r3, r4, r4, lsl #5
+ 634 00d2 D800     		lsls	r0, r3, #3
+ 635 00d4 1830     		adds	r0, r0, #24
+ 636 00d6 F0EE082A 		vmov.f32	s5, #3.0e+0
+ 637 00da 9FED192A 		vldr.32	s4, .L56+28
+ 638 00de DFED131A 		vldr.32	s3, .L56+8
+ 639 00e2 9FED131A 		vldr.32	s2, .L56+12
+ 640 00e6 F0EE000A 		vmov.f32	s1, #2.0e+0
+ 641 00ea 9FED160A 		vldr.32	s0, .L56+32
+ 642 00ee 3044     		add	r0, r0, r6
+ 643 00f0 FFF7FEFF 		bl	PID_Init
  644              	.LVL35:
- 125:App/Src/motor_control.c ****                      5.0f,     // Kp
+ 125:App/Src/motor_control.c ****                      3.0f,     // Kp
  645              		.loc 1 125 13 view .LVU167
- 646 00f6 2B1B     		subs	r3, r5, r4
- 647 00f8 D800     		lsls	r0, r3, #3
- 648 00fa 5830     		adds	r0, r0, #88
- 649 00fc 3044     		add	r0, r0, r6
- 650 00fe F7EE082A 		vmov.f32	s5, #1.5e+0
- 651 0102 B0EE682A 		vmov.f32	s4, s17
- 652 0106 DFED111A 		vldr.32	s3, .L56+40
- 653 010a 9FED111A 		vldr.32	s2, .L56+44
- 654 010e F0EE480A 		vmov.f32	s1, s16
- 655 0112 B1EE040A 		vmov.f32	s0, #5.0e+0
- 656 0116 0430     		adds	r0, r0, #4
- 657 0118 FFF7FEFF 		bl	PID_Init
+ 646 00f4 2B1B     		subs	r3, r5, r4
+ 647 00f6 D800     		lsls	r0, r3, #3
+ 648 00f8 5830     		adds	r0, r0, #88
+ 649 00fa 3044     		add	r0, r0, r6
+ 650 00fc F1EE002A 		vmov.f32	s5, #4.0e+0
+ 651 0100 B3EE042A 		vmov.f32	s4, #2.0e+1
+ 652 0104 DFED101A 		vldr.32	s3, .L56+36
+ 653 0108 9FED101A 		vldr.32	s2, .L56+40
+ 654 010c DFED100A 		vldr.32	s1, .L56+44
+ 655 0110 B0EE080A 		vmov.f32	s0, #3.0e+0
+ 656 0114 0430     		adds	r0, r0, #4
+ 657 0116 FFF7FEFF 		bl	PID_Init
  658              	.LVL36:
- 659 011c A3E7     		b	.L51
+ 659 011a A4E7     		b	.L51
  660              	.LVL37:
  661              	.L54:
- 125:App/Src/motor_control.c ****                      5.0f,     // Kp
+ 125:App/Src/motor_control.c ****                      3.0f,     // Kp
  662              		.loc 1 125 13 is_stmt 0 view .LVU168
  663              	.LBE6:
  664              	.LBE4:
  138:App/Src/motor_control.c **** 
  665              		.loc 1 138 1 view .LVU169
- 666 011e BDEC028B 		vldm	sp!, {d8}
+ 666 011c BDEC028B 		vldm	sp!, {d8}
  667              	.LCFI6:
  668              		.cfi_restore 80
  669              		.cfi_restore 81
  670              		.cfi_def_cfa_offset 16
- 671 0122 70BD     		pop	{r4, r5, r6, pc}
+ 671 0120 70BD     		pop	{r4, r5, r6, pc}
  672              	.LVL38:
  673              	.L57:
  138:App/Src/motor_control.c **** 
  674              		.loc 1 138 1 view .LVU170
- 675              		.align	2
+ 675 0122 00BF     		.align	2
  676              	.L56:
  677 0124 00000000 		.word	0
  678 0128 00409C45 		.word	1167867904
  679 012c 00008046 		.word	1182793728
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 19
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 19
 
 
  680 0130 CDCCCC3D 		.word	1036831949
  681 0134 00000C43 		.word	1124859904
- 682 0138 0000C842 		.word	1120403456
+ 682 0138 00001643 		.word	1125515264
  683 013c 00000000 		.word	gm6020_motors
- 684 0140 0AD7A33C 		.word	1017370378
- 685 0144 33331340 		.word	1075000115
- 686 0148 00007042 		.word	1114636288
- 687 014c 0000A043 		.word	1134559232
+ 684 0140 00803B45 		.word	1161527296
+ 685 0144 00003442 		.word	1110704128
+ 686 0148 0000A043 		.word	1134559232
+ 687 014c 6F12833B 		.word	998445679
  688 0150 6F12033B 		.word	990057071
  689              		.cfi_endproc
  690              	.LFE139:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  142:App/Src/motor_control.c ****     
  728              		.loc 1 142 21 view .LVU179
  729 000e C3EB4310 		rsb	r0, r3, r3, lsl #5
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 20
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 20
 
 
  730              	.LVL42:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  147:App/Src/motor_control.c ****     
  766              		.loc 1 147 17 view .LVU198
  767 004a 8172     		strb	r1, [r0, #10]
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 21
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 21
 
 
  149:App/Src/motor_control.c **** }
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  157:App/Src/motor_control.c ****         return;
  814              		.loc 1 157 14 is_stmt 0 view .LVU209
  815 000c C4EB4412 		rsb	r2, r4, r4, lsl #5
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 22
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 22
 
 
  816 0010 104B     		ldr	r3, .L71
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  857 0044 C000     		lsls	r0, r0, #3
  858 0046 5830     		adds	r0, r0, #88
  859 0048 3044     		add	r0, r0, r6
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 23
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 23
 
 
  860 004a 0430     		adds	r0, r0, #4
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  173:App/Src/motor_control.c ****         GM6020_TypeDef *motor = &gm6020_motors[i];
  912              		.loc 1 173 14 is_stmt 0 view .LVU227
  913 0006 0024     		movs	r4, #0
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 24
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 24
 
 
  173:App/Src/motor_control.c ****         GM6020_TypeDef *motor = &gm6020_motors[i];
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  194:App/Src/motor_control.c ****                     break;
  957              		.loc 1 194 38 view .LVU239
  958 0054 B0EE408A 		vmov.f32	s16, s0
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 25
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 25
 
 
  959              	.LVL60:
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  1000              	.LVL62:
  234:App/Src/motor_control.c ****     }
  1001              		.loc 1 234 9 view .LVU253
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 26
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 26
 
 
  234:App/Src/motor_control.c ****     }
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  1040 00c6 C4EB4411 		rsb	r1, r4, r4, lsl #5
  1041 00ca 3B4A     		ldr	r2, .L99
  1042 00cc 02EBC102 		add	r2, r2, r1, lsl #3
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 27
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 27
 
 
  1043 00d0 92ED058A 		vldr.32	s16, [r2, #20]
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  1086 0122 C000     		lsls	r0, r0, #3
  1087 0124 5830     		adds	r0, r0, #88
  1088 0126 244F     		ldr	r7, .L99
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 28
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 28
 
 
  1089 0128 3844     		add	r0, r0, r7
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  203:App/Src/motor_control.c ****                     } else {
  1133              		.loc 1 203 42 view .LVU291
  1134 0174 FFF7FEFF 		bl	PID_Calc
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 29
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 29
 
 
  1135              	.LVL74:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  1176              	.L96:
  224:App/Src/motor_control.c ****         }
  1177              		.loc 1 224 28 discriminator 1 view .LVU305
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 30
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 30
 
 
  1178              	.LBE12:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  1213              		@ args = 0, pretend = 0, frame = 0
  1214              		@ frame_needed = 0, uses_anonymous_args = 0
  1215              		.loc 1 266 76 is_stmt 0 view .LVU310
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 31
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 31
 
 
  1216 0000 38B5     		push	{r3, r4, r5, lr}
@@ -1857,45 +1857,45 @@ ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 1
  1265              		.file 5 "App/Inc/motor_control.h"
  1266              		.file 6 "C:/msys64/mingw64/arm-none-eabi/include/math.h"
  1267              		.file 7 "App/Inc/can_bsp.h"
-ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s 			page 32
+ARM GAS  C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 motor_control.c
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:21     .text.Motor_Process_Angle:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:26     .text.Motor_Process_Angle:00000000 Motor_Process_Angle
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:94     .text.Motor_Process_Angle:00000050 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:100    .text.limit_current:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:105    .text.limit_current:00000000 limit_current
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:146    .text.limit_current:00000034 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:153    .text.Motor_Check_Stall:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:158    .text.Motor_Check_Stall:00000000 Motor_Check_Stall
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:230    .text.Motor_Check_Stall:00000070 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:236    .text.Calculate_Static_Friction_Compensation:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:241    .text.Calculate_Static_Friction_Compensation:00000000 Calculate_Static_Friction_Compensation
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:287    .text.Calculate_Static_Friction_Compensation:00000040 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:295    .text.Motor_Calc_Gravity_FF:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:300    .text.Motor_Calc_Gravity_FF:00000000 Motor_Calc_Gravity_FF
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:417    .text.Motor_Calc_Gravity_FF:00000084 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:425    .text.Motor_Clear_Stall:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:431    .text.Motor_Clear_Stall:00000000 Motor_Clear_Stall
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:475    .text.Motor_Clear_Stall:0000002c $d
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:1258   .bss.gm6020_motors:00000000 gm6020_motors
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:480    .text.Motor_Init_All:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:486    .text.Motor_Init_All:00000000 Motor_Init_All
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:677    .text.Motor_Init_All:00000124 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:693    .text.Motor_Update_Feedback:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:699    .text.Motor_Update_Feedback:00000000 Motor_Update_Feedback
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:776    .text.Motor_Update_Feedback:00000054 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:781    .text.Motor_Set_Target:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:787    .text.Motor_Set_Target:00000000 Motor_Set_Target
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:877    .text.Motor_Set_Target:00000054 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:882    .text.Motor_Control_Loop:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:888    .text.Motor_Control_Loop:00000000 Motor_Control_Loop
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:1195   .text.Motor_Control_Loop:000001b8 $d
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:1202   .text.Motor_Set_Dual_Target:00000000 $t
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:1208   .text.Motor_Set_Dual_Target:00000000 Motor_Set_Dual_Target
-C:\Users\wxwsyzh\AppData\Local\Temp\ccvN2F3f.s:1255   .bss.gm6020_motors:00000000 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:21     .text.Motor_Process_Angle:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:26     .text.Motor_Process_Angle:00000000 Motor_Process_Angle
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:94     .text.Motor_Process_Angle:00000050 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:100    .text.limit_current:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:105    .text.limit_current:00000000 limit_current
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:146    .text.limit_current:00000034 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:153    .text.Motor_Check_Stall:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:158    .text.Motor_Check_Stall:00000000 Motor_Check_Stall
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:230    .text.Motor_Check_Stall:00000070 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:236    .text.Calculate_Static_Friction_Compensation:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:241    .text.Calculate_Static_Friction_Compensation:00000000 Calculate_Static_Friction_Compensation
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:287    .text.Calculate_Static_Friction_Compensation:00000040 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:295    .text.Motor_Calc_Gravity_FF:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:300    .text.Motor_Calc_Gravity_FF:00000000 Motor_Calc_Gravity_FF
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:417    .text.Motor_Calc_Gravity_FF:00000084 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:425    .text.Motor_Clear_Stall:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:431    .text.Motor_Clear_Stall:00000000 Motor_Clear_Stall
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:475    .text.Motor_Clear_Stall:0000002c $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:1258   .bss.gm6020_motors:00000000 gm6020_motors
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:480    .text.Motor_Init_All:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:486    .text.Motor_Init_All:00000000 Motor_Init_All
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:677    .text.Motor_Init_All:00000124 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:693    .text.Motor_Update_Feedback:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:699    .text.Motor_Update_Feedback:00000000 Motor_Update_Feedback
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:776    .text.Motor_Update_Feedback:00000054 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:781    .text.Motor_Set_Target:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:787    .text.Motor_Set_Target:00000000 Motor_Set_Target
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:877    .text.Motor_Set_Target:00000054 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:882    .text.Motor_Control_Loop:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:888    .text.Motor_Control_Loop:00000000 Motor_Control_Loop
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:1195   .text.Motor_Control_Loop:000001b8 $d
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:1202   .text.Motor_Set_Dual_Target:00000000 $t
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:1208   .text.Motor_Set_Dual_Target:00000000 Motor_Set_Dual_Target
+C:\Users\wxwsyzh\AppData\Local\Temp\cc3Ed9bX.s:1255   .bss.gm6020_motors:00000000 $d
 
 UNDEFINED SYMBOLS
 cosf

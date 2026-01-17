@@ -108,27 +108,27 @@ void Motor_Init_All(void) {
                      7.0f,     // Kp
                      0.0f,     
                      0.0f,
-                     100.0f,   // MaxOut: 限制最大速度
+                     150.0f,   // MaxOut: 限制最大速度
                      0.0f,
                      angle_dead_zone);
         } 
         // 下电机参数
         else {
             PID_Init(&gm6020_motors[i].speed_pid, 
-                     60.0f,    // Kp
-                     2.3f,     // Ki
-                     0.02f,   // Kd
+                     45.0f,    // Kp
+                     2.0f,     // Ki
+                     0.1f,   // Kd
                      GM6020_MAX_CURRENT, 
-                     5000.0f,  // 积分限幅
-                     1.5f);    // 无死区
+                     3000.0f,  // 积分限幅
+                     3.0f);    // 无死区
             
             PID_Init(&gm6020_motors[i].angle_pid, 
-                     5.0f,     // Kp
-                     0.02f,     // Ki
-                     0.002f,     // Kd
+                     3.0f,     // Kp
+                     0.002f,     // Ki
+                     0.004f,     // Kd
                      GM6020_MAX_SPEED, 
-                     0.0f,     // MaxIOut
-                     1.5f);    // 无死区
+                     20.0f,     // MaxIOut
+                     4.0f);    // 无死区
         }
         
         // 清除PID状态
